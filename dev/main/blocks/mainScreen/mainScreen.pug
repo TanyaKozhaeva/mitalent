@@ -1,0 +1,31 @@
+.mainSlider
+  .swiper-container.main-slider.loading
+    .swiper-wrapper
+        .swiper-slide 
+          .slide-bgimg(style="background-image:url(static/img/content/giorgina.jpg)")
+            img(src="https://drive.google.com/uc?export=view&id=0B_koKn2rKOkLbVhsNzdIYmlfN1E" class="entity-img")
+          .content
+            h2.title Giorgina Alson
+            p.caption Young model 2020
+        .swiper-slide
+          .slide-bgimg(style="background-image:url(static/img/content/derek.jpg)")
+            img(src="https://drive.google.com/uc?export=view&id=0B_koKn2rKOkLbVhsNzdIYmlfN1E" class="entity-img")
+          .content
+            h2.title Derek Anderson
+            p.caption Btitish comedian
+        .swiper-slide
+          .slide-bgimg(style="background-image:url(static/img/content/keith.jpg)")
+            img(src="https://drive.google.com/uc?export=view&id=0B_koKn2rKOkLbVhsNzdIYmlfN1E" class="entity-img")
+          .content
+            h2.title Keith Ruiz
+            p.caption Comedian
+    button.swiper-button-prev.swiper-button-white   
+    button.swiper-button-next.swiper-button-white
+    
+//- .swiper-container.nav-slider.loading 
+//-   .swiper-wrapper
+//-     each item, index in [1, 2, 3, 4]
+//-       .swiper-slide
+//-         .slide-bgimg= index
+//-         .content
+//-           h2.title= index

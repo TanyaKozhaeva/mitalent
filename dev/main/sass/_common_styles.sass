@@ -1,0 +1,42 @@
+.hidden-text
+  position: absolute
+  left: -10000px
+  top: auto
+  width: 1px
+  height: 1px
+  overflow: hidden
+.toggle-navigation-btn
+	height: 16px
+	position: relative
+	&_closed &__line
+		background-color: transparent
+    &::after
+      background-color: $main-color-dark
+      bottom: 0
+      transform: rotate(45deg)
+		&::before
+      background-color: $main-color-dark
+      top: 0
+      transform: rotate(136deg)
+	&__line
+		display: inline-block
+		width: 22px
+		height: 1px
+		background-color: lighten($main-color-dark, 30%)
+		vertical-align: middle
+		position: relative
+		&::before,
+		&::after
+			content: ''
+			display: inline-block
+			width: inherit
+			height: inherit
+			background-color: inherit
+			position: absolute
+			transition: rotate 1s
+		&::before
+			top: 7px
+			left: 0
+		&::after
+			bottom: 7px
+			left: 0
