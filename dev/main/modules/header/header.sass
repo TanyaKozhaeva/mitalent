@@ -1,17 +1,19 @@
 .header
-  height: 160px
-  line-height: 160px
+  $size: 86px
+  height: $size
+  line-height: $size
   display: flex
-  padding: 0 60px
+  padding: 0 44px
   justify-content: space-between
   align-items: center
   color: $main-color-dark
-  margin-bottom: -160px
+  margin-bottom: -$size
   position: relative
   z-index: 1000
+  cursor: none
   &__panel
     &:not(:last-child) > *
-      margin-right: 57px
+      padding: 16px 28px
   &__link
     font-family: $font-2-bold
     font-size: 14px

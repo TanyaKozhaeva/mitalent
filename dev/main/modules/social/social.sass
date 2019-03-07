@@ -1,0 +1,13 @@
+.social
+  &:not(:last-child) > *
+    margin-bottom: 30px
+  &__link
+    padding: 5px
+    &:hover .social__icon
+      fill: $bg-color
+      transform: scale(2)
+  &__icon
+    width: 13px
+    height: 13px
+    fill: $main-color-dark
+    transition: all .3s ease-in

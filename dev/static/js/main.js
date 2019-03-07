@@ -10,9 +10,9 @@ let mainSliderSelector = '.main-slider',
 // Main Slider
 let mainSliderOptions = {
       loop: true,
-      speed:1000,
+      speed: 1000,
       loopAdditionalSlides: 10,
-      grabCursor: true,
+      //grabCursor: true,
       watchSlidesProgress: true,
       mousewheel: {
         invert: true
@@ -40,6 +40,12 @@ let mainSliderOptions = {
             captions[i].classList.remove('show');
           }
           swiper.slides[swiper.activeIndex].querySelector('.caption').classList.add('show');
+
+          let btns = swiper.el.querySelectorAll('.swiper-link');
+          for (let i = 0; i < btns.length; ++i) {
+            btns[i].classList.remove('show');
+          }
+          swiper.slides[swiper.activeIndex].querySelector('.swiper-link').classList.add('show');
         },
         progress: function(){
           let swiper = this;
@@ -69,7 +75,7 @@ let mainSliderOptions = {
 
     };
 let mainSlider = new Swiper(mainSliderSelector, mainSliderOptions);
-console.log(mainSlider.activeIndex)
+
 
 // Navigation Slider
 /*
@@ -107,3 +113,45 @@ navBtn.onclick = function() {
 	//mainNav.classList.toggle('nav_open')
 }
 }());
+
+
+
+function makeCustomCursor() {
+  var clientX = -100;
+  var clientY = -100;
+  var customCursor = document.querySelector('.cursor');
+  var initCursor = function() {
+    document.addEventListener('mousemove', function(e){
+      clientX = e.clientX;
+      clientY = e.clientY;
+    })
+
+    var render = function() {
+      customCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+      requestAnimationFrame(render);
+    }
+    requestAnimationFrame(render);
+  };
+  var initHovers = function() {
+    var handleMouseEnter = function(e) {
+      customCursor.classList.add("cursor_yellow")
+      var currentTarget = e.currentTarget;
+      var currentTargetBox = currentTarget.getBoundingClientRect()
+      isStuck = true;
+    };
+    var handleMouseLeave = function() {
+      customCursor.classList.remove("cursor_yellow")
+      isStuck = false;
+    };
+
+    var hoveredItems = document.querySelectorAll(".interactive");
+    console.log(hoveredItems);
+    [].forEach.call(hoveredItems, function(item){
+      item.addEventListener("mouseenter", handleMouseEnter);
+      item.addEventListener("mouseleave", handleMouseLeave);
+    });
+  }
+initCursor();
+initHovers();
+};
+makeCustomCursor();

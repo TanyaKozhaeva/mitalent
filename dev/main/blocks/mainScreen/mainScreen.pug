@@ -1,26 +1,43 @@
 .mainSlider
+  .cursor
+    img(src="static/svg/drag.svg" alt="cursor").cursor__icon
+  include ../../modules/social/social
   .swiper-container.main-slider.loading
     .swiper-wrapper
         .swiper-slide 
           .slide-bgimg(style="background-image:url(static/img/content/giorgina.jpg)")
             img(src="https://drive.google.com/uc?export=view&id=0B_koKn2rKOkLbVhsNzdIYmlfN1E" class="entity-img")
+            a(href="#").swiper-link.btn-main.interactive
+              span.btn-main__text View profile
+              span.btn-main__pic
+                +icon("play", "btn-main__icon")
           .content
             h2.title Giorgina Alson
             p.caption Young model 2020
         .swiper-slide
           .slide-bgimg(style="background-image:url(static/img/content/derek.jpg)")
             img(src="https://drive.google.com/uc?export=view&id=0B_koKn2rKOkLbVhsNzdIYmlfN1E" class="entity-img")
+            a(href="#").swiper-link.btn-main.interactive
+              span.btn-main__text View profile
+              span.btn-main__pic
+                +icon("play", "btn-main__icon")
           .content
             h2.title Derek Anderson
             p.caption Btitish comedian
         .swiper-slide
           .slide-bgimg(style="background-image:url(static/img/content/keith.jpg)")
             img(src="https://drive.google.com/uc?export=view&id=0B_koKn2rKOkLbVhsNzdIYmlfN1E" class="entity-img")
+            a(href="#").swiper-link.btn-main.interactive
+              span.btn-main__text View profile
+              span.btn-main__pic
+                +icon("play", "btn-main__icon")
           .content
             h2.title Keith Ruiz
             p.caption Comedian
+            
     button.swiper-button-prev.swiper-button-white   
     button.swiper-button-next.swiper-button-white
+  
     
 //- .swiper-container.nav-slider.loading 
 //-   .swiper-wrapper

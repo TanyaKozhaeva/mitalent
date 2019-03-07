@@ -28,31 +28,59 @@
     </div>
     <header class="header">
       <div class="header__panel">
-        <button class="toggle-navigation-btn header__sandwich" type="button" id="toggle-navigation-btn"><span class="hidden-text">Close navigation</span><span class="toggle-navigation-btn__line"></span></button><a class="header__link" href="#">Clients</a><a class="header__link" href="#">News</a>
-      </div><img class="logo header__logo" src="static/svg/logo.svg">
+        <button class="toggle-navigation-btn header__sandwich interactive" type="button" id="toggle-navigation-btn"><span class="hidden-text">Close navigation</span><span class="toggle-navigation-btn__line"></span></button><a class="header__link interactive" href="#">Clients</a><a class="header__link interactive" href="#">News</a>
+      </div><img class="logo header__logo" src="static/svg/logo.png">
       <div class="header__panel">
         <input class="header__search" type="search" name="main-search">
       </div>
     </header>
     <div class="mainSlider">
+      <div class="cursor"><img class="cursor__icon" src="static/svg/drag.svg" alt="cursor"></div>
+      <ul class="social">
+        <li class="social__item"><a class="social__link interactive" href="#" target="_blank" title="facebook">
+            <svg class="icon icon-fb social__icon" aria-hidden="true">
+              <use xlink:href="static/svg/symbol/sprite.svg#fb"></use>
+            </svg></a></li>
+        <li class="social__item"><a class="social__link interactive" href="#" target="_blank" title="instagram">
+            <svg class="icon icon-instagram social__icon" aria-hidden="true">
+              <use xlink:href="static/svg/symbol/sprite.svg#instagram"></use>
+            </svg></a></li>
+        <li class="social__item"><a class="social__link interactive" href="#" target="_blank" title="youtube">
+            <svg class="icon icon-youtube social__icon" aria-hidden="true">
+              <use xlink:href="static/svg/symbol/sprite.svg#youtube"></use>
+            </svg></a></li>
+        <li class="social__item"><a class="social__link interactive" href="#" target="_blank" title="twitter">
+            <svg class="icon icon-twitter social__icon" aria-hidden="true">
+              <use xlink:href="static/svg/symbol/sprite.svg#twitter"></use>
+            </svg></a></li>
+      </ul>
       <div class="swiper-container main-slider loading">
         <div class="swiper-wrapper">
           <div class="swiper-slide"> 
-            <div class="slide-bgimg" style="background-image:url(static/img/content/giorgina.jpg);"><img class="entity-img" src="https://drive.google.com/uc?export=view&amp;id=0B_koKn2rKOkLbVhsNzdIYmlfN1E"></div>
+            <div class="slide-bgimg" style="background-image:url(static/img/content/giorgina.jpg);"><img class="entity-img" src="https://drive.google.com/uc?export=view&amp;id=0B_koKn2rKOkLbVhsNzdIYmlfN1E"><a class="swiper-link btn-main interactive" href="#"><span class="btn-main__text">View profile</span><span class="btn-main__pic">
+                  <svg class="icon icon-play btn-main__icon" aria-hidden="true">
+                    <use xlink:href="static/svg/symbol/sprite.svg#play"></use>
+                  </svg></span></a></div>
             <div class="content">
               <h2 class="title">Giorgina Alson</h2>
               <p class="caption">Young model 2020</p>
             </div>
           </div>
           <div class="swiper-slide">
-            <div class="slide-bgimg" style="background-image:url(static/img/content/derek.jpg);"><img class="entity-img" src="https://drive.google.com/uc?export=view&amp;id=0B_koKn2rKOkLbVhsNzdIYmlfN1E"></div>
+            <div class="slide-bgimg" style="background-image:url(static/img/content/derek.jpg);"><img class="entity-img" src="https://drive.google.com/uc?export=view&amp;id=0B_koKn2rKOkLbVhsNzdIYmlfN1E"><a class="swiper-link btn-main interactive" href="#"><span class="btn-main__text">View profile</span><span class="btn-main__pic">
+                  <svg class="icon icon-play btn-main__icon" aria-hidden="true">
+                    <use xlink:href="static/svg/symbol/sprite.svg#play"></use>
+                  </svg></span></a></div>
             <div class="content">
               <h2 class="title">Derek Anderson</h2>
               <p class="caption">Btitish comedian</p>
             </div>
           </div>
           <div class="swiper-slide">
-            <div class="slide-bgimg" style="background-image:url(static/img/content/keith.jpg);"><img class="entity-img" src="https://drive.google.com/uc?export=view&amp;id=0B_koKn2rKOkLbVhsNzdIYmlfN1E"></div>
+            <div class="slide-bgimg" style="background-image:url(static/img/content/keith.jpg);"><img class="entity-img" src="https://drive.google.com/uc?export=view&amp;id=0B_koKn2rKOkLbVhsNzdIYmlfN1E"><a class="swiper-link btn-main interactive" href="#"><span class="btn-main__text">View profile</span><span class="btn-main__pic">
+                  <svg class="icon icon-play btn-main__icon" aria-hidden="true">
+                    <use xlink:href="static/svg/symbol/sprite.svg#play"></use>
+                  </svg></span></a></div>
             <div class="content">
               <h2 class="title">Keith Ruiz</h2>
               <p class="caption">Comedian</p>
@@ -63,6 +91,7 @@
         <button class="swiper-button-next swiper-button-white"></button>
       </div>
     </div><!-- build:js js/libs/libs.js-->
+    <script src="static/js/jquery.js"></script>
     <script src="static/libs/svg4everybody.js"></script>
     <script src="static/libs/validate/jquery.validate.min.js"></script><!-- endbuild-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js"></script>

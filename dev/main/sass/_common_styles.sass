@@ -5,38 +5,89 @@
   width: 1px
   height: 1px
   overflow: hidden
-.toggle-navigation-btn
-	height: 16px
-	position: relative
-	&_closed &__line
-		background-color: transparent
-    &::after
-      background-color: $main-color-dark
-      bottom: 0
-      transform: rotate(45deg)
-		&::before
-      background-color: $main-color-dark
-      top: 0
-      transform: rotate(136deg)
-	&__line
-		display: inline-block
-		width: 22px
-		height: 1px
-		background-color: lighten($main-color-dark, 30%)
-		vertical-align: middle
-		position: relative
-		&::before,
-		&::after
-			content: ''
-			display: inline-block
-			width: inherit
-			height: inherit
-			background-color: inherit
-			position: absolute
-			transition: rotate 1s
-		&::before
-			top: 7px
-			left: 0
-		&::after
-			bottom: 7px
-			left: 0
+
+.cursor
+  width: 40px
+  height: 40px
+  border-radius: 50%
+  border: 1px solid darken($bg-color, 30%)
+  display: flex
+  justify-content: center
+  align-items: center
+  position: fixed
+  top: -20px
+  left: -20px
+  z-index: 11000
+  pointer-events: none
+  transition: all 0
+  &__icon
+    width: 15px
+    height: 15px
+  &::before,
+  &::after
+    font-size: 9px
+    color: darken($bg-color, 30%)
+    position: absolute
+    top: 43%
+  &::before
+    content: ">"
+    right: 3px
+  &::after
+    content: "<"
+    left: 3px
+  &_yellow &::before
+  &_yellow &::after
+    display: none
+
+
+  &_yellow
+    top: -8px
+    left: -8px
+    animation: cursor .2s ease-in forwards
+    background-color: darken($bg-color, 30%)
+    .cursor__icon
+      display: none
+
+@keyframes cursor
+  0%
+    width: 40px
+    height: 40px
+  100%
+    width: 16px
+    height: 16px
+
+
+
+.btn-main
+  $size: 68px
+  text-align: center
+  span
+    display: inline-block
+  &:hover &__text
+    border-color: darken($bg-color, 10%)
+    background-color: transparent
+    color: darken($bg-color, 10%)
+
+  &__pic
+    width: $size
+    height: $size
+    line-height: $size - 3
+    background-color: $main-color-light
+    transition: all .3s ease-in
+  &__icon
+    width: 28px
+    height: 35px
+    fill: #000
+    vertical-align: middle
+  &__text
+    width: 160px
+    height: $size
+    line-height: $size
+    background-color: darken($bg-color, 10%)
+    color: $main-color-light
+    font-family: $font-2-bold
+    font-size: 9px
+    letter-spacing: 2px
+    text-transform: uppercase
+    border: 1px solid transparent
+    transition: all .3s ease-in
