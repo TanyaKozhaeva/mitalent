@@ -1,6 +1,8 @@
 .mainSlider
   position: relative
   cursor: none
+  & *
+    cursor: none !important
   &:before
     content: ''
     width: 30vw
@@ -14,6 +16,14 @@
     top: 17vh
     left: 64px
     z-index: 700
+  &__navWrap
+    height: 100px
+    overflow: hidden
+    position: absolute
+    top: 32vw
+    left: 80%
+    & .nav-slider
+      transform: translateY(-80px)
 
 
 *, *:before, *:after
@@ -91,3 +101,38 @@
   visibility: hidden
   transition: all .3s ease
   display: none
+
+
+.nav-slider
+  width: 182px
+  height: 180px
+  & .swiper-wrapper:not(:last-child) > *
+    //margin-bottom: 30px
+  & .swiper-slide
+    //height: 22px !important
+    font-size: 12px
+    font-family: $font-2-bold
+    color: $inactive-el-color
+    padding: 5px
+    position: relative
+    transition: color .3s linear
+    &::before
+      content: ''
+      display: block
+      width: 58px
+      height: 2px
+      position: absolute
+      top: 50%
+      margin-top: -1px
+      left: 100px
+      background-color: transparent
+      transition: .3s ease-in
+    &-active
+      color: $main-color-dark
+      &::before
+        background-color: $main-color-dark
+  & .swiper-slide-duplicate-next,
+  & .swiper-slide-duplicate-prev,
+  & .swiper-slide-prev,
+  & .swiper-slide-next
+    opacity: .5

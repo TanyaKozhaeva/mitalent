@@ -27,11 +27,11 @@ let mainSliderOptions = {
       },
       on: {
         init: function(){
-          this.autoplay.stop();
+          //this.autoplay.stop();
         },
         imagesReady: function(){
           this.el.classList.remove('loading');
-          this.autoplay.start();
+          //this.autoplay.start();
         },
         slideChangeTransitionEnd: function(){
           let swiper = this,
@@ -78,13 +78,14 @@ let mainSlider = new Swiper(mainSliderSelector, mainSliderOptions);
 
 
 // Navigation Slider
-/*
+
 let navSliderOptions = {
       loop: true,
       loopAdditionalSlides: 10,
       speed:1000,
-      spaceBetween: 5,
+      direction: 'vertical',
       slidesPerView: 5,
+      spaceBetween: 20,
       centeredSlides : true,
       touchRatio: 0.2,
       slideToClickedSlide: true,
@@ -103,7 +104,7 @@ let navSlider = new Swiper(navSliderSelector, navSliderOptions);
 // Matching sliders
 mainSlider.controller.control = navSlider;
 navSlider.controller.control = mainSlider;
-*/
+
 
 (function() {
 var navBtn = document.getElementById('toggle-navigation-btn');

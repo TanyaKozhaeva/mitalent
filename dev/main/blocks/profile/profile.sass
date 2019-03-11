@@ -1,0 +1,46 @@
+.profile
+  &__tabs
+    margin-bottom: 80px
+  &__content
+    display: flex
+
+.portfolio
+  display: flex
+  &__item
+    width: 25%
+    padding-top: 32%
+    position: relative
+    & > *
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+    &-pic
+      overflow: hidden
+      img
+        width: auto
+        height: 100%
+        min-width: 100%
+.tabs
+  display: flex
+  justify-content: center
+  &__btn
+    padding: 15px 33px
+    line-height: 16px
+    font-family: $font-2-bold
+    font-size: 12px
+    color: $inactive-el-color
+    text-transform: uppercase
+    position: relative
+    &_active
+      color: $main-color-dark
+      &::before
+        content: ''
+        display: block
+        width: 100%
+        height: 2px
+        background-color: $main-color-dark
+        position: absolute
+        bottom: 0
+        left: 0

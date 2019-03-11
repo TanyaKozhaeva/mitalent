@@ -1,0 +1,33 @@
+mixin portfolioItem(data)
+  each item in data
+    .portfolio__item
+      .portfolio__item-pic&attributes(attributes)
+        img(src="static/img/content/portfolio/portfolio1.jpg" alt= item.name)
+      .portfolio__item-descr
+        h4.portfolio__item-name= item.name
+        p.portfolio__item-text= item.text
+        a(href= item.link).portfolio__item-btn
+
+section.profile
+  .wrapper
+    .profile__video-screen
+    ul.profile__tabs.tabs#tabs
+      li.tabs__item
+        button(type="button" data-tab="#").tabs__btn.tabs__btn_active Actor
+      li.tabs__item
+        button(type="button" data-tab="#").tabs__btn Musician
+      li.tabs__item
+        button(type="button" data-tab="#").tabs__btn Comedian
+      li.tabs__item
+        button(type="button" data-tab="#").tabs__btn Model
+    .tabs-content-box.profile__content.portfolio
+        +portfolioItem([
+          {'name': 'Keith Ruiz',
+          'text': 'comedian',
+          'link': '#'},
+          {'name': 'Keith Ruiz',
+          'text': 'comedian',
+          'link': '#'}
+        ])
+        
+        

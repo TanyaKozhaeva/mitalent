@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" href="main/css/reset.css">
     <link rel="stylesheet" type="text/css" href="static/fonts/fonts.css"><!-- build:css static/libs/libs.css-->
 <!-- endbuild-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
     <link rel="stylesheet" type="text/css" href="main/css/main.css">
     <title>Главная страница
@@ -56,8 +55,8 @@
       </ul>
       <div class="swiper-container main-slider loading">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"> 
-            <div class="slide-bgimg" style="background-image:url(static/img/content/giorgina.jpg);"><img class="entity-img" src="https://drive.google.com/uc?export=view&amp;id=0B_koKn2rKOkLbVhsNzdIYmlfN1E"><a class="swiper-link btn-main interactive" href="#"><span class="btn-main__text">View profile</span><span class="btn-main__pic">
+          <section class="swiper-slide">
+            <div class="slide-bgimg" style="background-image:url(static/img/content/giorgina.jpg);"><img class="entity-img" src="static/img/content/giorgina.jpg"><a class="swiper-link btn-main interactive" href="#"><span class="btn-main__text">View profile</span><span class="btn-main__pic">
                   <svg class="icon icon-play btn-main__icon" aria-hidden="true">
                     <use xlink:href="static/svg/symbol/sprite.svg#play"></use>
                   </svg></span></a></div>
@@ -65,9 +64,9 @@
               <h2 class="title">Giorgina Alson</h2>
               <p class="caption">Young model 2020</p>
             </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="slide-bgimg" style="background-image:url(static/img/content/derek.jpg);"><img class="entity-img" src="https://drive.google.com/uc?export=view&amp;id=0B_koKn2rKOkLbVhsNzdIYmlfN1E"><a class="swiper-link btn-main interactive" href="#"><span class="btn-main__text">View profile</span><span class="btn-main__pic">
+          </section>
+          <section class="swiper-slide">
+            <div class="slide-bgimg" style="background-image:url(static/img/content/derek.jpg);"><img class="entity-img" src="static/img/content/derek.jpg"><a class="swiper-link btn-main interactive" href="#"><span class="btn-main__text">View profile</span><span class="btn-main__pic">
                   <svg class="icon icon-play btn-main__icon" aria-hidden="true">
                     <use xlink:href="static/svg/symbol/sprite.svg#play"></use>
                   </svg></span></a></div>
@@ -75,9 +74,9 @@
               <h2 class="title">Derek Anderson</h2>
               <p class="caption">Btitish comedian</p>
             </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="slide-bgimg" style="background-image:url(static/img/content/keith.jpg);"><img class="entity-img" src="https://drive.google.com/uc?export=view&amp;id=0B_koKn2rKOkLbVhsNzdIYmlfN1E"><a class="swiper-link btn-main interactive" href="#"><span class="btn-main__text">View profile</span><span class="btn-main__pic">
+          </section>
+          <section class="swiper-slide">
+            <div class="slide-bgimg" style="background-image:url(static/img/content/keith.jpg);"><img class="entity-img" src="static/img/content/keith.jpg"><a class="swiper-link btn-main interactive" href="#"><span class="btn-main__text">View profile</span><span class="btn-main__pic">
                   <svg class="icon icon-play btn-main__icon" aria-hidden="true">
                     <use xlink:href="static/svg/symbol/sprite.svg#play"></use>
                   </svg></span></a></div>
@@ -85,12 +84,56 @@
               <h2 class="title">Keith Ruiz</h2>
               <p class="caption">Comedian</p>
             </div>
-          </div>
+          </section>
         </div>
         <button class="swiper-button-prev swiper-button-white">  </button>
         <button class="swiper-button-next swiper-button-white"></button>
       </div>
-    </div><!-- build:js js/libs/libs.js-->
+      <div class="mainSlider__navWrap">
+        <div class="swiper-container nav-slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide nav-slide interactive">01<img class="entity-img" src="static/img/content/giorgina.jpg"></div>
+            <div class="swiper-slide nav-slide interactive">02 <img class="entity-img" src="static/img/content/derek.jpg"></div>
+            <div class="swiper-slide nav-slide interactive">03<img class="entity-img" src="static/img/content/keith.jpg"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="profile">
+      <div class="wrapper">
+        <div class="profile__video-screen"></div>
+        <ul class="profile__tabs tabs" id="tabs">
+          <li class="tabs__item">
+            <button class="tabs__btn tabs__btn_active" type="button" data-tab="#">Actor</button>
+          </li>
+          <li class="tabs__item">
+            <button class="tabs__btn" type="button" data-tab="#">Musician</button>
+          </li>
+          <li class="tabs__item">
+            <button class="tabs__btn" type="button" data-tab="#">Comedian</button>
+          </li>
+          <li class="tabs__item">
+            <button class="tabs__btn" type="button" data-tab="#">Model</button>
+          </li>
+        </ul>
+        <div class="tabs-content-box profile__content portfolio">
+              <div class="portfolio__item">
+                <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio1.jpg" alt="Keith Ruiz"></div>
+                <div class="portfolio__item-descr">
+                  <h4 class="portfolio__item-name">Keith Ruiz</h4>
+                  <p class="portfolio__item-text">comedian</p><a class="portfolio__item-btn" href="#"></a>
+                </div>
+              </div>
+              <div class="portfolio__item">
+                <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio1.jpg" alt="Keith Ruiz"></div>
+                <div class="portfolio__item-descr">
+                  <h4 class="portfolio__item-name">Keith Ruiz</h4>
+                  <p class="portfolio__item-text">comedian</p><a class="portfolio__item-btn" href="#"></a>
+                </div>
+              </div>
+        </div>
+      </div>
+    </section><!-- build:js js/libs/libs.js-->
     <script src="static/js/jquery.js"></script>
     <script src="static/libs/svg4everybody.js"></script>
     <script src="static/libs/validate/jquery.validate.min.js"></script><!-- endbuild-->

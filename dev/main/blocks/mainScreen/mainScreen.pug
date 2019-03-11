@@ -4,9 +4,9 @@
   include ../../modules/social/social
   .swiper-container.main-slider.loading
     .swiper-wrapper
-        .swiper-slide 
+        section.swiper-slide
           .slide-bgimg(style="background-image:url(static/img/content/giorgina.jpg)")
-            img(src="https://drive.google.com/uc?export=view&id=0B_koKn2rKOkLbVhsNzdIYmlfN1E" class="entity-img")
+            img(src="static/img/content/giorgina.jpg" class="entity-img")
             a(href="#").swiper-link.btn-main.interactive
               span.btn-main__text View profile
               span.btn-main__pic
@@ -14,9 +14,9 @@
           .content
             h2.title Giorgina Alson
             p.caption Young model 2020
-        .swiper-slide
+        section.swiper-slide
           .slide-bgimg(style="background-image:url(static/img/content/derek.jpg)")
-            img(src="https://drive.google.com/uc?export=view&id=0B_koKn2rKOkLbVhsNzdIYmlfN1E" class="entity-img")
+            img(src="static/img/content/derek.jpg" class="entity-img")
             a(href="#").swiper-link.btn-main.interactive
               span.btn-main__text View profile
               span.btn-main__pic
@@ -24,9 +24,9 @@
           .content
             h2.title Derek Anderson
             p.caption Btitish comedian
-        .swiper-slide
+        section.swiper-slide
           .slide-bgimg(style="background-image:url(static/img/content/keith.jpg)")
-            img(src="https://drive.google.com/uc?export=view&id=0B_koKn2rKOkLbVhsNzdIYmlfN1E" class="entity-img")
+            img(src="static/img/content/keith.jpg" class="entity-img")
             a(href="#").swiper-link.btn-main.interactive
               span.btn-main__text View profile
               span.btn-main__pic
@@ -37,12 +37,14 @@
             
     button.swiper-button-prev.swiper-button-white   
     button.swiper-button-next.swiper-button-white
+ 
+  .mainSlider__navWrap
+    .swiper-container.nav-slider
+      .swiper-wrapper
+        .swiper-slide.nav-slide.interactive 01
+          img(src="static/img/content/giorgina.jpg" class="entity-img")
+        .swiper-slide.nav-slide.interactive 02 
+          img(src="static/img/content/derek.jpg" class="entity-img")
+        .swiper-slide.nav-slide.interactive 03
+          img(src="static/img/content/keith.jpg" class="entity-img")
   
-    
-//- .swiper-container.nav-slider.loading 
-//-   .swiper-wrapper
-//-     each item, index in [1, 2, 3, 4]
-//-       .swiper-slide
-//-         .slide-bgimg= index
-//-         .content
-//-           h2.title= index
