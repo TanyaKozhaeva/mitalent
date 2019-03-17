@@ -1,0 +1,23 @@
+.footer
+  &__line
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 48px 0
+    &:not(:last-child)
+      border-bottom: 2px solid #f7f7f7
+  &__sign-up-form
+    width: 368px
+  &__logo
+    width: 200px
+    height: 30px
+  &__copyright
+    font-family: $font-2-simple
+    font-size: 12px
+    color: $inactive-el-color
+  &__social
+    & .social
+      flex-direction: row
+      & .social__item
+        &:not(:last-child)
+          margin-right: 30px

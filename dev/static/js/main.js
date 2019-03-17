@@ -1,4 +1,6 @@
 ;
+
+function makeMainScreenSlider(){
 // Params
 let mainSliderSelector = '.main-slider',
     navSliderSelector = '.nav-slider',
@@ -33,6 +35,7 @@ let mainSliderOptions = {
           this.el.classList.remove('loading');
           //this.autoplay.start();
         },
+        /*
         slideChangeTransitionEnd: function(){
           let swiper = this,
               captions = swiper.el.querySelectorAll('.caption');
@@ -46,7 +49,7 @@ let mainSliderOptions = {
             btns[i].classList.remove('show');
           }
           swiper.slides[swiper.activeIndex].querySelector('.swiper-link').classList.add('show');
-        },
+        },*/
         progress: function(){
           let swiper = this;
           for (let i = 0; i < swiper.slides.length; i++) {
@@ -78,7 +81,6 @@ let mainSlider = new Swiper(mainSliderSelector, mainSliderOptions);
 
 
 // Navigation Slider
-
 let navSliderOptions = {
       loop: true,
       loopAdditionalSlides: 10,
@@ -98,13 +100,13 @@ let navSliderOptions = {
         }
       }
     };
-
 let navSlider = new Swiper(navSliderSelector, navSliderOptions);
 
 // Matching sliders
 mainSlider.controller.control = navSlider;
 navSlider.controller.control = mainSlider;
-
+};
+makeMainScreenSlider();
 
 (function() {
 var navBtn = document.getElementById('toggle-navigation-btn');
@@ -128,6 +130,7 @@ function makeCustomCursor() {
     })
 
     var render = function() {
+      console.log(clientX, clientY)
       customCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
       requestAnimationFrame(render);
     }
@@ -146,7 +149,6 @@ function makeCustomCursor() {
     };
 
     var hoveredItems = document.querySelectorAll(".interactive");
-    console.log(hoveredItems);
     [].forEach.call(hoveredItems, function(item){
       item.addEventListener("mouseenter", handleMouseEnter);
       item.addEventListener("mouseleave", handleMouseLeave);
@@ -156,3 +158,12 @@ initCursor();
 initHovers();
 };
 makeCustomCursor();
+
+
+$('.js-portfolio-slider ').slick({
+  infinite: true,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  arrows: false,
+  dots: true
+});

@@ -1,0 +1,15 @@
+footer.footer 
+  .wrapper
+    .footer__line
+      img(src="static/svg/logo.png").logo.footer__logo
+      .footer__sign-up-form.sign-up-form
+        input(type="text" placeholder="Sign up our newsletter" name="sign-up-newsletter").sign-up-form__input 
+        button(type="submit").sign-up-form__btn
+          span.hidden-text Send form 
+          +icon('letter', 'sign-up-form__icon')
+    .footer__line 
+      small.footer__copyright 
+        !='&copy; 2018 MI Talent. Designed by Tranmautritam for Miss impressions'
+      .footer__social
+        include ../social/social
+    

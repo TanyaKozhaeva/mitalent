@@ -1,35 +1,186 @@
 .profile
-  &__tabs
-    margin-bottom: 80px
+  padding: 124px 0 122px
   &__content
     display: flex
+  &__section
+    display: flex
+    padding: 43px 0
+    &_bg-color
+      &_black
+        background-color: $main-color-dark
+        color: $main-color-light
+        & .section-title
+          color: inherit
+          &::before
+            background-color: $main-color-light
+  &__pic-panel
+    width: 31%
+    padding-top: 45%
+    position: relative
+    overflow: hidden
+    & img
+      width: 100%
+      height: auto
+      position: absolute
+      top: 0
+      left: 0
+    &_fixed-height
+      padding-top: 38%
+      & img
+        height: 100%
+        width: auto
+  &__text-panel
+    width: 60%
+    flex: 1
+    padding: 20px 74px 20px 100px
+  &__article
+    font-family: $font-1-simple
+    &-header
+      color: $main-color-dark
+      margin-bottom: 18px
+  &__article-title
+    margin-bottom: .5em
+    margin-top: 22px
+    position: relative
+    &_line
+      &::before
+        content: ''
+        display: block
+        width: 141px
+        height: 2px
+        background-color: $main-color-dark
+        position: absolute
+        bottom: -.5em
+        transform: translateY(100%)
+        left: 0
+  &__article-subtitle
+    font-size: 16px
+    line-height: 1.6
+    margin-bottom: .4em
+  &__article-small-text
+    font-size: 12px
+    font-family: $font-2-simple
+    & > *
+      vertical-align: middle
+  &__star-icon
+    width: 16px
+    height: 13px
+    fill: $main-color-dark
+    margin-right: 10px
+  &__paragraph
+    font-size: 14px
+    line-height: 1.6
+    font-family: $font-2-simple
+    color: $inactive-el-color
+    &:not(:last-child)
+      margin-bottom: 1.5em
+  &__social
+    display: flex
+    flex-direction: column
+    justify-content: center
+    & .social
+      flex-direction: column
+      &__item:not(:last-child)
+          margin-bottom: 30px
 
+
+.profile-media-links
+  padding: 24px 0
+  &__item
+    font-family: $font-2-simple
+    &:not(:last-child)
+      margin-bottom: 28px
+  &__link
+    display: flex
+  &__prev
+    display: block
+    width: 154px
+    height: 84px
+    flex-shrink: 0
+    overflow: hidden
+    margin-right: 48px
+    & img
+      width: 100%
+      height: auto
+      min-height: 100%
+  &__text
+    font-size: 14px
+    margin-bottom: .8em
+    text-transform: capitalize
+    color: $main-color-light
+    &_color
+      &_accent
+        color: $bg-color
+  &__date
+    font-size: 12px
+    color: $inactive-el-color
 .portfolio
   display: flex
+  height: 386px
   &__item
-    width: 25%
-    padding-top: 32%
     position: relative
-    & > *
+    height: 386px
+    &:hover &-descr
+      opacity: 1
+      visibility: visible
+    &-pic
+      overflow: hidden
+      img
+        width: 100%
+        height: auto
+        min-height: 100%
+    &-descr
+      display: flex
+      flex-direction: column
+      padding: 20px 20px 37px 20px
+      text-align: center
       position: absolute
       top: 0
       left: 0
       width: 100%
       height: 100%
-    &-pic
-      overflow: hidden
-      img
-        width: auto
-        height: 100%
-        min-width: 100%
+      background-color: rgba(0, 0, 0, .8)
+      z-index: 200
+      opacity: 0
+      visibility: hidden
+      transition: all .3s ease-in-out
+    &-btn-box
+      text-align: right
+    &-name
+      margin-top: auto
+      font-size: 20px
+      font-family: $font-1-simple
+      color: $main-color-light
+      margin-bottom: .8em
+    &-text
+      font-size: 10px
+      font-family: $font-2-bold
+      color: $inactive-el-color
+      text-transform: uppercase
+    &-btn
+      display: inline-block
+      width: 40px
+      height: 40px
+      text-align: center
+      border-radius: 50%
+      background-color: $bg-color
+      & .icon
+        width: 20px
+        height: 16px
+        transform: rotate(321deg)
+        fill: $main-color-light
+        margin-top: 12px
 .tabs
   display: flex
   justify-content: center
+  &__item
+    flex-grow: 1
+    flex-shrink: 0
   &__btn
     padding: 15px 33px
     line-height: 16px
     font-family: $font-2-bold
-    font-size: 12px
+    font-size: 10px
     color: $inactive-el-color
     text-transform: uppercase
     position: relative
@@ -44,3 +195,8 @@
         position: absolute
         bottom: 0
         left: 0
+
+
+//SLICK CUSTOM
+.slick-dots li button:before
+  font-size: 30px

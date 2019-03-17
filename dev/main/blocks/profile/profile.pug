@@ -2,32 +2,101 @@ mixin portfolioItem(data)
   each item in data
     .portfolio__item
       .portfolio__item-pic&attributes(attributes)
-        img(src="static/img/content/portfolio/portfolio1.jpg" alt= item.name)
+        img(src= item.link alt= item.name)
       .portfolio__item-descr
+        .portfolio__item-btn-box
+          a(href="#").portfolio__item-btn
+            +icon('arrow', "portfolio__item-btn-icon")
         h4.portfolio__item-name= item.name
-        p.portfolio__item-text= item.text
-        a(href= item.link).portfolio__item-btn
-
+        p.portfolio__item-text= item.text 
+    
 section.profile
   .wrapper
     .profile__video-screen
-    ul.profile__tabs.tabs#tabs
-      li.tabs__item
-        button(type="button" data-tab="#").tabs__btn.tabs__btn_active Actor
-      li.tabs__item
-        button(type="button" data-tab="#").tabs__btn Musician
-      li.tabs__item
-        button(type="button" data-tab="#").tabs__btn Comedian
-      li.tabs__item
-        button(type="button" data-tab="#").tabs__btn Model
-    .tabs-content-box.profile__content.portfolio
+    section.profile__section
+      picture.profile__pic-panel   
+        source(srcset="static/img/content/portfolio/derek-anderson1.jpg, static/img/content/portfolio/derek-anderson1.jpg 2x")
+        img(src="static/img/content/portfolio/derek-anderson1.jpg" alt="Derek Anderson") 
+      .profile__text-panel
+        ul.profile__tabs.tabs#tabs
+          li.tabs__item
+            button(type="button" data-tab="#").tabs__btn.tabs__btn_active Profile
+          li.tabs__item
+            button(type="button" data-tab="#").tabs__btn Press
+          li.tabs__item
+            button(type="button" data-tab="#").tabs__btn Awards
+          li.tabs__item
+            button(type="button" data-tab="#").tabs__btn Creadits
+        article.profile__article
+          header.profile__article-header
+            h3.profile__article-title.section-title Profile.
+            p.profile__article-subtitle Derek Anderson is a leading actor, comedian and writer
+            .profile__article-small-text
+              +icon("star", "profile__star-icon")
+              span British Award 2020
+          .profile__text
+            p.profile__paragraph Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo concequat. 
+            p.profile__paragraph Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo concequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo concequat.
+      .profile__social
+        include ../../modules/social/social
+    section.profile__section
+      .profile__text-panel.profile__section_bg-color_black
+        h3.profile__article-title.profile__article-title_line.section-title Derek Anderson on press
+        ul.profile__media-links.profile-media-links
+          li.profile-media-links__item
+            a(href="#" target="_blank").profile-media-links__link
+              picture.profile-media-links__prev
+                source(srcset="static/img/content/portfolio/derek-anderson-link-pic.jpg, static/img/content/portfolio/derek-anderson-link-pic.jpg 2x")
+                img(src="static/img/content/portfolio/derek-anderson-link-pic.jpg" alt="Derek Anderson") 
+              .profile-media-links__text-box
+                p.profile-media-links__text 29 Mativational quotes for business and other work environments
+                span.profile-media-links__date 20 March, 2020
+          li.profile-media-links__item
+            a(href="#" target="_blank").profile-media-links__link
+              picture.profile-media-links__prev
+                source(srcset="static/img/content/portfolio/derek-anderson-link-pic.jpg, static/img/content/portfolio/derek-anderson-link-pic.jpg 2x")
+                img(src="static/img/content/portfolio/derek-anderson-link-pic.jpg" alt="Derek Anderson") 
+              .profile-media-links__text-box
+                p.profile-media-links__text.profile-media-links__text_color_accent 5 reasons to keep your beauty salon resevation
+                span.profile-media-links__date 8 March, 2020
+        a(href="#").profile__show-more.show-more-btn.show-more-btn_color_light
+          span.show-more-btn__text Explore more 
+          +icon('arrow', 'show-more-btn__icon')
+      picture.profile__pic-panel.profile__pic-panel_fixed-height 
+        source(srcset="static/img/content/portfolio/derek-anderson2.jpg, static/img/content/portfolio/derek-anderson2.jpg 2x")
+        img(src="static/img/content/portfolio/derek-anderson2.jpg" alt="Derek Anderson") 
+    section.profile__section
+      .profile__title-panel
+        h3.profile__article-title.profile__article-title_line.section-title Similar Clients
+      .profile__text-panel
+        p.profile__paragraph Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua.
+        a(href="#").profile__show-more.show-more-btn
+          span.show-more-btn__text Explore more 
+          +icon('arrow', 'show-more-btn__icon')           
+    .profile__portfolio-slider.portfolio.js-portfolio-slider 
         +portfolioItem([
           {'name': 'Keith Ruiz',
           'text': 'comedian',
-          'link': '#'},
+          'link': 'static/img/content/portfolio/portfolio1.jpg'},
           {'name': 'Keith Ruiz',
           'text': 'comedian',
-          'link': '#'}
-        ])
-        
-        
+          'link': 'static/img/content/portfolio/portfolio2.jpg'},
+          {'name': 'Keith Ruiz',
+          'text': 'comedian',
+          'link': 'static/img/content/portfolio/portfolio3.jpg'},
+          {'name': 'Keith Ruiz',
+          'text': 'comedian',
+          'link': 'static/img/content/portfolio/portfolio4.jpg'},
+          {'name': 'Keith Ruiz',
+          'text': 'comedian',
+          'link': 'static/img/content/portfolio/portfolio5.jpg'},
+          {'name': 'Keith Ruiz',
+          'text': 'comedian',
+          'link': 'static/img/content/portfolio/portfolio6.jpg'},
+          {'name': 'Keith Ruiz',
+          'text': 'comedian',
+          'link': 'static/img/content/portfolio/portfolio7.jpg'}
+        ]) 
+            
+                
+                
