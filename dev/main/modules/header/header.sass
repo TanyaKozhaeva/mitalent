@@ -3,7 +3,7 @@
   height: $size
   line-height: $size
   display: flex
-  padding: 0 44px
+  padding: 0 3%
   justify-content: space-between
   align-items: center
   color: $main-color-dark
@@ -11,12 +11,25 @@
   position: relative
   z-index: 1000
   cursor: none
+  @media screen and (max-width: 1024px)
+    height: $size - 20
+    line-height: $size - 20
+    margin-bottom: -$size + 20
   &__panel
-    &:not(:last-child) > *
-      padding: 16px 28px
     *
       cursor: none !important
   &__link
     font-family: $font-2-bold
     font-size: 14px
     text-transform: uppercase
+    padding: 16px 28px
+    @media screen and (max-width: 1024px)
+      display: none
+  &__sandwich
+    @media screen and (min-width: 1025px)
+      margin-right: 28px
+  &__logo
+    width: 170px
+    height: auto
+    @media screen and (max-width: 600px)
+      width: 132px

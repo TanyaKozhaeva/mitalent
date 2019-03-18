@@ -7,5 +7,13 @@ header.header
     a(href="#").header__link.interactive News
   img(src="static/svg/logo.png").logo.header__logo
   .header__panel
-    input(type="search" name="main-search").header__search
-  
+    .header__search-form.search-form
+      .search-form__overlay.interactive
+        img(src="static/svg/search.svg" alt="search icon").search-form__overlay-icon.form__icon
+      form.form.search-form__block-form
+        input(type="search" placeholder="Search" name="main-search").form__input
+        button(type="submit").form__btn 
+          img(src="static/svg/search.svg" alt="search icon").form__icon
+
+        
+    

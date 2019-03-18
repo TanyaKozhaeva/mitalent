@@ -71,6 +71,12 @@
 .btn-main
   $size: 68px
   text-align: center
+  & > *
+    height: $size
+    line-height: $size - 3
+    @media screen and (max-width: 1024px)
+      height: $size - 10
+      line-height: $size - 10
   span
     display: inline-block
   &:hover &__text
@@ -80,8 +86,6 @@
 
   &__pic
     width: $size
-    height: $size
-    line-height: $size - 3
     background-color: $main-color-light
     transition: all .3s ease-in
   &__icon
@@ -91,8 +95,6 @@
     vertical-align: middle
   &__text
     width: 160px
-    height: $size
-    line-height: $size
     background-color: darken($bg-color, 10%)
     color: $main-color-light
     font-family: $font-2-bold
@@ -122,7 +124,7 @@
     height: 16px
     margin-top: -2px
     fill: $main-color-dark
-.sign-up-form
+.form
   display: flex
   align-items: center
   border-left: 1px solid $bg-color
@@ -146,3 +148,34 @@
     width: 22px
     height: 18px
     fill: $main-color-dark
+    vertical-align: middle
+
+
+
+.search-form
+  position: relative
+  &__overlay
+    padding: 5px
+    display: flex
+    align-items: center
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    right: 0
+    width: auto
+    height: 100%
+    &-icon
+      margin-left: auto
+    &:hover
+      opacity: 0
+      & ~ .search-form__block-form
+        display: flex
+        opacity: 1
+        visibility: visible
+    // &:hover ~ .search-form__block-form
+    //   opacity: 1
+    //   visibility: visible
+  &__block-form
+    display: none
+    opacity: 0
+    visibility: hidden

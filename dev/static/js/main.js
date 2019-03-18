@@ -1,4 +1,43 @@
 ;
+function makeCustomCursor() {
+  var clientX = -100;
+  var clientY = -100;
+  var customCursor = document.querySelector('.cursor');
+  var initCursor = function() {
+    document.addEventListener('mousemove', function(e){
+      clientX = e.clientX;
+      clientY = e.clientY;
+    })
+
+    var render = function() {
+      customCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+      requestAnimationFrame(render);
+    }
+    requestAnimationFrame(render);
+  };
+  var initHovers = function() {
+    var handleMouseEnter = function(e) {
+      customCursor.classList.add("cursor_yellow")
+      var currentTarget = e.currentTarget;
+      var currentTargetBox = currentTarget.getBoundingClientRect()
+      isStuck = true;
+    };
+    var handleMouseLeave = function() {
+      customCursor.classList.remove("cursor_yellow")
+      isStuck = false;
+    };
+
+    var hoveredItems = document.querySelectorAll(".interactive");
+    [].forEach.call(hoveredItems, function(item){
+      item.addEventListener("mouseenter", handleMouseEnter);
+      item.addEventListener("mouseleave", handleMouseLeave);
+    });
+  }
+initCursor();
+initHovers();
+};
+makeCustomCursor();
+
 
 function makeMainScreenSlider(){
 // Params
@@ -119,45 +158,7 @@ navBtn.onclick = function() {
 
 
 
-function makeCustomCursor() {
-  var clientX = -100;
-  var clientY = -100;
-  var customCursor = document.querySelector('.cursor');
-  var initCursor = function() {
-    document.addEventListener('mousemove', function(e){
-      clientX = e.clientX;
-      clientY = e.clientY;
-    })
 
-    var render = function() {
-      console.log(clientX, clientY)
-      customCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
-      requestAnimationFrame(render);
-    }
-    requestAnimationFrame(render);
-  };
-  var initHovers = function() {
-    var handleMouseEnter = function(e) {
-      customCursor.classList.add("cursor_yellow")
-      var currentTarget = e.currentTarget;
-      var currentTargetBox = currentTarget.getBoundingClientRect()
-      isStuck = true;
-    };
-    var handleMouseLeave = function() {
-      customCursor.classList.remove("cursor_yellow")
-      isStuck = false;
-    };
-
-    var hoveredItems = document.querySelectorAll(".interactive");
-    [].forEach.call(hoveredItems, function(item){
-      item.addEventListener("mouseenter", handleMouseEnter);
-      item.addEventListener("mouseleave", handleMouseLeave);
-    });
-  }
-initCursor();
-initHovers();
-};
-makeCustomCursor();
 
 
 $('.js-portfolio-slider ').slick({

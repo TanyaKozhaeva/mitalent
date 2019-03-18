@@ -14,29 +14,30 @@ section.profile
   .wrapper
     .profile__video-screen
     section.profile__section
-      picture.profile__pic-panel   
-        source(srcset="static/img/content/portfolio/derek-anderson1.jpg, static/img/content/portfolio/derek-anderson1.jpg 2x")
-        img(src="static/img/content/portfolio/derek-anderson1.jpg" alt="Derek Anderson") 
-      .profile__text-panel
-        ul.profile__tabs.tabs#tabs
-          li.tabs__item
-            button(type="button" data-tab="#").tabs__btn.tabs__btn_active Profile
-          li.tabs__item
-            button(type="button" data-tab="#").tabs__btn Press
-          li.tabs__item
-            button(type="button" data-tab="#").tabs__btn Awards
-          li.tabs__item
-            button(type="button" data-tab="#").tabs__btn Creadits
-        article.profile__article
-          header.profile__article-header
-            h3.profile__article-title.section-title Profile.
-            p.profile__article-subtitle Derek Anderson is a leading actor, comedian and writer
-            .profile__article-small-text
-              +icon("star", "profile__star-icon")
-              span British Award 2020
-          .profile__text
-            p.profile__paragraph Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo concequat. 
-            p.profile__paragraph Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo concequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo concequat.
+      
+      article.profile__article
+        .profile__article-pic 
+          picture
+            source(srcset="static/img/content/portfolio/derek-anderson1.jpg, static/img/content/portfolio/derek-anderson1.jpg 2x")
+            img(src="static/img/content/portfolio/derek-anderson1.jpg" alt="Derek Anderson") 
+        header.profile__article-header
+          ul.profile__tabs.tabs#tabs
+            li.tabs__item
+              button(type="button" data-tab="#").tabs__btn.tabs__btn_active Profile
+            li.tabs__item
+              button(type="button" data-tab="#").tabs__btn Press
+            li.tabs__item
+              button(type="button" data-tab="#").tabs__btn Awards
+            li.tabs__item
+              button(type="button" data-tab="#").tabs__btn Creadits
+          h3.profile__article-title.section-title Profile.
+          p.profile__article-subtitle Derek Anderson is a leading actor, comedian and writer
+          .profile__article-small-text
+            +icon("star", "profile__star-icon")
+            span British Award 2020
+        .profile__text
+          p.profile__paragraph Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo concequat. 
+          p.profile__paragraph Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo concequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo concequat.
       .profile__social
         include ../../modules/social/social
     section.profile__section

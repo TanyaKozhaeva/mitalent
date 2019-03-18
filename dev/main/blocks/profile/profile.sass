@@ -5,6 +5,8 @@
   &__section
     display: flex
     padding: 43px 0
+    @media screen and (max-width: 600px)
+      flex-direction: column
     &_bg-color
       &_black
         background-color: $main-color-dark
@@ -34,10 +36,23 @@
     flex: 1
     padding: 20px 74px 20px 100px
   &__article
+    padding: 20px 74px 20px 0px
     font-family: $font-1-simple
     &-header
       color: $main-color-dark
       margin-bottom: 18px
+    &-pic
+      display: block
+      width: 38%
+      float: left
+      margin-right: 13%
+      @media screen and (min-width: 601px)
+        height: 100%
+      & picture
+        width: 100%
+        & img
+          width: 100%
+          height: auto
   &__article-title
     margin-bottom: .5em
     margin-top: 22px
@@ -74,14 +89,21 @@
     color: $inactive-el-color
     &:not(:last-child)
       margin-bottom: 1.5em
+    @media screen and (max-width: 600px)
+      text-align: justify
   &__social
     display: flex
     flex-direction: column
     justify-content: center
-    & .social
-      flex-direction: column
-      &__item:not(:last-child)
-          margin-bottom: 30px
+    @media screen and (max-width: 600px)
+      & .social
+        &__item:not(:last-child)
+            margin-right: 30px
+    @media screen and (min-width: 601px)
+      & .social
+        flex-direction: column
+        &__item:not(:last-child)
+            margin-bottom: 30px
 
 
 .profile-media-links
