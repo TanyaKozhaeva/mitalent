@@ -1,6 +1,7 @@
 .mainSlider
   .cursor
-    img(src="static/svg/drag.svg" alt="cursor").cursor__icon
+    img(src="static/svg/drag.svg" alt="cursor").cursor__icon.cursor__icon_grab
+    img(src="static/svg/arrow.svg" alt="cursor").cursor__icon.cursor__icon_arrow
   .mainSlider__social
     include ../../modules/social/social
   .swiper-container.main-slider.loading
@@ -8,7 +9,7 @@
         section.swiper-slide
           .slide-bgimg(style="background-image:url(static/img/content/giorgina.jpg)")
             img(src="static/img/content/giorgina.jpg" class="entity-img")
-            a(href="#").swiper-link.btn-main.interactive
+            a(href="profile.html" data-cursor="dot").swiper-link.btn-main.interactive
               span.btn-main__text View profile
               span.btn-main__pic
                 +icon("play", "btn-main__icon")
@@ -18,7 +19,7 @@
         section.swiper-slide
           .slide-bgimg(style="background-image:url(static/img/content/derek.jpg)")
             img(src="static/img/content/derek.jpg" class="entity-img")
-            a(href="#").swiper-link.btn-main.interactive
+            a(href="profile.html" data-cursor="dot").swiper-link.btn-main.interactive
               span.btn-main__text View profile
               span.btn-main__pic
                 +icon("play", "btn-main__icon")
@@ -28,7 +29,7 @@
         section.swiper-slide
           .slide-bgimg(style="background-image:url(static/img/content/keith.jpg)")
             img(src="static/img/content/keith.jpg" class="entity-img")
-            a(href="#").swiper-link.btn-main.interactive
+            a(href="profile.html" data-cursor="dot").swiper-link.btn-main.interactive
               span.btn-main__text View profile
               span.btn-main__pic
                 +icon("play", "btn-main__icon")
@@ -42,10 +43,10 @@
   .mainSlider__navWrap
     .swiper-container.nav-slider
       .swiper-wrapper
-        .swiper-slide.nav-slide.interactive 01
+        .swiper-slide.nav-slide.interactive(data-cursor="dot") 01
           img(src="static/img/content/giorgina.jpg" class="entity-img")
-        .swiper-slide.nav-slide.interactive 02 
+        .swiper-slide.nav-slide.interactive(data-cursor="dot") 02 
           img(src="static/img/content/derek.jpg" class="entity-img")
-        .swiper-slide.nav-slide.interactive 03
+        .swiper-slide.nav-slide.interactive(data-cursor="dot") 03
           img(src="static/img/content/keith.jpg" class="entity-img")
   

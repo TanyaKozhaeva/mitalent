@@ -1,11 +1,17 @@
 .footer
   &__line
-    display: flex
-    justify-content: space-between
-    align-items: center
-    padding: 48px 0
+    padding: 28px 0
     &:not(:last-child)
       border-bottom: 2px solid #f7f7f7
+    @media screen and (max-width: 600px)
+      text-align: center
+      & > *:not(:last-child)
+        margin-bottom: 20px
+    @media screen and (min-width: 601px)
+      display: flex
+      justify-content: space-between
+      align-items: center
+      padding: 48px 0
   &__sign-up-form
     width: 368px
   &__logo
@@ -15,9 +21,14 @@
     font-family: $font-2-simple
     font-size: 12px
     color: $inactive-el-color
+    @media screen and (min-width: 601px)
+      order: 1
   &__social
+    @media screen and (min-width: 601px)
+      order: 2
     & .social
       flex-direction: row
+      justify-content: center
       & .social__item
         &:not(:last-child)
           margin-right: 30px

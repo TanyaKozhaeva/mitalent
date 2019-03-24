@@ -20,7 +20,7 @@
     <title>Главная страница
     </title>
   </head>
-  <body>
+  <body> 
     <div class="preloader" id="preloader">
       <div class="preloader__object">
         <div class="loader"></div>
@@ -28,7 +28,7 @@
     </div>
     <header class="header">
       <div class="header__panel">
-        <button class="toggle-navigation-btn header__sandwich interactive" type="button" id="toggle-navigation-btn"><span class="hidden-text">Close navigation</span><span class="toggle-navigation-btn__line"></span></button><a class="header__link interactive" href="#">Clients</a><a class="header__link interactive" href="#">News</a>
+        <button class="toggle-navigation-btn header__sandwich interactive" type="button" data-cursor="dot" id="toggle-navigation-btn"><span class="hidden-text">Close navigation</span><span class="toggle-navigation-btn__line"></span></button><a class="header__link interactive" href="#" data-cursor="dot">Clients</a><a class="header__link interactive" href="#" data-cursor="dot">News</a>
       </div><img class="logo header__logo" src="static/svg/logo.png">
       <div class="header__panel">
         <div class="header__search-form search-form">
@@ -40,113 +40,19 @@
         </div>
       </div>
     </header>
-    <div class="mainSlider">
-      <div class="cursor"><img class="cursor__icon" src="static/svg/drag.svg" alt="cursor"></div>
-      <div class="mainSlider__social">
-        <ul class="social">
-          <li class="social__item"><a class="social__link interactive" href="#" target="_blank" title="facebook">
-              <svg class="icon icon-fb social__icon" aria-hidden="true">
-                <use xlink:href="static/svg/symbol/sprite.svg#fb"></use>
-              </svg></a></li>
-          <li class="social__item"><a class="social__link interactive" href="#" target="_blank" title="instagram">
-              <svg class="icon icon-instagram social__icon" aria-hidden="true">
-                <use xlink:href="static/svg/symbol/sprite.svg#instagram"></use>
-              </svg></a></li>
-          <li class="social__item"><a class="social__link interactive" href="#" target="_blank" title="youtube">
-              <svg class="icon icon-youtube social__icon" aria-hidden="true">
-                <use xlink:href="static/svg/symbol/sprite.svg#youtube"></use>
-              </svg></a></li>
-          <li class="social__item"><a class="social__link interactive" href="#" target="_blank" title="twitter">
-              <svg class="icon icon-twitter social__icon" aria-hidden="true">
-                <use xlink:href="static/svg/symbol/sprite.svg#twitter"></use>
-              </svg></a></li>
-        </ul>
-      </div>
-      <div class="swiper-container main-slider loading">
-        <div class="swiper-wrapper">
-          <section class="swiper-slide">
-            <div class="slide-bgimg" style="background-image:url(static/img/content/giorgina.jpg);"><img class="entity-img" src="static/img/content/giorgina.jpg"><a class="swiper-link btn-main interactive" href="#"><span class="btn-main__text">View profile</span><span class="btn-main__pic">
-                  <svg class="icon icon-play btn-main__icon" aria-hidden="true">
-                    <use xlink:href="static/svg/symbol/sprite.svg#play"></use>
-                  </svg></span></a></div>
-            <div class="content">
-              <h2 class="title">Giorgina Alson</h2>
-              <p class="caption">Young model 2020</p>
-            </div>
-          </section>
-          <section class="swiper-slide">
-            <div class="slide-bgimg" style="background-image:url(static/img/content/derek.jpg);"><img class="entity-img" src="static/img/content/derek.jpg"><a class="swiper-link btn-main interactive" href="#"><span class="btn-main__text">View profile</span><span class="btn-main__pic">
-                  <svg class="icon icon-play btn-main__icon" aria-hidden="true">
-                    <use xlink:href="static/svg/symbol/sprite.svg#play"></use>
-                  </svg></span></a></div>
-            <div class="content">
-              <h2 class="title">Derek Anderson</h2>
-              <p class="caption">Btitish comedian</p>
-            </div>
-          </section>
-          <section class="swiper-slide">
-            <div class="slide-bgimg" style="background-image:url(static/img/content/keith.jpg);"><img class="entity-img" src="static/img/content/keith.jpg"><a class="swiper-link btn-main interactive" href="#"><span class="btn-main__text">View profile</span><span class="btn-main__pic">
-                  <svg class="icon icon-play btn-main__icon" aria-hidden="true">
-                    <use xlink:href="static/svg/symbol/sprite.svg#play"></use>
-                  </svg></span></a></div>
-            <div class="content">
-              <h2 class="title">Keith Ruiz</h2>
-              <p class="caption">Comedian</p>
-            </div>
-          </section>
-        </div>
-        <button class="swiper-button-prev swiper-button-white">  </button>
-        <button class="swiper-button-next swiper-button-white"></button>
-      </div>
-      <div class="mainSlider__navWrap">
-        <div class="swiper-container nav-slider">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide nav-slide interactive">01<img class="entity-img" src="static/img/content/giorgina.jpg"></div>
-            <div class="swiper-slide nav-slide interactive">02 <img class="entity-img" src="static/img/content/derek.jpg"></div>
-            <div class="swiper-slide nav-slide interactive">03<img class="entity-img" src="static/img/content/keith.jpg"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <section class="profile">
-      <div class="wrapper">
-        <div class="profile__video-screen"></div>
-        <section class="profile__section">
-          <article class="profile__article">
-            <div class="profile__article-pic"> 
-              <picture>
-                <source srcset="static/img/content/portfolio/derek-anderson1.jpg, static/img/content/portfolio/derek-anderson1.jpg 2x"><img src="static/img/content/portfolio/derek-anderson1.jpg" alt="Derek Anderson">
-              </picture>
-            </div>
-            <header class="profile__article-header">
-              <ul class="profile__tabs tabs" id="tabs">
-                <li class="tabs__item">
-                  <button class="tabs__btn tabs__btn_active" type="button" data-tab="#">Profile</button>
-                </li>
-                <li class="tabs__item">
-                  <button class="tabs__btn" type="button" data-tab="#">Press</button>
-                </li>
-                <li class="tabs__item">
-                  <button class="tabs__btn" type="button" data-tab="#">Awards</button>
-                </li>
-                <li class="tabs__item">
-                  <button class="tabs__btn" type="button" data-tab="#">Creadits</button>
-                </li>
-              </ul>
-              <h3 class="profile__article-title section-title">Profile.</h3>
-              <p class="profile__article-subtitle">Derek Anderson is a leading actor, comedian and writer</p>
-              <div class="profile__article-small-text">
-                <svg class="icon icon-star profile__star-icon" aria-hidden="true">
-                  <use xlink:href="static/svg/symbol/sprite.svg#star"></use>
-                </svg><span>British Award 2020</span>
-              </div>
-            </header>
-            <div class="profile__text">
-              <p class="profile__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo concequat. </p>
-              <p class="profile__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo concequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo concequat.</p>
-            </div>
-          </article>
-          <div class="profile__social">
+        <nav class="main-nav" id="main-nav">
+          <ul class="main-nav__list">
+            <li class="main-nav__item interactive" data-cursor="arrow" style="transition-delay: 0s;"><a class="main-nav__link" href="#"><span class="main-nav__item-text">Blog</span><span class="main-nav__item-number">00</span><span class="main-nav__item-line" style="transition-delay: 0s;"></span></a></li>
+            <li class="main-nav__item interactive" data-cursor="arrow" style="transition-delay: 0.3s;"><a class="main-nav__link" href="#"><span class="main-nav__item-text">News</span><span class="main-nav__item-number">01</span><span class="main-nav__item-line" style="transition-delay: 0.3s;"></span></a></li>
+            <li class="main-nav__item interactive" data-cursor="arrow" style="transition-delay: 0.6s;"><a class="main-nav__link" href="#"><span class="main-nav__item-text">Contacts</span><span class="main-nav__item-number">02</span><span class="main-nav__item-line" style="transition-delay: 0.6s;"></span></a></li>
+          </ul>
+          <button class="toggle-navigation-btn toggle-navigation-btn_closed interactive main-nav__close-btn" type="button" data-cursor="dot" id="main-nav-close-btn"><span class="hidden-text">Close navigation</span><span class="toggle-navigation-btn__line"></span></button>
+        </nav>
+    <div id="barba-wrapper">
+      <div class="barba-container">
+        <div class="mainSlider">
+          <div class="cursor"><img class="cursor__icon cursor__icon_grab" src="static/svg/drag.svg" alt="cursor"><img class="cursor__icon cursor__icon_arrow" src="static/svg/arrow.svg" alt="cursor"></div>
+          <div class="mainSlider__social">
             <ul class="social">
               <li class="social__item"><a class="social__link interactive" href="#" target="_blank" title="facebook">
                   <svg class="icon icon-fb social__icon" aria-hidden="true">
@@ -166,126 +72,178 @@
                   </svg></a></li>
             </ul>
           </div>
-        </section>
-        <section class="profile__section">
-          <div class="profile__text-panel profile__section_bg-color_black">
-            <h3 class="profile__article-title profile__article-title_line section-title">Derek Anderson on press</h3>
-            <ul class="profile__media-links profile-media-links">
-              <li class="profile-media-links__item"><a class="profile-media-links__link" href="#" target="_blank">
-                  <picture class="profile-media-links__prev">
-                    <source srcset="static/img/content/portfolio/derek-anderson-link-pic.jpg, static/img/content/portfolio/derek-anderson-link-pic.jpg 2x"><img src="static/img/content/portfolio/derek-anderson-link-pic.jpg" alt="Derek Anderson">
-                  </picture>
-                  <div class="profile-media-links__text-box">
-                    <p class="profile-media-links__text">29 Mativational quotes for business and other work environments</p><span class="profile-media-links__date">20 March, 2020</span>
-                  </div></a></li>
-              <li class="profile-media-links__item"><a class="profile-media-links__link" href="#" target="_blank">
-                  <picture class="profile-media-links__prev">
-                    <source srcset="static/img/content/portfolio/derek-anderson-link-pic.jpg, static/img/content/portfolio/derek-anderson-link-pic.jpg 2x"><img src="static/img/content/portfolio/derek-anderson-link-pic.jpg" alt="Derek Anderson">
-                  </picture>
-                  <div class="profile-media-links__text-box">
-                    <p class="profile-media-links__text profile-media-links__text_color_accent">5 reasons to keep your beauty salon resevation</p><span class="profile-media-links__date">8 March, 2020</span>
-                  </div></a></li>
-            </ul><a class="profile__show-more show-more-btn show-more-btn_color_light" href="#"><span class="show-more-btn__text">Explore more </span>
-              <svg class="icon icon-arrow show-more-btn__icon" aria-hidden="true">
-                <use xlink:href="static/svg/symbol/sprite.svg#arrow"></use>
-              </svg></a>
+          <div class="swiper-container main-slider loading">
+            <div class="swiper-wrapper">
+              <section class="swiper-slide">
+                <div class="slide-bgimg" style="background-image:url(static/img/content/giorgina.jpg);"><img class="entity-img" src="static/img/content/giorgina.jpg"><a class="swiper-link btn-main interactive" href="profile.html" data-cursor="dot"><span class="btn-main__text">View profile</span><span class="btn-main__pic">
+                      <svg class="icon icon-play btn-main__icon" aria-hidden="true">
+                        <use xlink:href="static/svg/symbol/sprite.svg#play"></use>
+                      </svg></span></a></div>
+                <div class="content">
+                  <h2 class="title">Giorgina Alson</h2>
+                  <p class="caption">Young model 2020</p>
+                </div>
+              </section>
+              <section class="swiper-slide">
+                <div class="slide-bgimg" style="background-image:url(static/img/content/derek.jpg);"><img class="entity-img" src="static/img/content/derek.jpg"><a class="swiper-link btn-main interactive" href="profile.html" data-cursor="dot"><span class="btn-main__text">View profile</span><span class="btn-main__pic">
+                      <svg class="icon icon-play btn-main__icon" aria-hidden="true">
+                        <use xlink:href="static/svg/symbol/sprite.svg#play"></use>
+                      </svg></span></a></div>
+                <div class="content">
+                  <h2 class="title">Derek Anderson</h2>
+                  <p class="caption">Btitish comedian</p>
+                </div>
+              </section>
+              <section class="swiper-slide">
+                <div class="slide-bgimg" style="background-image:url(static/img/content/keith.jpg);"><img class="entity-img" src="static/img/content/keith.jpg"><a class="swiper-link btn-main interactive" href="profile.html" data-cursor="dot"><span class="btn-main__text">View profile</span><span class="btn-main__pic">
+                      <svg class="icon icon-play btn-main__icon" aria-hidden="true">
+                        <use xlink:href="static/svg/symbol/sprite.svg#play"></use>
+                      </svg></span></a></div>
+                <div class="content">
+                  <h2 class="title">Keith Ruiz</h2>
+                  <p class="caption">Comedian</p>
+                </div>
+              </section>
+            </div>
+            <button class="swiper-button-prev swiper-button-white">  </button>
+            <button class="swiper-button-next swiper-button-white"></button>
           </div>
-          <picture class="profile__pic-panel profile__pic-panel_fixed-height"> 
-            <source srcset="static/img/content/portfolio/derek-anderson2.jpg, static/img/content/portfolio/derek-anderson2.jpg 2x"><img src="static/img/content/portfolio/derek-anderson2.jpg" alt="Derek Anderson">
-          </picture>
-        </section>
-        <section class="profile__section">
-          <div class="profile__title-panel">
-            <h3 class="profile__article-title profile__article-title_line section-title">Similar Clients</h3>
+          <div class="mainSlider__navWrap">
+            <div class="swiper-container nav-slider">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide nav-slide interactive" data-cursor="dot">01<img class="entity-img" src="static/img/content/giorgina.jpg"></div>
+                <div class="swiper-slide nav-slide interactive" data-cursor="dot">02 <img class="entity-img" src="static/img/content/derek.jpg"></div>
+                <div class="swiper-slide nav-slide interactive" data-cursor="dot">03<img class="entity-img" src="static/img/content/keith.jpg"></div>
+              </div>
+            </div>
           </div>
-          <div class="profile__text-panel">
-            <p class="profile__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua.</p><a class="profile__show-more show-more-btn" href="#"><span class="show-more-btn__text">Explore more </span>
-              <svg class="icon icon-arrow show-more-btn__icon" aria-hidden="true">
-                <use xlink:href="static/svg/symbol/sprite.svg#arrow"></use>
-              </svg></a>
+        </div>
+        <div class="news profile"> 
+          <div class="wrapper">
+                    <ul class="profile-media-links news__media-links">
+                      <li class="profile-media-links__item"><a class="profile-media-links__link" href="#" target="_blank">
+                          <picture class="profile-media-links__prev">
+                            <source srcset="static/img/content/portfolio/derek-anderson1.jpg, static/img/content/portfolio/derek-anderson1.jpg 2x"><img src="static/img/content/portfolio/derek-anderson1.jpg" alt="Burning desire golden key or red herring">
+                          </picture>
+                          <div class="profile-media-links__text-box">
+                            <p class="profile-media-links__text">Burning desire golden key or red herring</p><span class="profile-media-links__date">8 March, 2020</span>
+                          </div></a></li>
+                      <li class="profile-media-links__item"><a class="profile-media-links__link" href="#" target="_blank">
+                          <picture class="profile-media-links__prev">
+                            <source srcset="static/img/content/portfolio/derek-anderson1.jpg, static/img/content/portfolio/derek-anderson1.jpg 2x"><img src="static/img/content/portfolio/derek-anderson1.jpg" alt="5 reasons to keep your beauty salon reservation">
+                          </picture>
+                          <div class="profile-media-links__text-box">
+                            <p class="profile-media-links__text">5 reasons to keep your beauty salon reservation</p><span class="profile-media-links__date">8 March, 2020</span>
+                          </div></a></li>
+                      <li class="profile-media-links__item"><a class="profile-media-links__link" href="#" target="_blank">
+                          <picture class="profile-media-links__prev">
+                            <source srcset="static/img/content/portfolio/derek-anderson1.jpg, static/img/content/portfolio/derek-anderson1.jpg 2x"><img src="static/img/content/portfolio/derek-anderson1.jpg" alt="Motivation is the first step to succes">
+                          </picture>
+                          <div class="profile-media-links__text-box">
+                            <p class="profile-media-links__text">Motivation is the first step to succes</p><span class="profile-media-links__date">8 March, 2020</span>
+                          </div></a></li>
+                      <li class="profile-media-links__item"><a class="profile-media-links__link" href="#" target="_blank">
+                          <picture class="profile-media-links__prev">
+                            <source srcset="static/img/content/portfolio/derek-anderson1.jpg, static/img/content/portfolio/derek-anderson1.jpg 2x"><img src="static/img/content/portfolio/derek-anderson1.jpg" alt="How to set intentions that energize you">
+                          </picture>
+                          <div class="profile-media-links__text-box">
+                            <p class="profile-media-links__text">How to set intentions that energize you</p><span class="profile-media-links__date">8 March, 2020</span>
+                          </div></a></li>
+                    </ul>
+            <section class="profile__section">
+              <div class="profile__title-panel">
+                <h3 class="profile__article-title profile__article-title_line section-title">Our clients</h3>
+              </div>
+              <div class="profile__text-panel">
+                <p class="profile__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua.</p><a class="profile__show-more show-more-btn" href="#"><span class="show-more-btn__text">Explore more </span>
+                  <svg class="icon icon-arrow show-more-btn__icon" aria-hidden="true">
+                    <use xlink:href="static/svg/symbol/sprite.svg#arrow"></use>
+                  </svg></a>
+              </div>
+            </section>
+            <div class="portfolio js-portfolio-slider"> 
+                      <div class="portfolio__item">
+                        <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio1.jpg" alt="Keith Ruiz"></div>
+                        <div class="portfolio__item-descr">
+                          <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
+                              <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
+                                <use xlink:href="static/svg/symbol/sprite.svg#arrow"></use>
+                              </svg></a></div>
+                          <h4 class="portfolio__item-name">Keith Ruiz</h4>
+                          <p class="portfolio__item-text">comedian</p>
+                        </div>
+                      </div>
+                      <div class="portfolio__item">
+                        <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio2.jpg" alt="Keith Ruiz"></div>
+                        <div class="portfolio__item-descr">
+                          <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
+                              <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
+                                <use xlink:href="static/svg/symbol/sprite.svg#arrow"></use>
+                              </svg></a></div>
+                          <h4 class="portfolio__item-name">Keith Ruiz</h4>
+                          <p class="portfolio__item-text">comedian</p>
+                        </div>
+                      </div>
+                      <div class="portfolio__item">
+                        <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio3.jpg" alt="Keith Ruiz"></div>
+                        <div class="portfolio__item-descr">
+                          <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
+                              <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
+                                <use xlink:href="static/svg/symbol/sprite.svg#arrow"></use>
+                              </svg></a></div>
+                          <h4 class="portfolio__item-name">Keith Ruiz</h4>
+                          <p class="portfolio__item-text">comedian</p>
+                        </div>
+                      </div>
+                      <div class="portfolio__item">
+                        <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio4.jpg" alt="Keith Ruiz"></div>
+                        <div class="portfolio__item-descr">
+                          <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
+                              <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
+                                <use xlink:href="static/svg/symbol/sprite.svg#arrow"></use>
+                              </svg></a></div>
+                          <h4 class="portfolio__item-name">Keith Ruiz</h4>
+                          <p class="portfolio__item-text">comedian</p>
+                        </div>
+                      </div>
+                      <div class="portfolio__item">
+                        <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio5.jpg" alt="Keith Ruiz"></div>
+                        <div class="portfolio__item-descr">
+                          <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
+                              <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
+                                <use xlink:href="static/svg/symbol/sprite.svg#arrow"></use>
+                              </svg></a></div>
+                          <h4 class="portfolio__item-name">Keith Ruiz</h4>
+                          <p class="portfolio__item-text">comedian</p>
+                        </div>
+                      </div>
+                      <div class="portfolio__item">
+                        <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio6.jpg" alt="Keith Ruiz"></div>
+                        <div class="portfolio__item-descr">
+                          <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
+                              <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
+                                <use xlink:href="static/svg/symbol/sprite.svg#arrow"></use>
+                              </svg></a></div>
+                          <h4 class="portfolio__item-name">Keith Ruiz</h4>
+                          <p class="portfolio__item-text">comedian</p>
+                        </div>
+                      </div>
+                      <div class="portfolio__item">
+                        <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio7.jpg" alt="Keith Ruiz"></div>
+                        <div class="portfolio__item-descr">
+                          <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
+                              <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
+                                <use xlink:href="static/svg/symbol/sprite.svg#arrow"></use>
+                              </svg></a></div>
+                          <h4 class="portfolio__item-name">Keith Ruiz</h4>
+                          <p class="portfolio__item-text">comedian</p>
+                        </div>
+                      </div>
+            </div>
           </div>
-        </section>
-        <div class="profile__portfolio-slider portfolio js-portfolio-slider"> 
-              <div class="portfolio__item">
-                <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio1.jpg" alt="Keith Ruiz"></div>
-                <div class="portfolio__item-descr">
-                  <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
-                      <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
-                        <use xlink:href="static/svg/symbol/sprite.svg#arrow"></use>
-                      </svg></a></div>
-                  <h4 class="portfolio__item-name">Keith Ruiz</h4>
-                  <p class="portfolio__item-text">comedian</p>
-                </div>
-              </div>
-              <div class="portfolio__item">
-                <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio2.jpg" alt="Keith Ruiz"></div>
-                <div class="portfolio__item-descr">
-                  <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
-                      <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
-                        <use xlink:href="static/svg/symbol/sprite.svg#arrow"></use>
-                      </svg></a></div>
-                  <h4 class="portfolio__item-name">Keith Ruiz</h4>
-                  <p class="portfolio__item-text">comedian</p>
-                </div>
-              </div>
-              <div class="portfolio__item">
-                <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio3.jpg" alt="Keith Ruiz"></div>
-                <div class="portfolio__item-descr">
-                  <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
-                      <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
-                        <use xlink:href="static/svg/symbol/sprite.svg#arrow"></use>
-                      </svg></a></div>
-                  <h4 class="portfolio__item-name">Keith Ruiz</h4>
-                  <p class="portfolio__item-text">comedian</p>
-                </div>
-              </div>
-              <div class="portfolio__item">
-                <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio4.jpg" alt="Keith Ruiz"></div>
-                <div class="portfolio__item-descr">
-                  <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
-                      <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
-                        <use xlink:href="static/svg/symbol/sprite.svg#arrow"></use>
-                      </svg></a></div>
-                  <h4 class="portfolio__item-name">Keith Ruiz</h4>
-                  <p class="portfolio__item-text">comedian</p>
-                </div>
-              </div>
-              <div class="portfolio__item">
-                <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio5.jpg" alt="Keith Ruiz"></div>
-                <div class="portfolio__item-descr">
-                  <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
-                      <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
-                        <use xlink:href="static/svg/symbol/sprite.svg#arrow"></use>
-                      </svg></a></div>
-                  <h4 class="portfolio__item-name">Keith Ruiz</h4>
-                  <p class="portfolio__item-text">comedian</p>
-                </div>
-              </div>
-              <div class="portfolio__item">
-                <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio6.jpg" alt="Keith Ruiz"></div>
-                <div class="portfolio__item-descr">
-                  <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
-                      <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
-                        <use xlink:href="static/svg/symbol/sprite.svg#arrow"></use>
-                      </svg></a></div>
-                  <h4 class="portfolio__item-name">Keith Ruiz</h4>
-                  <p class="portfolio__item-text">comedian</p>
-                </div>
-              </div>
-              <div class="portfolio__item">
-                <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio7.jpg" alt="Keith Ruiz"></div>
-                <div class="portfolio__item-descr">
-                  <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
-                      <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
-                        <use xlink:href="static/svg/symbol/sprite.svg#arrow"></use>
-                      </svg></a></div>
-                  <h4 class="portfolio__item-name">Keith Ruiz</h4>
-                  <p class="portfolio__item-text">comedian</p>
-                </div>
-              </div>
         </div>
       </div>
-    </section>
+    </div>
     <footer class="footer"> 
       <div class="wrapper">
         <div class="footer__line"><img class="logo footer__logo" src="static/svg/logo.png">
@@ -298,7 +256,7 @@
             </button>
           </div>
         </div>
-        <div class="footer__line"> <small class="footer__copyright"> &copy; 2018 MI Talent. Designed by Tranmautritam for Miss impressions</small>
+        <div class="footer__line"> 
           <div class="footer__social">
             <ul class="social">
               <li class="social__item"><a class="social__link interactive" href="#" target="_blank" title="facebook">
@@ -318,13 +276,14 @@
                     <use xlink:href="static/svg/symbol/sprite.svg#twitter"></use>
                   </svg></a></li>
             </ul>
-          </div>
+          </div><small class="footer__copyright"> &copy; 2018 MI Talent. Designed by Tranmautritam for Miss impressions</small>
         </div>
       </div>
     </footer><!-- build:js js/libs/libs.js-->
     <script src="static/js/jquery.js"></script>
     <script src="static/libs/svg4everybody.js"></script>
     <script src="static/libs/slick/slick.min.js"></script>
+    <script src="static/libs/barba.min.js"></script>
     <script src="static/libs/validate/jquery.validate.min.js"></script><!-- endbuild-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js"></script>
     <script src="static/js/main.js"></script>

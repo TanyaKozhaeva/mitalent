@@ -28,6 +28,8 @@
   &__icon
     width: 15px
     height: 15px
+    &_arrow
+      display: none
   &::before,
   &::after
     font-size: 9px
@@ -40,19 +42,30 @@
   &::after
     content: "<"
     left: 3px
-  &_yellow &::before
-  &_yellow &::after
+  &_dot &::before
+  &_dot &::after
+  &_arrow &::before
+  &_arrow &::after
     display: none
 
 
-  &_yellow
+  &_dot
     top: -8px
     left: -8px
     animation: cursor .2s ease-in forwards
     background-color: darken($bg-color, 30%)
     .cursor__icon
       display: none
+  &_arrow
+    background-color: darken($bg-color, 30%)
+    & .cursor__icon
+      &_arrow
+        display: inline-block
+      &_grab
+        display: none
 
+.interactive
+  cursor: none
 @keyframes cursor
   0%
     width: 40px

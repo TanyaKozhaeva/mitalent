@@ -1,4 +1,5 @@
 ;
+//CUstom Cursor
 function makeCustomCursor() {
   var clientX = -100;
   var clientY = -100;
@@ -17,13 +18,15 @@ function makeCustomCursor() {
   };
   var initHovers = function() {
     var handleMouseEnter = function(e) {
-      customCursor.classList.add("cursor_yellow")
       var currentTarget = e.currentTarget;
+      customCursor.classList.add("cursor_" + currentTarget.getAttribute('data-cursor'))
       var currentTargetBox = currentTarget.getBoundingClientRect()
       isStuck = true;
     };
     var handleMouseLeave = function() {
-      customCursor.classList.remove("cursor_yellow")
+      //customCursor.classList.remove("cursor_dot");
+      //!!!!!!!!!!!!!!!!!!!!!!!!
+      customCursor.classList = ['cursor'];
       isStuck = false;
     };
 
@@ -38,7 +41,7 @@ initHovers();
 };
 makeCustomCursor();
 
-
+//Screen Slider
 function makeMainScreenSlider(){
 // Params
 let mainSliderSelector = '.main-slider',
@@ -147,24 +150,119 @@ navSlider.controller.control = mainSlider;
 };
 makeMainScreenSlider();
 
+//Nav
 (function() {
-var navBtn = document.getElementById('toggle-navigation-btn');
-//var mainNav = document.getElementById('mainNav')
+var navBtn = document.getElementById('toggle-navigation-btn'),
+    mainNav = document.getElementById('main-nav'),
+    closeBtn = document.querySelector('.main-nav__close-btn');
+
 navBtn.onclick = function() {
-	navBtn.classList.toggle('toggle-navigation-btn_closed');
-	//mainNav.classList.toggle('nav_open')
+	//navBtn.classList.toggle('toggle-navigation-btn_closed');
+	mainNav.classList.add('main-nav_show')
+};
+
+closeBtn.onclick = function(){
+  mainNav.classList.remove('main-nav_show')
 }
 }());
 
-
-
-
-
-
+//Slider
 $('.js-portfolio-slider ').slick({
   infinite: true,
   slidesToShow: 3,
   slidesToScroll: 1,
   arrows: false,
-  dots: true
+  dots: true,
+  responsive: [
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
 });
+
+//Barba.js
+Barba.Pjax.start();
+// var HideShowTransition = Barba.BaseTransition.extend({
+//   start: function() {
+//     console.log('start')
+//     this.newContainerLoading.then(this.finish.bind(this));
+//   },
+//
+//   finish: function() {
+//     console.log('finish')
+//     document.body.scrollTop = 0;
+//     this.done();
+//   }
+// });
+// Barba.Pjax.getTransition = function() {
+//   return HideShowTransition;
+// };
+
+
+
+var FadeTransition = Barba.BaseTransition.extend({
+  start: function() {
+      Promise
+      .all([this.newContainerLoading, this.zoom()])
+      .then(this.showNew.bind(this));
+  },
+
+  zoom: function() {
+    var deferred = Barba.Utils.deferred();
+    deferred.resolve();
+    return deferred.promise;
+  },
+
+  showNew: function() {
+    this.done();
+  },
+
+  fadeOut: function() {
+    /**
+     * this.oldContainer is the HTMLElement of the old Container
+     */
+
+    return $(this.oldContainer).animate({ opacity: 0 }).promise();
+  },
+
+  fadeIn: function() {
+    /**
+     * this.newContainer is the HTMLElement of the new Container
+     * At this stage newContainer is on the DOM (inside our #barba-container and with visibility: hidden)
+     * Please note, newContainer is available just after newContainerLoading is resolved!
+     */
+
+    var _this = this;
+    var $el = $(this.newContainer);
+
+    $(this.oldContainer).hide();
+
+    $el.css({
+      visibility : 'visible',
+      opacity : 0
+    });
+
+    $el.animate({ opacity: 1 }, 400, function() {
+      /**
+       * Do not forget to call .done() as soon your transition is finished!
+       * .done() will automatically remove from the DOM the old Container
+       */
+
+      _this.done();
+    });
+  }
+});
+Barba.Pjax.getTransition = function() {
+  return FadeTransition;
+};

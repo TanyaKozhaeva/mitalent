@@ -20,6 +20,9 @@
     padding-top: 45%
     position: relative
     overflow: hidden
+    display: none
+    @media screen and (min-width: 901px)
+      display: block
     & img
       width: 100%
       height: auto
@@ -32,22 +35,39 @@
         height: 100%
         width: auto
   &__text-panel
-    width: 60%
     flex: 1
-    padding: 20px 74px 20px 100px
+    padding: 20px
+    @media screen and (min-width: 901px)
+      width: 60%
+    @media screen and (min-width: 601px)
+      padding-right: 74px
+      padding-left: 100px
+  &__title-panel
+    @media screen and (max-width: 600px)
+      padding: 0 20px
   &__article
-    padding: 20px 74px 20px 0px
+    padding: 20px 20px 20px 0px
     font-family: $font-1-simple
+    @media screen and (min-width: 601px)
+      display: flex
+    &-text-wrap
+      flex: 2
+      margin-bottom: 40px
+      @media screen and (min-width: 601px)
+        margin-right: 5%
+        margin-bottom: 0
     &-header
       color: $main-color-dark
       margin-bottom: 18px
+
     &-pic
       display: block
       width: 38%
+      flex: 1 0 150px
       float: left
-      margin-right: 13%
-      @media screen and (min-width: 601px)
-        height: 100%
+      margin-right: 5%
+      @media screen and (min-width: 900px)
+        margin-right: 13%
       & picture
         width: 100%
         & img
@@ -97,6 +117,7 @@
     justify-content: center
     @media screen and (max-width: 600px)
       & .social
+        justify-content: center
         &__item:not(:last-child)
             margin-right: 30px
     @media screen and (min-width: 601px)
@@ -116,15 +137,20 @@
     display: flex
   &__prev
     display: block
-    width: 154px
-    height: 84px
+    width: 104px
+    height: 64px
     flex-shrink: 0
     overflow: hidden
-    margin-right: 48px
+    margin-right: 28px
     & img
       width: 100%
       height: auto
       min-height: 100%
+    @media screen and (min-width: 601px)
+      width: 154px
+      height: 84px
+      margin-right: 48px
+
   &__text
     font-size: 14px
     margin-bottom: .8em
@@ -138,10 +164,9 @@
     color: $inactive-el-color
 .portfolio
   display: flex
-  height: 386px
   &__item
     position: relative
-    height: 386px
+    //height: 386px
     &:hover &-descr
       opacity: 1
       visibility: visible

@@ -25,17 +25,20 @@ html(lang="en")
 		
 		title
 			block title
-	body
+	body 
 		include modules/preloader/preloader
 		include modules/header/header
 		include modules/menu/menu
 		include modules/button/button
-		block content
+		#barba-wrapper
+			.barba-container
+				block content
 		include modules/footer/footer
 		<!-- build:js js/libs/libs.js-->
 			script(src="static/js/jquery.js")
 			script(src="static/libs/svg4everybody.js")
 			script(src="static/libs/slick/slick.min.js")
+			script(src="static/libs/barba.min.js")
 			script(src="static/libs/validate/jquery.validate.min.js")
 		<!-- endbuild-->
 		script(src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js")
