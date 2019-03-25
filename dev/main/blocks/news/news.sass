@@ -1,0 +1,55 @@
+.pic-puzzle
+  $offset: 20px
+  display: flex
+  &__column
+    position: relative
+    &:not(:last-child)
+      margin-right: $offset
+    &_width
+      &_lg
+        flex: 3
+      &_sm
+        flex: 1
+  &__line
+    display: flex
+    &:not(:last-child)
+      margin-bottom: $offset
+  &__small-block
+    flex: 1
+    padding-top: 35%
+    position: relative
+    &:not(:last-child)
+      margin-right: $offset
+  &__content-wrap
+    width: 100%
+    height: 100%
+    position: absolute
+    top: 0
+    left: 0
+    display: flex
+    &_vertical
+      flex-direction: column
+  &__text
+    font-size: 18px
+    padding: .6em
+    &_accent
+      width: 30%
+      font-size: 24px
+      padding: 1em
+      display: flex
+      flex-direction: column
+      background-color: $bg-color
+      color: $main-color-light
+      & .link-text
+        margin-top: auto
+      & .link-date
+        color: $main-color-light
+  &__title
+    line-height: 1.4
+    margin-bottom: .6em
+  &__pic
+    flex: 1
+    height: 100%
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center

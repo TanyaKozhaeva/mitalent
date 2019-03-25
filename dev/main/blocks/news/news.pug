@@ -7,8 +7,8 @@ mixin mediaLinks(data)
             source(srcset="static/img/content/portfolio/"+ item.img + ".jpg, static/img/content/portfolio/" + item.img + ".jpg 2x")
             img(src="static/img/content/portfolio/" + item.img + ".jpg" alt= item.text) 
           .profile-media-links__text-box
-            p.profile-media-links__text= item.text
-            span.profile-media-links__date= item.date
+            p.profile-media-links__text.link-text.link-text_color_dark= item.text
+            span.profile-media-links__date.link-date= item.date
 mixin portfolioItem(data)
   each item in data
     .portfolio__item
@@ -47,6 +47,31 @@ mixin portfolioItem(data)
           span.show-more-btn__text Explore more 
           +icon('arrow', 'show-more-btn__icon')  
           
+    .profile__puzzle.pic-puzzle
+      .pic-puzzle__column.pic-puzzle__column_width_lg
+        .pic-puzzle__line
+          .pic-puzzle__small-block
+            .pic-puzzle__content-wrap
+              .pic-puzzle__text.pic-puzzle__text_accent
+                h3.pic-puzzle__title.link-text Use your reset button to change your vibration
+                span.pic-puzzle__date.link-date 8 march 2020
+              .pic-puzzle__pic(style="background-image: url(static/img/content/puzzle/puzzle1.jpg)")
+        .pic-puzzle__line
+          .pic-puzzle__small-block
+            .pic-puzzle__content-wrap.pic-puzzle__content-wrap_vertical
+              .pic-puzzle__pic(style="background-image: url(static/img/content/puzzle/puzzle3.jpg)")
+              .pic-puzzle__text
+                h3.pic-puzzle__title.link-text.link-text_color_dark Dream interpretation common symbols and their meanings 
+                span.pic-puzzle__date.link-date 8 march 2020
+          .pic-puzzle__small-block
+            .pic-puzzle__content-wrap.pic-puzzle__content-wrap_vertical
+              .pic-puzzle__pic(style="background-image: url(static/img/content/puzzle/puzzle4.jpg)")
+      .pic-puzzle__column.pic-puzzle__column_width_sm
+        .pic-puzzle__content-wrap.pic-puzzle__content-wrap_vertical
+          .pic-puzzle__pic(style="background-image: url(static/img/content/puzzle/puzzle2.jpg)")
+          .pic-puzzle__text
+            h3.pic-puzzle__title.link-text.link-text_color_dark Motivation and your personal vision an anbeatable force
+            span.pic-puzzle__date.link-date 8 march 2020
     .portfolio.js-portfolio-slider 
         +portfolioItem([
           {'name': 'Keith Ruiz',

@@ -197,6 +197,21 @@
     opacity: 0;
     visibility: hidden; }
 
+.link-text {
+  font-family: "Nunito-SemiBold", Arial, Helvetica, sans-serif;
+  font-size: .875em;
+  text-transform: capitalize;
+  color: #fff; }
+  .link-text_color_accent {
+    color: #c8dede; }
+  .link-text_color_dark {
+    color: #1a1a1d; }
+
+.link-date {
+  font-family: "Nunito-SemiBold", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #696970; }
+
 .main-nav {
   padding: 160px 5vw 0;
   position: fixed;
@@ -781,15 +796,7 @@
         height: 84px;
         margin-right: 48px; } }
   .profile-media-links__text {
-    font-size: 14px;
-    margin-bottom: .8em;
-    text-transform: capitalize;
-    color: #fff; }
-    .profile-media-links__text_color_accent {
-      color: #c8dede; }
-  .profile-media-links__date {
-    font-size: 12px;
-    color: #696970; }
+    margin-bottom: .8em; }
 
 .portfolio {
   display: -ms-flexbox;
@@ -881,3 +888,67 @@
 
 .slick-dots li button:before {
   font-size: 30px; }
+
+.pic-puzzle {
+  display: -ms-flexbox;
+  display: flex; }
+  .pic-puzzle__column {
+    position: relative; }
+    .pic-puzzle__column:not(:last-child) {
+      margin-right: 20px; }
+    .pic-puzzle__column_width_lg {
+      -ms-flex: 3;
+          flex: 3; }
+    .pic-puzzle__column_width_sm {
+      -ms-flex: 1;
+          flex: 1; }
+  .pic-puzzle__line {
+    display: -ms-flexbox;
+    display: flex; }
+    .pic-puzzle__line:not(:last-child) {
+      margin-bottom: 20px; }
+  .pic-puzzle__small-block {
+    -ms-flex: 1;
+        flex: 1;
+    padding-top: 35%;
+    position: relative; }
+    .pic-puzzle__small-block:not(:last-child) {
+      margin-right: 20px; }
+  .pic-puzzle__content-wrap {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: -ms-flexbox;
+    display: flex; }
+    .pic-puzzle__content-wrap_vertical {
+      -ms-flex-direction: column;
+          flex-direction: column; }
+  .pic-puzzle__text {
+    font-size: 18px;
+    padding: .6em; }
+    .pic-puzzle__text_accent {
+      width: 30%;
+      font-size: 24px;
+      padding: 1em;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+          flex-direction: column;
+      background-color: #c8dede;
+      color: #fff; }
+      .pic-puzzle__text_accent .link-text {
+        margin-top: auto; }
+      .pic-puzzle__text_accent .link-date {
+        color: #fff; }
+  .pic-puzzle__title {
+    line-height: 1.4;
+    margin-bottom: .6em; }
+  .pic-puzzle__pic {
+    -ms-flex: 1;
+        flex: 1;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; }
