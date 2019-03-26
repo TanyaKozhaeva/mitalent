@@ -1,7 +1,6 @@
 .header
   $size: 86px
   height: $size
-  line-height: $size
   display: flex
   padding: 0 3%
   justify-content: space-between
@@ -16,6 +15,8 @@
     line-height: $size - 20
     margin-bottom: -$size + 20
   &__panel
+    display: flex
+    align-items: center
     *
       cursor: none !important
   &__link

@@ -141,7 +141,7 @@
     height: 64px
     flex-shrink: 0
     overflow: hidden
-    margin-right: 28px
+    margin-right: 6%
     & img
       width: 100%
       height: auto
@@ -149,11 +149,11 @@
     @media screen and (min-width: 601px)
       width: 154px
       height: 84px
-      margin-right: 48px
   &__text
-    margin-bottom: .8em 
+    margin-bottom: .8em
 .portfolio
   display: flex
+  flex-wrap: wrap
   &__item
     position: relative
     //height: 386px
@@ -181,6 +181,15 @@
       opacity: 0
       visibility: hidden
       transition: all .3s ease-in-out
+    &_light &-descr
+      background-color: rgba(200, 222, 222, .8)
+    &_light &-btn
+      background-color: $main-color-light
+      & .icon
+        fill: $main-color-dark
+    &_light &-text
+      color: $main-color-light
+
     &-btn-box
       text-align: right
     &-name
@@ -207,31 +216,6 @@
         transform: rotate(321deg)
         fill: $main-color-light
         margin-top: 12px
-.tabs
-  display: flex
-  justify-content: center
-  &__item
-    flex-grow: 1
-    flex-shrink: 0
-  &__btn
-    padding: 15px 33px
-    line-height: 16px
-    font-family: $font-2-bold
-    font-size: 10px
-    color: $inactive-el-color
-    text-transform: uppercase
-    position: relative
-    &_active
-      color: $main-color-dark
-      &::before
-        content: ''
-        display: block
-        width: 100%
-        height: 2px
-        background-color: $main-color-dark
-        position: absolute
-        bottom: 0
-        left: 0
 
 
 //SLICK CUSTOM

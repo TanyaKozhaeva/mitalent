@@ -53,3 +53,77 @@
     background-size: cover
     background-repeat: no-repeat
     background-position: center
+
+.news
+  & .wrapper
+    & > *:not(header, .news__main-screen-blocks)
+      padding-top: 30px
+      padding-bottom: 30px
+  &__main-screen-blocks
+    display: flex
+    padding-bottom: 30px
+  &__column
+    display: flex
+    flex-direction: column
+    overflow: hidden
+    &_size
+      &_lg
+        width: 60%
+        margin-right: 40px !important
+        position: relative
+        margin-top: -106px
+        & .news__text
+          width: 80%
+          position: absolute
+          bottom: 10%
+          right: 5%
+          font-size: 24px
+          &::before
+            content: ''
+            width: 15%
+            height: 2px
+            background-color: $main-color-light
+            position: absolute
+            top: 50%
+            right: 0
+            transform: translateX(70%)
+    &:not(:last-child)
+      margin-right: 20px
+  &__pic
+    height: 100%
+    flex: 1
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
+  &__media-links
+    padding: 0
+  &__text
+    @extend .pic-puzzle__text
+  &__title
+    @extend .pic-puzzle__title
+  &__header
+    padding-left: 41%
+    padding-right: 0
+    margin-bottom: 20px
+    & .search-form
+      width: 250px
+      margin-right: 10%
+      &__block-form
+        display: flex
+        opacity: 1
+        visibility: visible
+  &__portfolio-list
+    & .portfolio__item
+      width: 25%
+      &-pic
+        padding-top: 110%
+        position: relative
+        & img
+          position: absolute
+          top: 0
+          left: 0
+          width: 100%
+          height: auto
+          min-height: 100%
+    &-tabs
+      margin-bottom: 60px

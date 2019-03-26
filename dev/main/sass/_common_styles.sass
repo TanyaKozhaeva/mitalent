@@ -63,7 +63,6 @@
         display: inline-block
       &_grab
         display: none
-
 .interactive
   cursor: none
 @keyframes cursor
@@ -73,14 +72,12 @@
   100%
     width: 16px
     height: 16px
-
 .section-title
   font-size: 30px
   line-height: 1.3
   text-transform: capitalize
   font-family: $font-1-simple
   color: $main-color-dark
-
 .btn-main
   $size: 68px
   text-align: center
@@ -116,7 +113,6 @@
     text-transform: uppercase
     border: 1px solid transparent
     transition: all .3s ease-in
-
 .show-more-btn
   font-size: 12px
   font-family: $font-2-bold
@@ -141,6 +137,11 @@
   display: flex
   align-items: center
   border-left: 1px solid $bg-color
+  &_size
+    &_sm
+      & .form__input
+        color: $inactive-el-color
+        font-size: 10px
   &__input
     width: 100%
     padding: 16px 33px 16px 52px
@@ -162,9 +163,6 @@
     height: 18px
     fill: $main-color-dark
     vertical-align: middle
-
-
-
 .search-form
   position: relative
   &__overlay
@@ -192,7 +190,6 @@
     display: none
     opacity: 0
     visibility: hidden
-
 .link-text
   font-family: $font-2-simple
   font-size: .875em
@@ -207,3 +204,30 @@
   font-family: $font-2-simple
   font-size: 12px
   color: $inactive-el-color
+.link-suptitle
+  font-family: $font-2-simple
+  color: $main-color-light
+  font-size: 10px
+  text-transform: uppercase
+.tabs
+  display: flex
+  justify-content: center
+  &__btn
+    padding: 15px 33px
+    line-height: 16px
+    font-family: $font-2-bold
+    font-size: 10px
+    color: $inactive-el-color
+    text-transform: uppercase
+    position: relative
+    &_active
+      color: $main-color-dark
+      &::before
+        content: ''
+        display: block
+        width: 100%
+        height: 2px
+        background-color: $main-color-dark
+        position: absolute
+        bottom: 0
+        left: 0

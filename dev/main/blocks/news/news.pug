@@ -4,15 +4,15 @@ mixin mediaLinks(data)
       li.profile-media-links__item
         a(href="#" target="_blank").profile-media-links__link
           picture.profile-media-links__prev
-            source(srcset="static/img/content/portfolio/"+ item.img + ".jpg, static/img/content/portfolio/" + item.img + ".jpg 2x")
-            img(src="static/img/content/portfolio/" + item.img + ".jpg" alt= item.text) 
+            source(srcset="static/img/content/puzzle/"+ item.img + ".jpg, static/img/content/puzzle/" + item.img + ".jpg 2x")
+            img(src="static/img/content/puzzle/" + item.img + ".jpg" alt= item.text) 
           .profile-media-links__text-box
             p.profile-media-links__text.link-text.link-text_color_dark= item.text
             span.profile-media-links__date.link-date= item.date
 mixin portfolioItem(data)
   each item in data
-    .portfolio__item
-      .portfolio__item-pic&attributes(attributes)
+    .portfolio__item&attributes(attributes)
+      .portfolio__item-pic
         img(src= item.link alt= item.name)
       .portfolio__item-descr
         .portfolio__item-btn-box
@@ -21,23 +21,84 @@ mixin portfolioItem(data)
         h4.portfolio__item-name= item.name
         p.portfolio__item-text= item.text 
 
-.news.profile 
-  .wrapper
-    +mediaLinks([
-    {'text': 'Burning desire golden key or red herring',
-    'date': '8 March, 2020',
-    'img': 'derek-anderson1'},
-    {'text': '5 reasons to keep your beauty salon reservation',
-    'date': '8 March, 2020',
-    'img': 'derek-anderson1'},
-    {'text': 'Motivation is the first step to succes',
-    'date': '8 March, 2020',
-    'img': 'derek-anderson1'},
-    {'text': 'How to set intentions that energize you',
-    'date': '8 March, 2020',
-    'img': 'derek-anderson1'}
-    ])(class="news__media-links")
-    
+.news
+  .wrapper 
+    header.header.news__header
+      img(src="static/svg/logo.png").logo.header__logo
+      .header__panel
+        .header__search-form.search-form
+          form.form.form_size_sm.search-form__block-form
+            input(type="search" placeholder="Search post" name="main-search").form__input
+            button(type="submit").form__btn  
+              img(src="static/svg/search.svg" alt="search icon").form__icon
+        button(type="button" data-cursor="dot").toggle-navigation-btn.header__sandwich.interactive#toggle-navigation-btn
+          span.hidden-text Close navigation
+          span.toggle-navigation-btn__line        
+    .news__main-screen-blocks
+      .news__column.news__column_size_lg
+        .news__pic(style="background-image: url(static/img/content/puzzle/puzzle5.jpg)")
+        .news__text
+          span.news__title-suptitle.link-suptitle Featured news
+          h3.news__title.link-text A starter guide to self improvement
+      .news__column
+        .news__pic(style="background-image: url(static/img/content/puzzle/puzzle6.jpg)")
+        .news__text
+          h3.news__title.link-text.link-text_color_dark Dream interpretation common symbols and their meanings
+          span.news__date.link-date 8 march 2020
+      .news__column
+        +mediaLinks([
+          {'text': 'Burning desire golden key or red herring',
+          'date': '8 March, 2020',
+          'img': 'puzzle7'},
+          {'text': '5 reasons to keep your beauty salon reservation',
+          'date': '8 March, 2020',
+          'img': 'puzzle8'},
+          {'text': 'Motivation is the first step to succes',
+          'date': '8 March, 2020',
+          'img': 'puzzle9'},
+          {'text': 'How to set intentions that energize you',
+          'date': '8 March, 2020',
+          'img': 'puzzle7'}
+          ])(class="news__media-links")
+    .news__portfolio-list
+      ul.news__portfolio-list-tabs.tabs
+        li.tabs__item
+          button(type="button" data-tab="#").tabs__btn.tabs__btn_active Actor
+        li.tabs__item
+          button(type="button" data-tab="#").tabs__btn Musician
+        li.tabs__item
+          button(type="button" data-tab="#").tabs__btn Comedian
+        li.tabs__item
+          button(type="button" data-tab="#").tabs__btn Model
+      .portfolio
+        +portfolioItem([
+          {'name': 'Keith Ruiz',
+          'text': 'comedian',
+          'link': 'static/img/content/portfolio/portfolio1.jpg'},
+          {'name': 'Keith Ruiz',
+          'text': 'comedian',
+          'link': 'static/img/content/portfolio/portfolio2.jpg'},
+          {'name': 'Keith Ruiz',
+          'text': 'comedian',
+          'link': 'static/img/content/portfolio/portfolio3.jpg'},
+          {'name': 'Keith Ruiz',
+          'text': 'comedian',
+          'link': 'static/img/content/portfolio/portfolio4.jpg'}
+        ])(class="portfolio__item_light")
+        +portfolioItem([
+        {'name': 'Keith Ruiz',
+        'text': 'comedian',
+        'link': 'static/img/content/portfolio/portfolio5.jpg'},
+        {'name': 'Keith Ruiz',
+        'text': 'comedian',
+        'link': 'static/img/content/portfolio/portfolio6.jpg'},
+        {'name': 'Keith Ruiz',
+        'text': 'comedian',
+        'link': 'static/img/content/portfolio/portfolio7.jpg'},
+        {'name': 'Keith Ruiz',
+        'text': 'comedian',
+        'link': 'static/img/content/portfolio/portfolio1.jpg'}
+        ])(class="portfolio__item_light")  
     section.profile__section
       .profile__title-panel
         h3.profile__article-title.profile__article-title_line.section-title Our clients
@@ -45,9 +106,8 @@ mixin portfolioItem(data)
         p.profile__paragraph Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua.
         a(href="#").profile__show-more.show-more-btn
           span.show-more-btn__text Explore more 
-          +icon('arrow', 'show-more-btn__icon')  
-          
-    .profile__puzzle.pic-puzzle
+          +icon('arrow', 'show-more-btn__icon')   
+    .news__puzzle.pic-puzzle
       .pic-puzzle__column.pic-puzzle__column_width_lg
         .pic-puzzle__line
           .pic-puzzle__small-block
@@ -72,27 +132,4 @@ mixin portfolioItem(data)
           .pic-puzzle__text
             h3.pic-puzzle__title.link-text.link-text_color_dark Motivation and your personal vision an anbeatable force
             span.pic-puzzle__date.link-date 8 march 2020
-    .portfolio.js-portfolio-slider 
-        +portfolioItem([
-          {'name': 'Keith Ruiz',
-          'text': 'comedian',
-          'link': 'static/img/content/portfolio/portfolio1.jpg'},
-          {'name': 'Keith Ruiz',
-          'text': 'comedian',
-          'link': 'static/img/content/portfolio/portfolio2.jpg'},
-          {'name': 'Keith Ruiz',
-          'text': 'comedian',
-          'link': 'static/img/content/portfolio/portfolio3.jpg'},
-          {'name': 'Keith Ruiz',
-          'text': 'comedian',
-          'link': 'static/img/content/portfolio/portfolio4.jpg'},
-          {'name': 'Keith Ruiz',
-          'text': 'comedian',
-          'link': 'static/img/content/portfolio/portfolio5.jpg'},
-          {'name': 'Keith Ruiz',
-          'text': 'comedian',
-          'link': 'static/img/content/portfolio/portfolio6.jpg'},
-          {'name': 'Keith Ruiz',
-          'text': 'comedian',
-          'link': 'static/img/content/portfolio/portfolio7.jpg'}
-        ]) 
+    
