@@ -45,7 +45,7 @@ mixin portfolioItem(data)
         .news__text
           h3.news__title.link-text.link-text_color_dark Dream interpretation common symbols and their meanings
           span.news__date.link-date 8 march 2020
-      .news__column
+      .news__column.news__media-links 
         +mediaLinks([
           {'text': 'Burning desire golden key or red herring',
           'date': '8 March, 2020',
@@ -59,7 +59,7 @@ mixin portfolioItem(data)
           {'text': 'How to set intentions that energize you',
           'date': '8 March, 2020',
           'img': 'puzzle7'}
-          ])(class="news__media-links")
+          ])
     .news__portfolio-list
       ul.news__portfolio-list-tabs.tabs
         li.tabs__item

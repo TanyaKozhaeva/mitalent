@@ -1,0 +1,34 @@
+.blog
+  &__article
+    width: 70%
+    margin: 0 auto
+.blog-article
+  display: flex
+  & > *:not(:last-child)
+    margin-right: 36px
+  &__col
+    &_lg
+      flex: 2
+  &__author-pic
+    width: 30px
+    height: 30px
+    border-radius: 50%
+    overflow: hidden
+    & picture
+      width: 100%
+      height: auto
+      img
+        width: auto
+        height: 100%
+  &__author-info
+    display: flex
+  &__author-text
+    margin-right: 20px
+    text-align: right
+    & > *
+      display: block
+      &:not(:last-child)
+        margin-bottom: 5px
+  &__author-name
+    font-size: 16px
+    font-family: $font-2-bold
