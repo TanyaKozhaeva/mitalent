@@ -11,7 +11,17 @@ block content
 
 
 
-  
+mixin mediaLinks(data)
+	ul.profile-media-links&attributes(attributes)
+		each item in data
+			li.profile-media-links__item
+				a(href="#" target="_blank").profile-media-links__link
+					picture.profile-media-links__prev
+						source(srcset="static/img/content/puzzle/"+ item.img + ".jpg, static/img/content/puzzle/" + item.img + ".jpg 2x")
+						img(src="static/img/content/puzzle/" + item.img + ".jpg" alt= item.text)
+					.profile-media-links__text-box
+						p.profile-media-links__text.link-text.link-text_color_dark= item.text
+						span.profile-media-links__date.link-date= item.date  
 mixin icon(name,mod)
 	- mod = mod || ''
 	svg(class="icon icon-" + name + ' ' + mod aria-hidden="true")

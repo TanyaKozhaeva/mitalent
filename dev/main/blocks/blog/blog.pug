@@ -1,7 +1,8 @@
 .blog 
+  include ../../modules/header/header
   .wrapper 
     article.blog__article.blog-article 
-      .blog-article__col
+      .blog-article__author-col
         .blog-article__author-info
           .blog-article__author-text
             span.blog-article__author-name John Eve
@@ -13,11 +14,20 @@
         ul.blog-article__links
           li.blog-article__links-item
       .blog-article__col.blog-article__col_lg 
-        h2.section-title Control your own level of motivation
-        span.link-suptitle Featured news
-        p.paragraph Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo concequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo concequat.
+        h2.blog-article__title.section-title Control your own level of motivation
+        span.blog-article__suptitle.link-suptitle.link-suptitle_color_dark Featured news
+        p.blog-article__p.paragraph Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo concequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo concequat.
+    .blog__video
+      .video 
+        .video__attributes
+          button(type="button" title="play" data-cursor="play")#playBtn.video__playBtn.interactive
+            +icon('play', 'video__playBtn-icon')
+        button(type="button" title='pause' data-cursor="play")#pauseBtn.video__pauseBtn.video__pauseBtn_hidden.interactive ||
+        .video__poster(style="background-image: url(static/img/content/video-poster.jpg)")
+        video(controls preload="auto" loop)#video.video__file
+          source(src="static/video/testimonials-video.mp4" type="video/mp4")    
     article.blog__article.blog-article 
-      .blog-article__col
+      .blog-article__author-col
         .blog-article__author-info
           .blog-article__author-text
             span.blog-article__author-name John Eve
@@ -31,6 +41,33 @@
       .blog-article__col 
         blockquote.blog-article__cite 
           p.blog-article__cite-text
-            !='You can listen to <a href="#"><cite>@wiggywalsh</cite></a> <a href="#"><cite>@AdamBuxton</cite></a> talking about Parentiong on the iPlayer now! You`re Doing It Wrong is available here: <a href="#">bbc.in</a>'
+            !='"You can listen to <a href="#" class="blog-article__cite-link"><cite>@wiggywalsh</cite></a> <a href="#" class="blog-article__cite-link"><cite>@AdamBuxton</cite></a> talking about Parentiong on the iPlayer now! You`re Doing It Wrong is available here: <a href="#" class="blog-article__cite-link blog-article__cite-link_color_accent">bbc.in</a>"'
       .blog-article__col.blog-article__col_lg 
-        p.paragraph Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo concequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo concequat.
+        p.blog-article__p.paragraph Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud.
+        p.blog-article__p.paragraph Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo concequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo concequat.
+    ul.blog__links 
+      li.blog__links-item.blog__links-item_lg
+        a(href="#" style="background-image: url(static/img/content/eclipse-4.jpg)").blog__links-pic
+        .blog__links-text
+          span.blog__links-suptitle.link-suptitle Featured news
+          h3.blog__links-title.link-text A starter guide to self improvement 
+      li.blog__links-item
+        a(href="#" style="background-image: url(static/img/content/eclipse-5.jpg)").blog__links-pic
+    .blog__media-links
+      h2.section-title.section-title_line.blog__title You may also like
+      +mediaLinks([
+        {'text': 'Burning desire golden key or red herring',
+        'date': '8 March, 2020',
+        'img': 'puzzle7'},
+        {'text': '5 reasons to keep your beauty salon reservation',
+        'date': '8 March, 2020',
+        'img': 'puzzle8'},
+        {'text': 'Motivation is the first step to succes',
+        'date': '8 March, 2020',
+        'img': 'puzzle9'},
+        {'text': 'How to set intentions that energize you',
+        'date': '8 March, 2020',
+        'img': 'puzzle7'}
+        ])(class="js-medialinks-slider") 
+  include ../../modules/footer/footer
+      

@@ -191,6 +191,56 @@ $('.js-portfolio-slider ').slick({
   ]
 });
 
+$('.js-medialinks-slider').slick({
+  infinite: true,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  arrows: false,
+  dots: true,
+  responsive: [
+    {
+      breakpoint: 800,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
+
+
+
+//CUSTOM VIDEO CONTROLS
+(function() {
+  var video = document.getElementById('video'),
+      videoPlayBtn = document.getElementById('playBtn'),
+      videoPauseBtn = document.getElementById('pauseBtn'),
+      videoPoster = document.querySelector('.video__poster');
+      video.controls = false;
+      videoPlayBtn.onclick = function() {
+        videoPoster.classList.add('video__poster_hidden');
+        this.classList.add('video__playBtn_hidden');
+        videoPauseBtn.classList.remove('video__pauseBtn_hidden');
+        video.play();
+      };
+
+  videoPauseBtn.onclick = function() {
+    videoPoster.classList.remove('video__poster_hidden');
+    this.classList.add('video__pauseBtn_hidden');
+    videoPlayBtn.classList.remove('video__playBtn_hidden');
+    video.pause();
+  };
+}());
+
+
+
 //Barba.js
 Barba.Pjax.start();
 // var HideShowTransition = Barba.BaseTransition.extend({

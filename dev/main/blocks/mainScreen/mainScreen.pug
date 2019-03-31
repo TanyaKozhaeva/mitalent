@@ -1,7 +1,9 @@
 .mainSlider
+  include ../../modules/header/header
   .cursor
     img(src="static/svg/drag.svg" alt="cursor").cursor__icon.cursor__icon_grab
     img(src="static/svg/arrow.svg" alt="cursor").cursor__icon.cursor__icon_arrow
+    span.cursor__icon.cursor__icon_play Play
   .mainSlider__social
     include ../../modules/social/social
   .swiper-container.main-slider.loading
@@ -22,7 +24,7 @@
             a(href="profile.html" data-cursor="dot").swiper-link.btn-main.interactive
               span.btn-main__text View profile
               span.btn-main__pic
-                +icon("play", "btn-main__icon")
+                +icon("play", "btn-main__icon") 
           .content
             h2.title Derek Anderson
             p.caption Btitish comedian
