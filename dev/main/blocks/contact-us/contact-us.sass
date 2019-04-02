@@ -1,0 +1,87 @@
+.contact-us
+  &__inner
+    position: relative
+    @media screen and (min-width: 601px)
+      &::before
+        content: ''
+        width: 38%
+        height: 100%
+        background: url('../../static/img/content/video-poster.jpg') 28% top no-repeat
+        background-size: cover
+        position: absolute
+        top: 0
+        left: 0
+  &__wrapper
+    @media screen and (min-width: 601px)
+      display: flex
+      position: relative
+      &::before
+        content: ''
+        width: 30%
+        height: 200px
+        background-color: $bg-color
+        position: absolute
+        top: 50%
+        right: 0
+        transform: translateY(-50%)
+        z-index: -1
+  & .header
+    @media screen and (min-width: 601px)
+      color: $main-color-light
+      & .toggle-navigation-btn__line
+        background-color: $main-color-light
+  &__title-block
+    background-size: cover
+    background-position: center top
+    background-repeat: no-repeat
+    margin-top: -86px
+    @media screen and (min-width: 601px)
+      width: 35%
+  &__text-block
+    padding: 20px 0
+    box-sizing: border-box
+    background-color: $main-color-light
+    @media screen and (min-width: 601px)
+      width: 65%
+      padding: 0 6%
+      padding-top: calc(60px + 86px)
+      margin-top: -86px
+    @media screen and (min-width: 801px)
+      width: 48%
+  &__contacts-block
+    margin: 0 -2%
+  &__title
+    font-size: 40px
+    margin-top: 38%
+    @media screen and (min-width: 801px)
+      font-size: 60px
+    @media screen and (min-width: 601px)
+      color: $main-color-light
+      & span
+        display: block
+  &__link
+    display: inline-flex
+    margin: 0 2%
+    margin-bottom: 40px
+    @media screen and (min-width: 1024px)
+      width: 45%
+  &__p
+    font-family: $font-1-simple
+    line-height: 1.6
+    margin-bottom: 60px
+    &::first-letter
+      font-size: 25px
+      line-height: 1.4
+      font-family: $font-1-bold
+  &__link-text
+    display: block
+    font-size: 12px
+    font-family: $font-2-simple
+    color: $inactive-el-color
+    white-space: nowrap
+    &:not(:last-child)
+      margin-bottom: 1em
+  &__icon
+    width: 15px
+    height: 15px
+    margin-right: 25px

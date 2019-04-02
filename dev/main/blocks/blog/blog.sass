@@ -2,18 +2,25 @@
   & .header
     margin-bottom: 20px
   &__article
-    width: 70%
-    margin: 0 auto
-    padding: 60px 0
+    padding: 40px 0
+    @media screen and (min-width: 601px)
+      width: 70%
+      margin: 0 auto
+      padding: 60px 0
   &__links
-    display: flex
     margin-bottom: 60px
-    & > *
-      &:not(:last-child)
-        margin-right: 3%
+    @media screen and (max-width: 600px)
+      & > *
+        &:not(:last-child)
+          margin-bottom: 20px
+    @media screen and (min-width: 601px)
+      display: flex
+      & > *
+        &:not(:last-child)
+          margin-right: 3%
     &-item
       flex: 1
-      padding-top: 50%
+      padding-top: 65%
       position: relative
       @media screen and (min-width: 601px)
         padding-top: 30%
@@ -83,7 +90,9 @@
       display: block
 
   &__title
-    font-size: 40px
+    font-size: 25px
+    @media screen and (min-width: 601px)
+      font-size: 40px
   &__suptitle
     margin-bottom: 2em
   &__p:not(:last-child)
