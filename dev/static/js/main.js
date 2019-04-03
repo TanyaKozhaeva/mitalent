@@ -98,8 +98,8 @@ let mainSliderOptions = {
             let slideProgress = swiper.slides[i].progress,
                 innerOffset = swiper.width * interleaveOffset,
                 innerTranslate = slideProgress * innerOffset;
-            swiper.slides[i].querySelector(".slide-bgimg").style.transform =
-              "translate3d(" + innerTranslate + "px, 0, 0)";
+            swiper.slides[i].querySelector(".content").style.transform =
+              "translate3d(" + innerTranslate/3 + "px, 0, 0)";
           }
         },
         touchStart: function() {
@@ -112,7 +112,7 @@ let mainSliderOptions = {
           let swiper = this;
           for (let i = 0; i < swiper.slides.length; i++) {
             swiper.slides[i].style.transition = speed + "ms";
-            swiper.slides[i].querySelector(".slide-bgimg").style.transition =
+            swiper.slides[i].querySelector(".content").style.transition =
               speed + "ms";
           }
         }
@@ -263,56 +263,26 @@ Barba.Pjax.start();
 
 var FadeTransition = Barba.BaseTransition.extend({
   start: function() {
-      Promise
-      .all([this.newContainerLoading, this.zoom()])
-      .then(this.showNew.bind(this));
-  },
-
-  zoom: function() {
-    var deferred = Barba.Utils.deferred();
-    deferred.resolve();
-    return deferred.promise;
-  },
-
-  showNew: function() {
-    this.done();
+    Promise
+      .all([this.newContainerLoading, this.fadeOut()])
+      .then(this.fadeIn.bind(this));
   },
 
   fadeOut: function() {
-    /**
-     * this.oldContainer is the HTMLElement of the old Container
-     */
-
-    return $(this.oldContainer).animate({ opacity: 0 }).promise();
+    var deferred = Barba.Utils.deferred();
+    setTimeout(function(){
+      deferred.resolve();
+    }, 4000)
+    return deferred.promise;
   },
 
   fadeIn: function() {
-    /**
-     * this.newContainer is the HTMLElement of the new Container
-     * At this stage newContainer is on the DOM (inside our #barba-container and with visibility: hidden)
-     * Please note, newContainer is available just after newContainerLoading is resolved!
-     */
-
-    var _this = this;
-    var $el = $(this.newContainer);
-
-    $(this.oldContainer).hide();
-
-    $el.css({
-      visibility : 'visible',
-      opacity : 0
-    });
-
-    $el.animate({ opacity: 1 }, 400, function() {
-      /**
-       * Do not forget to call .done() as soon your transition is finished!
-       * .done() will automatically remove from the DOM the old Container
-       */
-
-      _this.done();
-    });
+    this.done();
   }
 });
+
+
+
 Barba.Pjax.getTransition = function() {
   return FadeTransition;
 };

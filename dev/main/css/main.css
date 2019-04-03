@@ -497,7 +497,10 @@
     font-family: "Nunito-ExtraBold", Arial, Helvetica, sans-serif;
     font-size: 14px;
     text-transform: uppercase;
-    padding: 16px 28px; }
+    padding: 16px 28px;
+    transition: color .3s ease-in; }
+    .header__link:hover {
+      color: #c8dede; }
     @media screen and (max-width: 1024px) {
       .header__link {
         display: none; } }
