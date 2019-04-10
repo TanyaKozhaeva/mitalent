@@ -124,6 +124,7 @@
 .btn-main
   $size: 68px
   text-align: center
+  overflow: hidden
   & > *
     height: $size
     line-height: $size - 3
@@ -136,11 +137,11 @@
     border-color: darken($bg-color, 10%)
     background-color: transparent
     color: darken($bg-color, 10%)
-
   &__pic
     width: $size
     background-color: $main-color-light
     transition: all .3s ease-in
+    position: relative
   &__icon
     width: 28px
     height: 35px
@@ -155,7 +156,6 @@
     letter-spacing: 2px
     text-transform: uppercase
     border: 1px solid transparent
-    transition: all .3s ease-in
 .show-more-btn
   font-size: 12px
   font-family: $font-2-bold
@@ -295,7 +295,6 @@
     text-align: center
     @media screen and (max-width: 580px)
       font-size: .8rem
-
   &__poster
     width: 100%
     height: 100%
@@ -357,3 +356,13 @@
   height: auto
   @media screen and (max-width: 600px)
     width: 132px
+.square
+  position: relative
+  &:before
+    content: ''
+    width: 30vw
+    height: 30vw
+    position: absolute
+    top: 0
+    right: 0
+    background-color: $bg-color

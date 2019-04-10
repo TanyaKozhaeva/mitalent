@@ -1,4 +1,4 @@
-.mainSlider
+.mainSlider.square
   include ../../modules/header/header
   .cursor
     img(src="static/svg/drag.svg" alt="cursor").cursor__icon.cursor__icon_grab
@@ -15,7 +15,7 @@
               span.btn-main__text View profile
               span.btn-main__pic
                 +icon("play", "btn-main__icon")
-          .content
+          .swiper-slide__content.content
             h2.title Giorgina Alson
             p.caption Young model 2020
         section.swiper-slide
@@ -25,7 +25,7 @@
               span.btn-main__text View profile
               span.btn-main__pic
                 +icon("play", "btn-main__icon") 
-          .content
+          .swiper-slide__content.content
             h2.title Derek Anderson
             p.caption Btitish comedian
         section.swiper-slide
@@ -35,7 +35,7 @@
               span.btn-main__text View profile
               span.btn-main__pic
                 +icon("play", "btn-main__icon")
-          .content
+          .swiper-slide__content.content
             h2.title Keith Ruiz
             p.caption Comedian
             

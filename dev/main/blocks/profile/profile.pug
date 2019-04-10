@@ -9,12 +9,23 @@ mixin portfolioItem(data)
             +icon('arrow', "portfolio__item-btn-icon")
         h4.portfolio__item-name= item.name
         p.portfolio__item-text= item.text 
-    
-section.profile
-  .wrapper
-    .profile__video-screen
-    section.profile__section
       
+section.profile.square
+  include ../../modules/header/header
+  .profile__video-screen
+    .profile__title-block.content
+      h2.title Giorgina Alson
+    .profile__video
+      .video 
+        .video__attributes
+          button(type="button" title="play" data-cursor="play")#playBtn.video__playBtn.interactive
+            +icon('play', 'video__playBtn-icon')
+        button(type="button" title='pause' data-cursor="play")#pauseBtn.video__pauseBtn.video__pauseBtn_hidden.interactive ||
+        .video__poster(style="background-image: url(static/img/content/giorgina.jpg)")
+        video(controls preload="auto" loop)#video.video__file
+          source(src="static/video/testimonials-video.mp4" type="video/mp4")    
+  .wrapper  
+    section.profile__section  
       article.profile__article
         .profile__article-pic 
           picture

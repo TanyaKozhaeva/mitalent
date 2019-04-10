@@ -4,14 +4,6 @@
   overflow: hidden
   & *
     cursor: none !important
-  &:before
-    content: ''
-    width: 30vw
-    height: 30vw
-    position: absolute
-    top: 0
-    right: 0
-    background-color: $bg-color
   &__social
     position: absolute
     top: 17vh
@@ -62,7 +54,7 @@
     max-width: 1124px
     height: 72vh
     max-height: 819px
-    background-position: center
+    background-position: center top
     background-size: cover
     @media screen and (max-width: 600px)
       width: 100%
@@ -78,34 +70,33 @@
 
       @media screen and (max-width: 600px)
         left: 0
-
-
   .entity-img
     display: none
-
-  .content
-    font-size: 16px
+  &__content
     position: absolute
     top: 16vh
-    left: 0
-    width: 50%
-    padding-left: 18%
-    color: $main-color-dark
-    @media screen and (max-width: 1300px)
-      font-size: 10px
+    left: 18%
     @media screen and (max-width: 600px)
-      font-size: 7px
-      padding-left: 3%
-    .title
-      font-size: 5.81em
-      margin-bottom: .46em
-      font-family: $font-1-simple
+      left: 3%
 
-    .caption
-      display: block
-      font-size: .9375em
-      font-family: $font-2-simple
-      text-transform: uppercase
+.content
+  font-size: 12px
+  width: 32%
+  color: $main-color-dark
+  @media screen and (max-width: 1300px)
+    font-size: 10px
+  @media screen and (max-width: 600px)
+    font-size: 7px
+  .title
+    font-size: 5.81em
+    margin-bottom: .46em
+    font-family: $font-1-simple
+
+  .caption
+    display: block
+    font-size: .9375em
+    font-family: $font-2-simple
+    text-transform: uppercase
 
 [class^="swiper-button-"]
   width: 44px

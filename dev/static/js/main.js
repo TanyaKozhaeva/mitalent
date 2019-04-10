@@ -1,5 +1,5 @@
 ;
-//CUstom Cursor
+//Custom Cursor
 function makeCustomCursor() {
   var clientX = -100;
   var clientY = -100;
@@ -98,8 +98,8 @@ let mainSliderOptions = {
             let slideProgress = swiper.slides[i].progress,
                 innerOffset = swiper.width * interleaveOffset,
                 innerTranslate = slideProgress * innerOffset;
-            swiper.slides[i].querySelector(".content").style.transform =
-              "translate3d(" + innerTranslate/3 + "px, 0, 0)";
+            swiper.slides[i].querySelector(".slide-bgimg").style.transform =
+              "translate3d(" + -innerTranslate/2 + "px, 0, 0)";
           }
         },
         touchStart: function() {
@@ -112,8 +112,8 @@ let mainSliderOptions = {
           let swiper = this;
           for (let i = 0; i < swiper.slides.length; i++) {
             swiper.slides[i].style.transition = speed + "ms";
-            swiper.slides[i].querySelector(".content").style.transition =
-              speed + "ms";
+            swiper.slides[i].querySelector(".slide-bgimg").style.transition =
+              speed * 1.5 + "ms";
           }
         }
       }
@@ -242,47 +242,64 @@ $('.js-medialinks-slider').slick({
 
 
 //Barba.js
-Barba.Pjax.start();
-// var HideShowTransition = Barba.BaseTransition.extend({
-//   start: function() {
-//     console.log('start')
-//     this.newContainerLoading.then(this.finish.bind(this));
-//   },
-//
-//   finish: function() {
-//     console.log('finish')
-//     document.body.scrollTop = 0;
-//     this.done();
-//   }
-// });
-// Barba.Pjax.getTransition = function() {
-//   return HideShowTransition;
-// };
-
-
-
-var FadeTransition = Barba.BaseTransition.extend({
+var lastElementClicked,
+    parentElementClicked,
+    socialLinks = document.querySelector('.mainSlider__social'),
+    navSlides = document.querySelector('.mainSlider__navWrap'),
+    contentBlock,
+    captionString,
+    slideBg;
+Barba.Dispatcher.on('linkClicked', function(el) {
+    lastElementClicked = el;
+    // !!!!!!!!!!!!!!!!!
+    parentElementClicked = el.closest('.swiper-slide');
+    contentBlock = parentElementClicked.querySelector('.content');
+    captionString = parentElementClicked.querySelector('.caption');
+    slideBg = parentElementClicked.querySelector('.slide-bgimg');
+  });
+var CustomTransition = Barba.BaseTransition.extend({
   start: function() {
-    Promise
-      .all([this.newContainerLoading, this.fadeOut()])
-      .then(this.fadeIn.bind(this));
+    Promise.all([this.newContainerLoading, this.zoom()]).then(
+      this.showNewPage.bind(this)
+    );
   },
 
-  fadeOut: function() {
-    var deferred = Barba.Utils.deferred();
-    setTimeout(function(){
-      deferred.resolve();
-    }, 4000)
+  zoom: function() {
+    var deferred = Barba.Utils.deferred(),
+        screenWidth = $(window).width();
+        screenHeight = $(window).height();
+    var tl = new TimelineMax({
+      onComplete: function() {
+        deferred.resolve();
+      }
+    });
+    tl
+    .to(socialLinks,2,{ease: Expo.easeOut, left: -(screenWidth/100 * 5)}, 0)
+    .to(navSlides,2,{ease: Expo.easeOut, x: 100, opacity: 0}, 0)
+    .to(contentBlock,1,{top: 51, scale: 1.3}, '-=1')
+    .to(lastElementClicked, .5,{opacity: 0}, '-=1.5')
+    .to(captionString,.5,{y: 20, opacity: 0}, '-=1.3')
+    .to(slideBg,2,{ease: Expo.easeOut, top: 104, width: screenWidth/100 * 70, height: screenWidth/100 * 29.17, left: screenWidth/100 * 15}, '-=1.2')
     return deferred.promise;
   },
 
-  fadeIn: function() {
+  // zoom: function() {
+  //   return new Promise(function(t) {
+  //     var tl = new TimelineMax();
+  //       tl.to('body', 1, {y:100, onComplete: function(){
+  //         t();
+  //       }});
+  //   })
+  // },
+
+  showNewPage: function() {
     this.done();
   }
 });
 
-
-
 Barba.Pjax.getTransition = function() {
-  return FadeTransition;
+  var transitionObj = CustomTransition;
+  return transitionObj;
 };
+
+Barba.Pjax.start();
