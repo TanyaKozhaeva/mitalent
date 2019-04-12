@@ -154,15 +154,37 @@ makeMainScreenSlider();
 (function() {
 var navBtn = document.getElementById('toggle-navigation-btn'),
     mainNav = document.getElementById('main-nav'),
-    closeBtn = document.querySelector('.main-nav__close-btn');
-
+    closeBtn = document.querySelector('.main-nav__close-btn'),
+    screenToAnimation = document.querySelector('.main-slider'),
+    screenWidth = $(window).width();
+navBtn.addEventListener('mouseenter', setWillChange);
 navBtn.onclick = function() {
-	//navBtn.classList.toggle('toggle-navigation-btn_closed');
-	mainNav.classList.add('main-nav_show')
+  var tl = new TimelineMax({
+    onComplete: function() {
+      mainNav.classList.add('main-nav_show')
+    }
+  });
+  tl
+  .to(screenToAnimation, .7,{scale: .95, top: 40})
+  .to(mainNav, .5,{x: 0}, '+=.2')
+	// mainNav.classList.add('main-nav_show')
 };
-
+function setWillChange(){
+  console.log('will')
+  mainNav.style.willChange = 'transform'
+  screenToAnimation.style.willChange = 'transform, top'
+}
 closeBtn.onclick = function(){
-  mainNav.classList.remove('main-nav_show')
+  var tlClose = new TimelineMax({
+    onStart: function() {
+      mainNav.classList.remove('main-nav_show')
+    }
+  });
+  tlClose
+  .to(mainNav, .3,{x: screenWidth * 1.2}, '+=1')
+  .to(screenToAnimation, .5,{ease: Expo.easeOut, top: 0, scale: 1})
+
+  // mainNav.classList.remove('main-nav_show')
 }
 }());
 

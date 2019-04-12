@@ -393,14 +393,20 @@
   height: 100%;
   background-color: #fff;
   z-index: 5000;
-  transition: all 1s;
-  opacity: 1;
-  visibility: hidden;
+  transform: translateX(120%);
   cursor: none; }
+  .main-nav::before {
+    content: '';
+    width: 18%;
+    height: 100%;
+    transform: translateX(-30%) skewX(12deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: inherit; }
   .main-nav * {
     cursor: none; }
   .main-nav_show {
-    opacity: 1;
     visibility: visible; }
   .main-nav__item {
     font-family: "Poppins-Medium", Arial, Helvetica, sans-serif;

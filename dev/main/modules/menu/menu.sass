@@ -8,14 +8,25 @@
   height: 100%
   background-color: $main-color-light
   z-index: 5000
-  transition: all 1s
-  opacity: 1
-  visibility: hidden
+  // transition: all 1s
+  // opacity: 0
+  transform: translateX(120%)
+  // visibility: hidden
   cursor: none
+  &::before
+    content: ''
+    width: 18%
+    height: 100%
+    transform: translateX(-30%) skewX(12deg)
+    position: absolute
+    top: 0
+    left: 0
+    background-color: inherit
   & *
     cursor: none
+    // transform: skewX(175deg)
   &_show
-    opacity: 1
+    // opacity: 1
     visibility: visible
   &__item
     font-family: $font-1-bold
