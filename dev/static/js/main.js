@@ -1,4 +1,15 @@
 ;
+document.addEventListener("DOMContentLoaded", function(){
+  makeCustomCursor();
+  makeMainScreenSlider();
+  makeNavigation();
+  makePortfolioSlider();
+  makeMediaLinksSlider();
+  customVideoControls();
+  barbaNavigation();
+  AOS.init();
+});
+
 //Custom Cursor
 function makeCustomCursor() {
   var clientX = -100;
@@ -39,7 +50,6 @@ function makeCustomCursor() {
 initCursor();
 initHovers();
 };
-makeCustomCursor();
 
 //Screen Slider
 function makeMainScreenSlider(){
@@ -148,16 +158,15 @@ let navSlider = new Swiper(navSliderSelector, navSliderOptions);
 mainSlider.controller.control = navSlider;
 navSlider.controller.control = mainSlider;
 };
-makeMainScreenSlider();
 
 //Nav
-(function() {
+function makeNavigation() {
 var navBtn = document.getElementById('toggle-navigation-btn'),
     mainNav = document.getElementById('main-nav'),
     closeBtn = document.querySelector('.main-nav__close-btn'),
     screenToAnimation = document.querySelector('.main-slider'),
     screenWidth = $(window).width();
-navBtn.addEventListener('mouseenter', setWillChange);
+// navBtn.addEventListener('mouseenter', setWillChange);
 navBtn.onclick = function() {
   var tl = new TimelineMax({
     onComplete: function() {
@@ -165,15 +174,15 @@ navBtn.onclick = function() {
     }
   });
   tl
-  .to(screenToAnimation, .7,{scale: .95, top: 40})
-  .to(mainNav, .5,{x: 0}, '+=.2')
+  .to(screenToAnimation, .7,{ease: Expo.easeOut, scale: .95, top: 40})
+  .to(mainNav, .5,{x: 0, opacity: 1}, '+=.2')
 	// mainNav.classList.add('main-nav_show')
 };
-function setWillChange(){
-  console.log('will')
-  mainNav.style.willChange = 'transform'
-  screenToAnimation.style.willChange = 'transform, top'
-}
+// function setWillChange(){
+//   console.log('will')
+//   mainNav.style.willChange = 'transform, opacity'
+//   screenToAnimation.style.willChange = 'transform, top'
+// }
 closeBtn.onclick = function(){
   var tlClose = new TimelineMax({
     onStart: function() {
@@ -181,66 +190,67 @@ closeBtn.onclick = function(){
     }
   });
   tlClose
-  .to(mainNav, .3,{x: screenWidth * 1.2}, '+=1')
-  .to(screenToAnimation, .5,{ease: Expo.easeOut, top: 0, scale: 1})
+  .to(mainNav, .3,{x: screenWidth * 1.2, opacity: 0}, '+=1')
+  .to(screenToAnimation, .3,{ease: Expo.easeOut, top: 0, scale: 1})
 
-  // mainNav.classList.remove('main-nav_show')
 }
-}());
+};
 
 //Slider
-$('.js-portfolio-slider ').slick({
-  infinite: true,
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  arrows: false,
-  dots: true,
-  responsive: [
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
+function makePortfolioSlider() {
+  $('.js-portfolio-slider ').slick({
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: false,
+    dots: true,
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
       }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
+    ]
+  });
+};
+function makeMediaLinksSlider() {
+  $('.js-medialinks-slider').slick({
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: false,
+    dots: true,
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
       }
-    }
-  ]
-});
-
-$('.js-medialinks-slider').slick({
-  infinite: true,
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  arrows: false,
-  dots: true,
-  responsive: [
-    {
-      breakpoint: 800,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-  ]
-});
-
+    ]
+  });
+};
 
 
 //CUSTOM VIDEO CONTROLS
-(function() {
+function customVideoControls() {
   var video = document.getElementById('video'),
       videoPlayBtn = document.getElementById('playBtn'),
       videoPauseBtn = document.getElementById('pauseBtn'),
@@ -259,69 +269,114 @@ $('.js-medialinks-slider').slick({
     videoPlayBtn.classList.remove('video__playBtn_hidden');
     video.pause();
   };
-}());
-
-
-
-//Barba.js
-var lastElementClicked,
-    parentElementClicked,
-    socialLinks = document.querySelector('.mainSlider__social'),
-    navSlides = document.querySelector('.mainSlider__navWrap'),
-    contentBlock,
-    captionString,
-    slideBg;
-Barba.Dispatcher.on('linkClicked', function(el) {
-    lastElementClicked = el;
-    // !!!!!!!!!!!!!!!!!
-    parentElementClicked = el.closest('.swiper-slide');
-    contentBlock = parentElementClicked.querySelector('.content');
-    captionString = parentElementClicked.querySelector('.caption');
-    slideBg = parentElementClicked.querySelector('.slide-bgimg');
-  });
-var CustomTransition = Barba.BaseTransition.extend({
-  start: function() {
-    Promise.all([this.newContainerLoading, this.zoom()]).then(
-      this.showNewPage.bind(this)
-    );
-  },
-
-  zoom: function() {
-    var deferred = Barba.Utils.deferred(),
-        screenWidth = $(window).width();
-        screenHeight = $(window).height();
-    var tl = new TimelineMax({
-      onComplete: function() {
-        deferred.resolve();
-      }
-    });
-    tl
-    .to(socialLinks,2,{ease: Expo.easeOut, left: -(screenWidth/100 * 5)}, 0)
-    .to(navSlides,2,{ease: Expo.easeOut, x: 100, opacity: 0}, 0)
-    .to(contentBlock,1,{top: 51, scale: 1.3}, '-=1')
-    .to(lastElementClicked, .5,{opacity: 0}, '-=1.5')
-    .to(captionString,.5,{y: 20, opacity: 0}, '-=1.3')
-    .to(slideBg,2,{ease: Expo.easeOut, top: 104, width: screenWidth/100 * 70, height: screenWidth/100 * 29.17, left: screenWidth/100 * 15}, '-=1.2')
-    return deferred.promise;
-  },
-
-  // zoom: function() {
-  //   return new Promise(function(t) {
-  //     var tl = new TimelineMax();
-  //       tl.to('body', 1, {y:100, onComplete: function(){
-  //         t();
-  //       }});
-  //   })
-  // },
-
-  showNewPage: function() {
-    this.done();
-  }
-});
-
-Barba.Pjax.getTransition = function() {
-  var transitionObj = CustomTransition;
-  return transitionObj;
 };
 
-Barba.Pjax.start();
+//Barba.js
+function barbaNavigation(){
+  var lastElementClicked,
+      parentElementClicked,
+      socialLinks = document.querySelector('.mainSlider__social'),
+      navSlides = document.querySelector('.mainSlider__navWrap'),
+      contentBlock,
+      captionString,
+      slideBg;
+  Barba.Dispatcher.on('linkClicked', function(el) {
+      lastElementClicked = el;
+      // !!!!!!!!!!!!!!!!!
+      parentElementClicked = el.closest('.swiper-slide');
+      contentBlock = parentElementClicked.querySelector('.content');
+      captionString = parentElementClicked.querySelector('.caption');
+      slideBg = parentElementClicked.querySelector('.slide-bgimg');
+    });
+  var CustomTransition = Barba.BaseTransition.extend({
+    start: function() {
+      Promise.all([this.newContainerLoading, this.zoom()]).then(
+        this.showNewPage.bind(this)
+      );
+    },
+
+    zoom: function() {
+      var deferred = Barba.Utils.deferred(),
+          screenWidth = $(window).width();
+          screenHeight = $(window).height();
+      var tl = new TimelineMax({
+        onComplete: function() {
+          deferred.resolve();
+        }
+      });
+      tl
+      .to(socialLinks,2,{ease: Expo.easeOut, left: -(screenWidth/100 * 5)}, 0)
+      .to(navSlides,2,{ease: Expo.easeOut, x: 100, opacity: 0}, 0)
+      .to(contentBlock,1,{top: 51, scale: 1.3, left: (screenWidth/100 * 16)}, '-=1')
+      .to(lastElementClicked, .5,{opacity: 0}, '-=1.5')
+      .to(captionString,.5,{y: 20, opacity: 0}, '-=1.3')
+      .to(slideBg,2,{ease: Expo.easeOut, top: 104, width: screenWidth/100 * 70, height: screenWidth/100 * 29.17, left: screenWidth/100 * 15}, '-=1.2')
+      return deferred.promise;
+    },
+
+    // zoom: function() {
+    //   return new Promise(function(t) {
+    //     var tl = new TimelineMax();
+    //       tl.to('body', 1, {y:100, onComplete: function(){
+    //         t();
+    //       }});
+    //   })
+    // },
+
+    showNewPage: function() {
+      this.done();
+    }
+  });
+  var BackTransition = Barba.BaseTransition.extend({
+    start: function() {
+      Promise.all([this.newContainerLoading, this.zoom()]).then(
+        this.showNewPage.bind(this)
+      );
+    },
+
+    zoom: function() {
+      var deferred = Barba.Utils.deferred();
+
+      deferred.resolve();
+
+      return deferred.promise;
+    },
+
+    showNewPage: function() {
+      this.done();
+    }
+  });
+
+  Barba.Pjax.getTransition = function() {
+    var transitionObj = CustomTransition;
+    if (Barba.HistoryManager.prevStatus().namespace === 'profile') {
+      transitionObj = BackTransition;
+    }
+    return transitionObj;
+  };
+  var SingleProfile = Barba.BaseView.extend({
+      namespace: 'profile',
+      onEnterCompleted: function() {
+        customVideoControls();
+        makePortfolioSlider();
+        AOS.init();
+        // makeNavigation();
+      }
+  });
+
+  var MainPage = Barba.BaseView.extend({
+      namespace: 'mainPage',
+      onEnterCompleted: function() {
+        makeCustomCursor();
+        makeMainScreenSlider();
+        makeNavigation();
+        customVideoControls();
+      }
+  });
+
+  SingleProfile.init();
+  MainPage.init();
+
+
+  Barba.Pjax.start();
+};

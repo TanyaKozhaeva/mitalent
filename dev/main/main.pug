@@ -19,6 +19,7 @@ html(lang="en")
 		<!-- build:css static/libs/libs.css-->
 		link(rel="stylesheet" type="text/css" href='static/libs/slick/slick-theme.css')
 		link(rel="stylesheet" type="text/css" href='static/libs/slick/slick.css')
+		link(rel="stylesheet" type="text/css" href='static/libs/aos/aos.css')
 		<!-- endbuild-->
 		link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css")
 		link(rel="stylesheet" type='text/css' href="main/css/main.css")
@@ -31,12 +32,13 @@ html(lang="en")
 		include modules/menu/menu
 		include modules/button/button
 		#barba-wrapper
-			.barba-container
+			.barba-container(data-namespace="mainPage")
 				block content
 		//- include modules/footer/footer
 		<!-- build:js js/libs/libs.js-->
 			script(src="static/js/jquery.js")
 			script(src="static/libs/svg4everybody.js")
+			script(src="static/libs/aos/aos.js")
 			script(src="static/libs/slick/slick.min.js")
 			script(src="static/libs/barba.min.js")
 			script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js")

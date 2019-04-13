@@ -157,7 +157,7 @@
     text-transform: uppercase
     border: 1px solid transparent
 .show-more-btn
-  font-size: 12px
+  font-size: 10px
   font-family: $font-2-bold
   text-transform: uppercase
   line-height: 2.143
@@ -208,6 +208,7 @@
     vertical-align: middle
 .search-form
   position: relative
+  overflow: hidden
   &__overlay
     padding: 5px
     display: flex
@@ -218,21 +219,20 @@
     right: 0
     width: auto
     height: 100%
+    background-color: $bg-color
+    z-index: 200
     &-icon
       margin-left: auto
     &:hover
       opacity: 0
+      transition-delay: .4s
       & ~ .search-form__block-form
-        display: flex
-        opacity: 1
-        visibility: visible
-    // &:hover ~ .search-form__block-form
-    //   opacity: 1
-    //   visibility: visible
+
+        transform: translateX(0)
   &__block-form
-    display: none
-    opacity: 0
-    visibility: hidden
+    display: flex
+    transform: translateX(100%)
+    transition: all .4s ease-in
 .link-text
   font-family: $font-2-simple
   font-size: .875em

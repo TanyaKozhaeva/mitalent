@@ -159,7 +159,7 @@
     border: 1px solid transparent; }
 
 .show-more-btn {
-  font-size: 12px;
+  font-size: 10px;
   font-family: "Nunito-ExtraBold", Arial, Helvetica, sans-serif;
   text-transform: uppercase;
   line-height: 2.143;
@@ -215,7 +215,8 @@
     vertical-align: middle; }
 
 .search-form {
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   .search-form__overlay {
     padding: 5px;
     display: -ms-flexbox;
@@ -227,20 +228,21 @@
     transform: translateY(-50%);
     right: 0;
     width: auto;
-    height: 100%; }
+    height: 100%;
+    background-color: #c8dede;
+    z-index: 200; }
     .search-form__overlay-icon {
       margin-left: auto; }
     .search-form__overlay:hover {
-      opacity: 0; }
+      opacity: 0;
+      transition-delay: .4s; }
       .search-form__overlay:hover ~ .search-form__block-form {
-        display: -ms-flexbox;
-        display: flex;
-        opacity: 1;
-        visibility: visible; }
+        transform: translateX(0); }
   .search-form__block-form {
-    display: none;
-    opacity: 0;
-    visibility: hidden; }
+    display: -ms-flexbox;
+    display: flex;
+    transform: translateX(100%);
+    transition: all .4s ease-in; }
 
 .link-text {
   font-family: "Nunito-SemiBold", Arial, Helvetica, sans-serif;
@@ -393,6 +395,7 @@
   height: 100%;
   background-color: #fff;
   z-index: 5000;
+  opacity: 0;
   transform: translateX(120%);
   cursor: none; }
   .main-nav::before {
@@ -447,7 +450,7 @@
         justify-content: space-between; }
   .main-nav__close-btn.toggle-navigation-btn_closed {
     position: absolute;
-    top: 26px;
+    top: 35px;
     left: 3%;
     font-size: 20px; }
 
@@ -513,7 +516,7 @@
       cursor: none !important; }
   .header__link {
     font-family: "Nunito-ExtraBold", Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     text-transform: uppercase;
     padding: 16px 28px;
     transition: color .3s ease-in; }
@@ -808,7 +811,20 @@
           flex-direction: column; } }
   .profile__section_bg-color_black {
     background-color: #1a1a1d;
-    color: #fff; }
+    color: #fff;
+    position: relative; }
+    .profile__section_bg-color_black::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: .5;
+      mix-blend-mode: overlay;
+      background: url("../../static/img/general/overlay.jpg") center no-repeat;
+      background-size: cover; }
     .profile__section_bg-color_black .section-title {
       color: inherit; }
       .profile__section_bg-color_black .section-title::before {
@@ -825,7 +841,7 @@
 .profile__title-block {
   position: absolute;
   top: 51px;
-  left: 18%;
+  left: 16%;
   transform: scale(1.3);
   z-index: 200; }
 
