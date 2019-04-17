@@ -66,7 +66,7 @@ let mainSliderOptions = {
       loop: true,
       speed: 1000,
       loopAdditionalSlides: 10,
-      //grabCursor: true,
+      // grabCursor: true,
       watchSlidesProgress: true,
       mousewheel: {
         invert: true
@@ -275,8 +275,8 @@ function customVideoControls() {
 function barbaNavigation(){
   var lastElementClicked,
       parentElementClicked,
-      socialLinks = document.querySelector('.mainSlider__social'),
-      navSlides = document.querySelector('.mainSlider__navWrap'),
+      socialLinks,
+      navSlides,
       contentBlock,
       captionString,
       slideBg;
@@ -287,6 +287,8 @@ function barbaNavigation(){
       contentBlock = parentElementClicked.querySelector('.content');
       captionString = parentElementClicked.querySelector('.caption');
       slideBg = parentElementClicked.querySelector('.slide-bgimg');
+      socialLinks = document.querySelector('.mainSlider__social');
+      navSlides = document.querySelector('.mainSlider__navWrap');
     });
   var CustomTransition = Barba.BaseTransition.extend({
     start: function() {
@@ -310,7 +312,13 @@ function barbaNavigation(){
       .to(contentBlock,1,{top: 51, scale: 1.3, left: (screenWidth/100 * 16)}, '-=1')
       .to(lastElementClicked, .5,{opacity: 0}, '-=1.5')
       .to(captionString,.5,{y: 20, opacity: 0}, '-=1.3')
-      .to(slideBg,2,{ease: Expo.easeOut, top: 104, width: screenWidth/100 * 70, height: screenWidth/100 * 29.17, left: screenWidth/100 * 15}, '-=1.2')
+      .to(slideBg,1,{top: 104, width: screenWidth/100 * 70, height: screenWidth/100 * 29.17, left: screenWidth/100 * 15}, '-=.2')
+      // .to(socialLinks,2,{ease: Expo.easeOut, left: -(screenWidth/100 * 5)}, 0)
+      // .to(navSlides,2,{ease: Expo.easeOut, x: 100, opacity: 0}, 0)
+      // .to(contentBlock,1,{top: 51, scale: 1.3, left: (screenWidth/100 * 16)}, '-=1')
+      // .to(lastElementClicked, .5,{opacity: 0}, '-=1.5')
+      // .to(captionString,.5,{y: 20, opacity: 0}, '-=1.3')
+      // .to(slideBg,2,{ease: Expo.easeOut, top: 104, width: screenWidth/100 * 70, height: screenWidth/100 * 29.17, left: screenWidth/100 * 15}, '-=1.2')
       return deferred.promise;
     },
 
@@ -371,6 +379,7 @@ function barbaNavigation(){
         makeMainScreenSlider();
         makeNavigation();
         customVideoControls();
+        AOS.init();
       }
   });
 

@@ -81,7 +81,7 @@
           </div>
           <div class="swiper-container main-slider loading">
             <div class="swiper-wrapper">
-              <section class="swiper-slide">
+              <section class="swiper-slide interactive" data-cursor="grab">
                 <div class="slide-bgimg" style="background-image:url(static/img/content/giorgina.jpg);"><img class="entity-img" src="static/img/content/giorgina.jpg"><a class="swiper-link btn-main interactive" href="profile.html" data-cursor="dot"><span class="btn-main__text">View profile</span><span class="btn-main__pic">
                       <svg class="icon icon-play btn-main__icon" aria-hidden="true">
                         <use xlink:href="static/svg/symbol/sprite.svg#play"></use>
@@ -356,6 +356,12 @@
             </div>
           </header>
           <div class="wrapper"> 
+            <div class="container">
+              <div id="halfclip"> 
+                <div class="halfcircle" id="clipped"></div>
+              </div>
+              <div class="halfcircle" id="fixed"></div>
+            </div>
             <article class="blog__article blog-article"> 
               <div class="blog-article__author-col">
                 <div class="blog-article__author-info">
