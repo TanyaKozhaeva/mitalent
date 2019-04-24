@@ -14,8 +14,6 @@
 .cursor
   width: 16px
   height: 16px
-  // border-radius: 50%
-  // border: 1px solid darken($bg-color, 30%)
   display: flex
   justify-content: center
   align-items: center
@@ -47,23 +45,7 @@
       display: none
   &_grab
     transition: all .1s
-    // &::before,
-    // &::after
-    //   font-size: 9px
-    //   color: darken($bg-color, 30%)
-    //   position: absolute
-    //   top: 43%
-    // &::before
-    //   content: ">"
-    //   right: 3px
-    // &::after
-    //   content: "<"
-    //   left: 3px
   &_dot
-    // top: -8px
-    // left: -8px
-    // animation: cursor .2s ease-in forwards
-    // background-color: darken($bg-color, 30%)
     &::before
       transform: scale(.5)
       background-color: darken($bg-color, 30%)
@@ -79,19 +61,19 @@
       &_grab
         display: none
   &_play
-    background-color: darken($bg-color, 30%)
-
+    &::before
+      background-color: darken($bg-color, 30%)
     & .cursor__icon
       &_play
         display: inline-block
-        font-size: 12px
+        font-size: 10px
         font-family: $font-1-simple
         color: $main-color-dark
         width: 100%
         text-align: center
         position: absolute
-        top: 53%
-        left: 50%
+        top: 67%
+        left: 30%
         text-transform: uppercase
         transform: translate(-50%, -50%)
       &_arrow
@@ -100,32 +82,6 @@
         display: none
 .interactive
   cursor: none
-// @keyframes cursor
-//   0%
-//     width: 40px
-//     height: 40px
-//   100%
-//     width: 16px
-//     height: 16px
-.section-title
-  font-size: 1.88em
-  line-height: 1.3
-  text-transform: capitalize
-  font-family: $font-1-simple
-  color: $main-color-dark
-  position: relative
-  &_line
-    text-align: center
-    margin-bottom: 1.4em
-    &::before
-      content: ''
-      width: 80px
-      height: 2px
-      background-color: $main-color-dark
-      position: absolute
-      bottom: -.7em
-      left: 50%
-      transform: translateX(-50%)
 .paragraph
   font-size: 14px
   line-height: 1.6
@@ -239,12 +195,19 @@
     z-index: 200
     &-icon
       margin-left: auto
-    &:hover
+      // transition-delay: .4s
+  &_visible
+    & .search-form__overlay
       opacity: 0
+      visibility: hidden
       transition-delay: .4s
-      & ~ .search-form__block-form
-
-        transform: translateX(0)
+    & .search-form__block-form
+      transform: translateX(0)
+    // &:hover
+    //   opacity: 0
+    //   transition-delay: .4s
+    //   & ~ .search-form__block-form
+    //     transform: translateX(0)
   &__block-form
     display: flex
     transform: translateX(100%)

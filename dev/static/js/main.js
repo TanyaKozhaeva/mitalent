@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function(){
   makeMediaLinksSlider();
   customVideoControls();
   barbaNavigation();
+  showSearchForm();
   AOS.init();
 });
 
@@ -248,7 +249,6 @@ function makeMediaLinksSlider() {
   });
 };
 
-
 //CUSTOM VIDEO CONTROLS
 function customVideoControls() {
   var video = document.getElementById('video'),
@@ -271,6 +271,17 @@ function customVideoControls() {
   };
 };
 
+//SHOW SEARCH FORM
+function showSearchForm() {
+  var showFormButtons = document.querySelectorAll('.search-form');
+  [].forEach.call(showFormButtons, function(item) {
+    console.log(item.querySelector('.search-form__overlay'))
+    item.querySelector('.search-form__overlay').onclick = function(){
+      item.classList.add('search-form_visible')
+    }
+  })
+}
+
 //Barba.js
 function barbaNavigation(){
   var lastElementClicked,
@@ -279,7 +290,9 @@ function barbaNavigation(){
       navSlides,
       contentBlock,
       captionString,
-      slideBg;
+      slideBg,
+      screenWidth = $(window).width(),
+      screenHeight = $(window).height();
   Barba.Dispatcher.on('linkClicked', function(el) {
       lastElementClicked = el;
       // !!!!!!!!!!!!!!!!!
@@ -298,27 +311,19 @@ function barbaNavigation(){
     },
 
     zoom: function() {
-      var deferred = Barba.Utils.deferred(),
-          screenWidth = $(window).width();
-          screenHeight = $(window).height();
+      var deferred = Barba.Utils.deferred();
       var tl = new TimelineMax({
         onComplete: function() {
           deferred.resolve();
         }
       });
       tl
-      .to(socialLinks,2,{ease: Expo.easeOut, left: -(screenWidth/100 * 5)}, 0)
-      .to(navSlides,2,{ease: Expo.easeOut, x: 100, opacity: 0}, 0)
-      .to(contentBlock,1,{top: 51, scale: 1.3, left: (screenWidth/100 * 16)}, '-=1')
-      .to(lastElementClicked, .5,{opacity: 0}, '-=1.5')
-      .to(captionString,.5,{y: 20, opacity: 0}, '-=1.3')
+      .to(socialLinks,.9,{ease: Expo.easeOut, left: -(screenWidth/100 * 5)}, 0)
+      .to(navSlides,.9,{ease: Expo.easeOut, x: 100, opacity: 0}, 0)
+      .to(captionString,.3,{y: 20, opacity: 0})
+      .to(contentBlock,.7,{top: 51, scale: 1.3, left: (screenWidth/100 * 16)})
+      .to(lastElementClicked, .5,{opacity: 0})
       .to(slideBg,1,{top: 104, width: screenWidth/100 * 70, height: screenWidth/100 * 29.17, left: screenWidth/100 * 15}, '-=.2')
-      // .to(socialLinks,2,{ease: Expo.easeOut, left: -(screenWidth/100 * 5)}, 0)
-      // .to(navSlides,2,{ease: Expo.easeOut, x: 100, opacity: 0}, 0)
-      // .to(contentBlock,1,{top: 51, scale: 1.3, left: (screenWidth/100 * 16)}, '-=1')
-      // .to(lastElementClicked, .5,{opacity: 0}, '-=1.5')
-      // .to(captionString,.5,{y: 20, opacity: 0}, '-=1.3')
-      // .to(slideBg,2,{ease: Expo.easeOut, top: 104, width: screenWidth/100 * 70, height: screenWidth/100 * 29.17, left: screenWidth/100 * 15}, '-=1.2')
       return deferred.promise;
     },
 
@@ -344,9 +349,14 @@ function barbaNavigation(){
 
     zoom: function() {
       var deferred = Barba.Utils.deferred();
-
-      deferred.resolve();
-
+      container = document.querySelector('.barba-container');
+      var tl = new TimelineMax({
+        onComplete: function() {
+          deferred.resolve();
+        }
+      });
+      tl
+      .to(container,.8,{opacity:0})
       return deferred.promise;
     },
 

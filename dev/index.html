@@ -11,6 +11,7 @@
     <link rel="apple-touch-icon" sizes="120x120" href="static/img/general/icons/map-120w.png">
     <link rel="apple-touch-icon" sizes="152x152" href="static/img/general/icons/map-152w.png">
     <link rel="apple-touch-icon" sizes="180x180" href="static/img/general/icons/map-180w.png">
+    <link rel="preload" as="font" href="static/fonts/Nunito-ExtraBold.woff2" type="font/woff2" crossorigin>
     <link rel="stylesheet" type="text/css" href="main/css/reset.css">
     <link rel="stylesheet" type="text/css" href="static/fonts/fonts.css"><!-- build:css static/libs/libs.css-->
     <link rel="stylesheet" type="text/css" href="static/libs/slick/slick-theme.css">
@@ -139,19 +140,19 @@
               </div>
             </header>
             <div class="news__main-screen-blocks">
-              <div class="news__column news__column_size_lg" data-aos="fade-up" data-aos-duration="2000">
+              <div class="news__column news__column_size_lg" data-aos="fade-right" data-aos-duration="2000">
                 <div class="news__pic" style="background-image: url(static/img/content/puzzle/puzzle5.jpg);"></div>
                 <div class="news__text"><span class="news__title-suptitle link-suptitle">Featured news</span>
                   <h3 class="news__title link-text">A starter guide to self improvement</h3>
                 </div>
               </div>
-              <div class="news__column" data-aos="fade-down" data-aos-duration="2000">
+              <div class="news__column" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000">
                 <div class="news__pic" style="background-image: url(static/img/content/puzzle/puzzle6.jpg);"></div>
                 <div class="news__text">
                   <h3 class="news__title link-text link-text_color_dark">Dream interpretation common symbols and their meanings</h3><span class="news__date link-date">8 march 2020</span>
                 </div>
               </div>
-              <div class="news__column news__media-links" data-aos="fade-up" data-aos-duration="2000"> 
+              <div class="news__column news__media-links" data-aos="fade-left" data-aos-duration="2000" data-aos-delay="1500"> 
                 <ul class="profile-media-links">
                   <li class="profile-media-links__item"><a class="profile-media-links__link" href="#" target="_blank">
                       <picture class="profile-media-links__prev">
@@ -390,7 +391,7 @@
                     </svg>
                   </button>
                 </div>
-                <button class="video__pauseBtn video__pauseBtn_hidden interactive" type="button" title="pause" data-cursor="play" id="pauseBtn">||</button>
+                <button class="video__pauseBtn video__pauseBtn_hidden interactive" type="button" title="pause" data-cursor="dot" id="pauseBtn">||</button>
                 <div class="video__poster" style="background-image: url(static/img/content/video-poster.jpg);"></div>
                 <video class="video__file" controls preload="auto" loop id="video">
                   <source src="static/video/testimonials-video.mp4" type="video/mp4">
