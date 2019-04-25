@@ -2,8 +2,6 @@
   position: relative
   cursor: none
   overflow: hidden
-  & *
-    cursor: none
   &__social
     position: absolute
     top: 17vh
@@ -56,17 +54,18 @@
     @media screen and (max-width: 600px)
       width: 100%
       left: 0
-    .swiper-link
-      position: absolute
-      bottom: -1px
-      left: -160px
-      @media screen and (max-width: 1024px)
-        left: -120px
-        & .btn-main__text
-          width: 120px
-
+  .swiper-link
+    position: absolute
+    top: 75vh
+    left: 26%
+    transform: translate(-160px, -100%)
+    @media screen and (max-width: 1024px)
+      transform: translate(-120px, -100%)
+      & .btn-main__text
+        width: 120px
       @media screen and (max-width: 600px)
         left: 0
+        transform: translate(0, -100%)
   .entity-img
     display: none
   &__content

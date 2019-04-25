@@ -1,3 +1,6 @@
+body
+  & *
+    cursor: none
 .hidden-text
   position: absolute
   left: -10000px
@@ -12,14 +15,16 @@
   @media screen and (max-width: 1054px)
     padding: 0 15px
 .cursor
-  width: 16px
-  height: 16px
+  width: 10px
+  height: 10px
   display: flex
+  background-color: darken($bg-color, 30%)
+  border-radius: 50%
   justify-content: center
   align-items: center
   position: fixed
-  top: -8px
-  left: -8px
+  top: -5px
+  left: -5px
   z-index: 11000
   pointer-events: none
   transition: all 0s
@@ -34,6 +39,7 @@
     left: 50%
     margin-top: -20px
     margin-left: -20px
+    transform: scale(.2)
     transition: all .5s
   &__icon
     width: 15px
@@ -43,8 +49,22 @@
       display: none
     &_play
       display: none
+    &_grab
+      display: none
+  &_hidden
+    visibility: hidden
+  &_circle
+    transform: scale(.2)
+    background-color: transparent
+    &::before
+      transform: scale(1)
   &_grab
+    background-color: transparent
     transition: all .1s
+    &::before
+      transform: scale(1)
+    & .cursor__icon_grab
+      display: inline-block
   &_dot
     &::before
       transform: scale(.5)
@@ -53,15 +73,15 @@
       display: none
   &_arrow
     &::before
+      transform: scale(1)
       background-color: darken($bg-color, 30%)
     & .cursor__icon
       display: none
       &_arrow
         display: inline-block
-      &_grab
-        display: none
   &_play
     &::before
+      transform: scale(1)
       background-color: darken($bg-color, 30%)
     & .cursor__icon
       &_play
@@ -72,8 +92,8 @@
         width: 100%
         text-align: center
         position: absolute
-        top: 67%
-        left: 30%
+        top: 77%
+        left: -1px
         text-transform: uppercase
         transform: translate(-50%, -50%)
       &_arrow
@@ -166,6 +186,7 @@
     font-family: $font-2-bold
     color: $main-color-dark
     letter-spacing: 2px
+    cursor: text !important
     &::placeholder
       font-family: $font-2-bold
       letter-spacing: inherit
@@ -237,6 +258,12 @@
     &_dark
       color: $main-color-dark
       font-family: $font-2-bold
+.section-title
+  font-family: $font-1-simple
+  font-size: 1.88em
+  line-height: 1.3
+  text-transform: capitalize
+  color: $main-color-dark
 .tabs
   display: flex
   justify-content: center
@@ -345,3 +372,5 @@
     top: 0
     right: 0
     background-color: $bg-color
+.slick-dots li button
+  cursor: none

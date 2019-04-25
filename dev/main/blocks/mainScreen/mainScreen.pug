@@ -1,6 +1,7 @@
 .mainSlider.square
   include ../../modules/header/header
   .cursor
+    span.cursor__icon.cursor__icon_default
     img(src="static/svg/drag.svg" alt="cursor").cursor__icon.cursor__icon_grab
     img(src="static/svg/arrow.svg" alt="cursor").cursor__icon.cursor__icon_arrow
     span.cursor__icon.cursor__icon_play Play
@@ -9,16 +10,16 @@
   .swiper-container.main-slider.loading
     .swiper-wrapper
         section.swiper-slide.interactive(data-cursor='grab')
-          .slide-bgimg(style="background-image:url(static/img/content/giorgina.jpg)")
+          .slide-bgimg.interactive(data-cursor='grab' style="background-image:url(static/img/content/giorgina.jpg)")
             img(src="static/img/content/giorgina.jpg" class="entity-img")
-            a(href="profile.html" data-cursor="dot").swiper-link.btn-main.interactive
-              span.btn-main__text View profile
-              span.btn-main__pic
-                +icon("play", "btn-main__icon")
-          .swiper-slide__content.content
+          a(href="profile.html" data-cursor="dot").swiper-link.btn-main.interactive
+            span.btn-main__text View profile
+            span.btn-main__pic
+              +icon("play", "btn-main__icon")
+          .swiper-slide__content.content.interactive(data-cursor='grab')
             h2.title Giorgina Alson
             p.caption Young model 2020
-        section.swiper-slide
+        section.swiper-slide.interactive(data-cursor='grab')
           .slide-bgimg(style="background-image:url(static/img/content/derek.jpg)")
             img(src="static/img/content/derek.jpg" class="entity-img")
             a(href="profile.html" data-cursor="dot").swiper-link.btn-main.interactive
@@ -28,7 +29,7 @@
           .swiper-slide__content.content
             h2.title Derek Anderson
             p.caption Btitish comedian
-        section.swiper-slide
+        section.swiper-slide.interactive(data-cursor='grab')
           .slide-bgimg(style="background-image:url(static/img/content/keith.jpg)")
             img(src="static/img/content/keith.jpg" class="entity-img")
             a(href="profile.html" data-cursor="dot").swiper-link.btn-main.interactive

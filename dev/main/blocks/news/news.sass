@@ -71,6 +71,7 @@
     background-position: center
 
 .news
+  overflow: hidden
   & .wrapper
     & > *:not(header, .news__main-screen-blocks)
       padding-top: 30px
@@ -148,25 +149,16 @@
   &__header
     padding-right: 0
     margin-bottom: 20px
+    justify-content: flex-end
+    & .header__sandwich
+      margin-right: 0
+      margin-left: 28px
     @media screen and (max-width: 1000px)
-      display: flex
-      flex-direction: column
-      // & > * :not(:last-child)
-      //   margin-bottom: 20px
-      & .header__panel
-        width: 100%
-        justify-content: space-between
-        margin-top: 10px
-
+      & .header__logo
+        left: 0
+        transform: translate(0, -50%)
     @media screen and (min-width: 1001px)
       padding-left: 41%
-    & .search-form
-      width: 250px
-      margin-right: 10%
-      &__block-form
-        display: flex
-        opacity: 1
-        visibility: visible
   &__portfolio-list
     & .portfolio__item
       width: 50%

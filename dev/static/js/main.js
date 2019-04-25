@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function(){
   customVideoControls();
   barbaNavigation();
   showSearchForm();
+  // addCustomCursorToSlick();
   AOS.init();
 });
 
@@ -31,13 +32,11 @@ function makeCustomCursor() {
   var initHovers = function() {
     var handleMouseEnter = function(e) {
       var currentTarget = e.currentTarget;
+      console.log(e.currentTarget)
       customCursor.classList.add("cursor_" + currentTarget.getAttribute('data-cursor'))
-      var currentTargetBox = currentTarget.getBoundingClientRect()
       isStuck = true;
     };
     var handleMouseLeave = function() {
-      //customCursor.classList.remove("cursor_dot");
-      //!!!!!!!!!!!!!!!!!!!!!!!!
       customCursor.classList = ['cursor'];
       isStuck = false;
     };
@@ -248,6 +247,10 @@ function makeMediaLinksSlider() {
     ]
   });
 };
+// function addCustomCursorToSlick() {
+//   $('.slick-dots > li button').addClass('interactive');
+//   $('.slick-dots > li button').attr('data-cursor', 'circle');
+// }
 
 //CUSTOM VIDEO CONTROLS
 function customVideoControls() {
@@ -275,9 +278,11 @@ function customVideoControls() {
 function showSearchForm() {
   var showFormButtons = document.querySelectorAll('.search-form');
   [].forEach.call(showFormButtons, function(item) {
-    console.log(item.querySelector('.search-form__overlay'))
-    item.querySelector('.search-form__overlay').onclick = function(){
-      item.classList.add('search-form_visible')
+    var overlayBtn = item.querySelector('.search-form__overlay');
+    if(overlayBtn){
+      overlayBtn.onclick = function(){
+        item.classList.add('search-form_visible')
+      }
     }
   })
 }
@@ -377,6 +382,8 @@ function barbaNavigation(){
       onEnterCompleted: function() {
         customVideoControls();
         makePortfolioSlider();
+        showSearchForm();
+        // addCustomCursorToSlick();
         AOS.init();
         // makeNavigation();
       }
@@ -389,6 +396,8 @@ function barbaNavigation(){
         makeMainScreenSlider();
         makeNavigation();
         customVideoControls();
+        showSearchForm();
+        // addCustomCursorToSlick();
         AOS.init();
       }
   });

@@ -7,15 +7,15 @@ block content
 	include blocks/mainScreen/mainScreen
 	include blocks/news/news
 	include blocks/blog/blog
-	//- include blocks/contact-us/contact-us
-	//- include blocks/profile/profile
+	include blocks/contact-us/contact-us
+	include blocks/profile/profile
 
 
 
 mixin mediaLinks(data)
 	ul.profile-media-links&attributes(attributes)
 		each item in data
-			li.profile-media-links__item
+			li.profile-media-links__item.interactive(data-cursor="dot")
 				a(href="#" target="_blank").profile-media-links__link
 					picture.profile-media-links__prev
 						source(srcset="static/img/content/puzzle/"+ item.img + ".jpg, static/img/content/puzzle/" + item.img + ".jpg 2x")

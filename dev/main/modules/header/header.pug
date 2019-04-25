@@ -3,16 +3,16 @@ header.header
     button(type="button" data-cursor="dot").toggle-navigation-btn.header__sandwich.interactive#toggle-navigation-btn
       span.hidden-text Close navigation 
       span.toggle-navigation-btn__line
-    a(href="#" data-cursor="dot").header__link.interactive Clients
+    a(href="#" data-cursor="dot").header__link.interactive Blog
     a(href="#" data-cursor="dot").header__link.interactive News
   img(src="static/svg/logo.png").logo.header__logo
   .header__panel
     .header__search-form.search-form
-      .search-form__overlay.interactive
+      .search-form__overlay.interactive(data-cursor="circle")
         img(src="static/svg/search.svg" alt="search icon").search-form__overlay-icon.form__icon
       form.form.form_size_sm.search-form__block-form
-        input(type="search" placeholder="Search" name="main-search").form__input
-        button(type="submit").form__btn 
+        input(type="search" placeholder="Search" name="main-search" data-cursor="hidden").interactive.form__input
+        button(type="submit" data-cursor="circle").form__btn.interactive 
           img(src="static/svg/search.svg" alt="search icon").form__icon
 
         

@@ -16,25 +16,27 @@ mixin portfolioItem(data)
       img(src="static/svg/logo.png").logo.header__logo
       .header__panel
         .header__search-form.search-form
+          .search-form__overlay.interactive(data-cursor="circle")
+            img(src="static/svg/search.svg" alt="search icon").search-form__overlay-icon.form__icon
           form.form.form_size_sm.search-form__block-form
-            input(type="search" placeholder="Search post" name="main-search").form__input
-            button(type="submit").form__btn  
+            input(type="search" placeholder="Search" name="main-search" data-cursor="hidden").interactive.form__input
+            button(type="submit" data-cursor="circle").form__btn.interactive
               img(src="static/svg/search.svg" alt="search icon").form__icon
         button(type="button" data-cursor="dot").toggle-navigation-btn.header__sandwich.interactive#toggle-navigation-btn
           span.hidden-text Close navigation
           span.toggle-navigation-btn__line        
     .news__main-screen-blocks
-      .news__column.news__column_size_lg(data-aos="fade-right" data-aos-duration="2000")
+      .news__column.news__column_size_lg.interactive(data-cursor="dot" data-aos="fade-right" data-aos-duration="2000")
         .news__pic(style="background-image: url(static/img/content/puzzle/puzzle5.jpg)")
         .news__text
           span.news__title-suptitle.link-suptitle Featured news
           h3.news__title.link-text A starter guide to self improvement
-      .news__column(data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000")
+      .news__column.interactive(data-cursor="dot" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000")
         .news__pic(style="background-image: url(static/img/content/puzzle/puzzle6.jpg)")
         .news__text
           h3.news__title.link-text.link-text_color_dark Dream interpretation common symbols and their meanings
           span.news__date.link-date 8 march 2020
-      .news__column.news__media-links(data-aos="fade-left" data-aos-duration="2000" data-aos-delay="1500") 
+      .news__column.news__media-links.interactive(data-cursor="dot" data-aos="fade-left" data-aos-duration="2000" data-aos-delay="1500") 
         +mediaLinks([
           {'text': 'Burning desire golden key or red herring',
           'date': '8 March, 2020',
@@ -51,13 +53,13 @@ mixin portfolioItem(data)
           ])
     .news__portfolio-list
       ul.news__portfolio-list-tabs.tabs
-        li.tabs__item
+        li.tabs__item.interactive(data-cursor="dot")
           button(type="button" data-tab="#").tabs__btn.tabs__btn_active Actor
-        li.tabs__item
+        li.tabs__item.interactive(data-cursor="dot")
           button(type="button" data-tab="#").tabs__btn Musician
-        li.tabs__item
+        li.tabs__item.interactive(data-cursor="dot")
           button(type="button" data-tab="#").tabs__btn Comedian
-        li.tabs__item
+        li.tabs__item.interactive(data-cursor="dot")
           button(type="button" data-tab="#").tabs__btn Model
       .portfolio
         +portfolioItem([
@@ -93,29 +95,29 @@ mixin portfolioItem(data)
         h3.profile__article-title.profile__article-title_line.section-title Our clients
       .profile__text-panel
         p.profile__paragraph.paragraph Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua.
-        a(href="#").profile__show-more.show-more-btn
+        a(href="#" data-cursor="dot").profile__show-more.show-more-btn.interactive
           span.show-more-btn__text Explore more 
           +icon('arrow', 'show-more-btn__icon')   
     .news__puzzle.pic-puzzle
       .pic-puzzle__column.pic-puzzle__column_width_lg
         .pic-puzzle__line
-          .pic-puzzle__small-block
+          .pic-puzzle__small-block.interactive(data-cursor="dot")
             .pic-puzzle__content-wrap
               .pic-puzzle__text.pic-puzzle__text_accent
                 h3.pic-puzzle__title.link-text Use your reset button to change your vibration
                 span.pic-puzzle__date.link-date 8 march 2020
               .pic-puzzle__pic(style="background-image: url(static/img/content/puzzle/puzzle1.jpg)")
         .pic-puzzle__line
-          .pic-puzzle__small-block
+          .pic-puzzle__small-block.interactive(data-cursor="dot")
             .pic-puzzle__content-wrap.pic-puzzle__content-wrap_vertical
               .pic-puzzle__pic(style="background-image: url(static/img/content/puzzle/puzzle3.jpg)")
               .pic-puzzle__text
                 h3.pic-puzzle__title.link-text.link-text_color_dark Dream interpretation common symbols and their meanings 
                 span.pic-puzzle__date.link-date 8 march 2020
-          .pic-puzzle__small-block
+          .pic-puzzle__small-block.interactive(data-cursor="dot")
             .pic-puzzle__content-wrap.pic-puzzle__content-wrap_vertical
               .pic-puzzle__pic(style="background-image: url(static/img/content/puzzle/puzzle4.jpg)")
-      .pic-puzzle__column.pic-puzzle__column_width_sm
+      .pic-puzzle__column.pic-puzzle__column_width_sm.interactive(data-cursor="dot")
         .pic-puzzle__content-wrap.pic-puzzle__content-wrap_vertical
           .pic-puzzle__pic(style="background-image: url(static/img/content/puzzle/puzzle2.jpg)")
           .pic-puzzle__text
