@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", function(){
   makePortfolioSlider();
   makeMediaLinksSlider();
   customVideoControls();
+  appendVideoSrcBySize();
   barbaNavigation();
   showSearchForm();
-  // addCustomCursorToSlick();
   AOS.init();
 });
 
@@ -32,7 +32,6 @@ function makeCustomCursor() {
   var initHovers = function() {
     var handleMouseEnter = function(e) {
       var currentTarget = e.currentTarget;
-      console.log(e.currentTarget)
       customCursor.classList.add("cursor_" + currentTarget.getAttribute('data-cursor'))
       isStuck = true;
     };
@@ -56,17 +55,25 @@ function makeMainScreenSlider(){
 // Params
 let mainSliderSelector = '.main-slider',
     navSliderSelector = '.nav-slider',
-    interleaveOffset = 0.5;
-/*
-    autoplay:{
-      delay:3000
-    },*/
+    interleaveOffset = 0.5,
+    direction;
+
+    // (function (){
+    //   if(window.matchMedia('(max-width: 600px)').matches){
+    //     direction = 'vertical';
+    //   } else {
+    //     direction = 'horizontal';
+    //   }
+    // }());
+
 // Main Slider
 let mainSliderOptions = {
       loop: true,
       speed: 1000,
       loopAdditionalSlides: 10,
+      // direction: direction,
       // grabCursor: true,
+      direction: 'vertical',//
       watchSlidesProgress: true,
       mousewheel: {
         invert: true
@@ -78,6 +85,11 @@ let mainSliderOptions = {
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
+      },
+      //!!!!!
+      scrollbar: {
+        el: '.swiper-scrollbar',
+        draggable: true,
       },
       on: {
         init: function(){
@@ -129,6 +141,7 @@ let mainSliderOptions = {
       }
 
     };
+// $(window).on('load resize', detectDirectionSlider);
 let mainSlider = new Swiper(mainSliderSelector, mainSliderOptions);
 
 
@@ -164,10 +177,12 @@ function makeNavigation() {
 var navBtn = document.getElementById('toggle-navigation-btn'),
     mainNav = document.getElementById('main-nav'),
     closeBtn = document.querySelector('.main-nav__close-btn'),
-    screenToAnimation = document.querySelector('.main-slider'),
+    // screenToAnimation = document.querySelector('.main-slider'),
+    screenToAnimation,
     screenWidth = $(window).width();
 // navBtn.addEventListener('mouseenter', setWillChange);
 navBtn.onclick = function() {
+  screenToAnimation = document.querySelector('.swiper-slide-active');
   var tl = new TimelineMax({
     onComplete: function() {
       mainNav.classList.add('main-nav_show')
@@ -247,10 +262,6 @@ function makeMediaLinksSlider() {
     ]
   });
 };
-// function addCustomCursorToSlick() {
-//   $('.slick-dots > li button').addClass('interactive');
-//   $('.slick-dots > li button').attr('data-cursor', 'circle');
-// }
 
 //CUSTOM VIDEO CONTROLS
 function customVideoControls() {
@@ -273,6 +284,16 @@ function customVideoControls() {
     video.pause();
   };
 };
+
+//VIDEO SRC BY SCREEN SIZE
+function appendVideoSrcBySize() {
+  var videoBox = $('#video');
+  if($(window).width() <= 600){
+    videoBox.append("<source type='video/mp4' src='static/video/testimonials-video-xs.mp4' />")
+  } else {
+    videoBox.append("<source type='video/mp4' src='static/video/testimonials-video-lg.mp4' />")
+  }
+}
 
 //SHOW SEARCH FORM
 function showSearchForm() {
@@ -328,7 +349,7 @@ function barbaNavigation(){
       .to(captionString,.3,{y: 20, opacity: 0})
       .to(contentBlock,.7,{top: 51, scale: 1.3, left: (screenWidth/100 * 16)})
       .to(lastElementClicked, .5,{opacity: 0})
-      .to(slideBg,1,{top: 104, width: screenWidth/100 * 70, height: screenWidth/100 * 29.17, left: screenWidth/100 * 15}, '-=.2')
+      .to(slideBg,1,{top: 104, width: screenWidth/100 * 70, height: screenWidth/100 * 39.37, left: screenWidth/100 * 15}, '-=.2')
       return deferred.promise;
     },
 
@@ -381,6 +402,7 @@ function barbaNavigation(){
       namespace: 'profile',
       onEnterCompleted: function() {
         customVideoControls();
+        appendVideoSrcBySize();
         makePortfolioSlider();
         showSearchForm();
         // addCustomCursorToSlick();

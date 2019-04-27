@@ -227,7 +227,6 @@ body * {
     right: 0;
     width: auto;
     height: 100%;
-    background-color: #c8dede;
     z-index: 200; }
     .search-form__overlay-icon {
       margin-left: auto; }
@@ -281,8 +280,13 @@ body * {
   display: flex;
   -ms-flex-pack: center;
       justify-content: center; }
+  .tabs__item {
+    -ms-flex: 1;
+        flex: 1;
+    max-width: 114px; }
   .tabs__btn {
-    padding: 15px 30%;
+    width: 100%;
+    padding: 15px;
     line-height: 16px;
     font-family: "Nunito-ExtraBold", Arial, Helvetica, sans-serif;
     font-size: 10px;
@@ -302,11 +306,17 @@ body * {
         left: 0; }
 
 .video {
-  position: relative; }
+  position: relative;
+  padding-top: 56.3%; }
   .video__file {
     width: 100%;
     height: 100%;
-    margin-bottom: -3px; }
+    margin-bottom: -3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
   .video__attributes {
     width: 100%;
     position: absolute;
@@ -318,14 +328,14 @@ body * {
       .video__attributes {
         font-size: .8rem; } }
   .video__poster {
-    width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
     position: absolute;
     top: 0;
-    left: 0;
+    left: -1px;
+    right: -1px;
     z-index: 100;
     opacity: 1;
     transition: opacity .3s linear; }
@@ -365,8 +375,8 @@ body * {
     font-weight: 600;
     color: #c8dede;
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 10px;
+    right: 10px;
     z-index: 200; }
     @media screen and (max-width: 580px) {
       .video__pauseBtn {
@@ -696,6 +706,8 @@ body * {
         visibility: hidden; } }
     .mainSlider__navWrap .nav-slider {
       transform: translateY(-80px); }
+  .mainSlider .search-form__overlay {
+    background-color: #c8dede; }
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -887,26 +899,34 @@ body * {
 .profile__text-panel {
   -ms-flex: 1;
       flex: 1;
-  padding: 20px; }
+  padding: 20px;
+  margin-left: -15px;
+  margin-right: -15px; }
   @media screen and (min-width: 901px) {
     .profile__text-panel {
-      width: 60%; } }
+      width: 60%;
+      margin: 0; } }
   @media screen and (min-width: 601px) {
     .profile__text-panel {
       padding-right: 74px;
       padding-left: 100px; } }
 
-@media screen and (max-width: 600px) {
-  .profile__title-panel {
-    padding: 0 20px; } }
+.profile__media-links {
+  position: relative;
+  z-index: 400; }
+
+.profile__show-more {
+  position: relative;
+  z-index: 400; }
 
 .profile__article {
-  padding: 20px 20px 20px 0px;
+  padding: 20px 0;
   font-family: "Poppins-Regular", Arial, Helvetica, sans-serif; }
   @media screen and (min-width: 601px) {
     .profile__article {
       display: -ms-flexbox;
-      display: flex; } }
+      display: flex;
+      padding-right: 20px; } }
   .profile__article-text-wrap {
     -ms-flex: 2;
         flex: 2;
@@ -918,6 +938,10 @@ body * {
   .profile__article-header {
     color: #1a1a1d;
     margin-bottom: 18px; }
+    @media screen and (max-width: 600px) {
+      .profile__article-header {
+        padding-top: 50px;
+        position: relative; } }
   .profile__article-pic {
     display: block;
     width: 38%;
@@ -925,6 +949,9 @@ body * {
         flex: 1 0 150px;
     float: left;
     margin-right: 5%; }
+    @media screen and (max-width: 600px) {
+      .profile__article-pic {
+        margin-top: 70px; } }
     @media screen and (min-width: 900px) {
       .profile__article-pic {
         margin-right: 13%; } }
@@ -933,6 +960,13 @@ body * {
       .profile__article-pic picture img {
         width: 100%;
         height: auto; }
+
+@media screen and (max-width: 600px) {
+  .profile__tabs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; } }
 
 .profile__article-title {
   margin-bottom: .5em;
@@ -992,6 +1026,9 @@ body * {
           flex-direction: column; }
       .profile__social .social__item:not(:last-child) {
         margin-bottom: 30px; } }
+
+.profile__portfolio-slider {
+  margin-bottom: 43px; }
 
 .profile-media-links {
   padding: 24px 0; }
