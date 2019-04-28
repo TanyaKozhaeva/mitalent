@@ -113,15 +113,13 @@ body
   text-align: center
   overflow: hidden
   & > *
-    height: $size
-    line-height: $size - 3
+    height: 16vh
+    max-height: 58px
     border: 1px solid transparent
     transition: all .5s
-    @media screen and (max-width: 1024px)
-      height: $size - 10
-      line-height: $size - 10
-  span
-    display: inline-block
+    display: flex
+    justify-content: center
+    align-items: center
   &__pic
     width: $size
     background-color: $main-color-light
@@ -311,11 +309,9 @@ body
     @media screen and (max-width: 580px)
       font-size: .8rem
   &__poster
-    // width: 100%
-    // padding-top: 56.3%
     height: 100%
     background-size: cover
-    background-position: center top
+    background-position: center
     background-repeat: no-repeat
     position: absolute
     top: 0

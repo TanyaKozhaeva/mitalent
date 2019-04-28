@@ -17,6 +17,7 @@ function makeCustomCursor() {
   var clientX = -100;
   var clientY = -100;
   var customCursor = document.querySelector('.cursor');
+
   var initCursor = function() {
     document.addEventListener('mousemove', function(e){
       clientX = e.clientX;
@@ -46,8 +47,13 @@ function makeCustomCursor() {
       item.addEventListener("mouseleave", handleMouseLeave);
     });
   }
-initCursor();
-initHovers();
+
+  if('ontouchstart' in document.documentElement){
+    customCursor.style.display = 'none';
+  } else {
+    initCursor();
+    initHovers();
+  }
 };
 
 //Screen Slider
@@ -68,9 +74,9 @@ let mainSliderSelector = '.main-slider',
 
 // Main Slider
 let mainSliderOptions = {
-      loop: true,
+      // loop: true,
       speed: 1000,
-      loopAdditionalSlides: 10,
+      // loopAdditionalSlides: 10,
       // direction: direction,
       // grabCursor: true,
       direction: 'vertical',//
@@ -147,8 +153,10 @@ let mainSlider = new Swiper(mainSliderSelector, mainSliderOptions);
 
 // Navigation Slider
 let navSliderOptions = {
-      loop: true,
+      // loop: true,
       loopAdditionalSlides: 10,
+      // slidesPerView: 'auto',
+      // loopedSlides : 3,
       speed:1000,
       direction: 'vertical',
       slidesPerView: 5,
@@ -177,21 +185,24 @@ function makeNavigation() {
 var navBtn = document.getElementById('toggle-navigation-btn'),
     mainNav = document.getElementById('main-nav'),
     closeBtn = document.querySelector('.main-nav__close-btn'),
-    // screenToAnimation = document.querySelector('.main-slider'),
     screenToAnimation,
     screenWidth = $(window).width();
 // navBtn.addEventListener('mouseenter', setWillChange);
 navBtn.onclick = function() {
-  screenToAnimation = document.querySelector('.swiper-slide-active');
   var tl = new TimelineMax({
     onComplete: function() {
       mainNav.classList.add('main-nav_show')
     }
   });
-  tl
-  .to(screenToAnimation, .7,{ease: Expo.easeOut, scale: .95, top: 40})
-  .to(mainNav, .5,{x: 0, opacity: 1}, '+=.2')
-	// mainNav.classList.add('main-nav_show')
+    if(window.matchMedia('(max-width: 600px)').matches){
+      tl
+      .to(mainNav, .5,{x: 0, opacity: 1}, '+=.2')
+    } else {
+      screenToAnimation = document.querySelector('.swiper-slide-active');
+      tl
+      .to(screenToAnimation, .7,{ease: Expo.easeOut, scale: .95, top: 40})
+      .to(mainNav, .5,{x: 0, opacity: 1}, '+=.2')
+    }
 };
 // function setWillChange(){
 //   console.log('will')
@@ -204,10 +215,14 @@ closeBtn.onclick = function(){
       mainNav.classList.remove('main-nav_show')
     }
   });
-  tlClose
-  .to(mainNav, .3,{x: screenWidth * 1.2, opacity: 0}, '+=1')
-  .to(screenToAnimation, .3,{ease: Expo.easeOut, top: 0, scale: 1})
-
+  if(window.matchMedia('(max-width: 600px)').matches){
+    tlClose
+    .to(mainNav, .3,{x: screenWidth * 1.2, opacity: 0}, '+=1')
+  } else {
+    tlClose
+    .to(mainNav, .3,{x: screenWidth * 1.2, opacity: 0}, '+=1')
+    .to(screenToAnimation, .3,{ease: Expo.easeOut, top: 0, scale: 1})
+  }
 }
 };
 

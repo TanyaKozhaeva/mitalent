@@ -118,16 +118,16 @@ body * {
   text-align: center;
   overflow: hidden; }
   .btn-main > * {
-    height: 68px;
-    line-height: 65px;
+    height: 16vh;
+    max-height: 58px;
     border: 1px solid transparent;
-    transition: all .5s; }
-    @media screen and (max-width: 1024px) {
-      .btn-main > * {
-        height: 58px;
-        line-height: 58px; } }
-  .btn-main span {
-    display: inline-block; }
+    transition: all .5s;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center; }
   .btn-main__pic {
     width: 68px;
     background-color: #fff;
@@ -330,7 +330,7 @@ body * {
   .video__poster {
     height: 100%;
     background-size: cover;
-    background-position: center top;
+    background-position: center;
     background-repeat: no-repeat;
     position: absolute;
     top: 0;
@@ -430,6 +430,12 @@ body * {
     cursor: none; }
   .main-nav_show {
     visibility: visible; }
+  .main-nav__list {
+    width: 93%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
   .main-nav__item {
     font-family: "Poppins-Medium", Arial, Helvetica, sans-serif;
     font-size: 52px;
@@ -734,8 +740,7 @@ body * {
     width: 50%;
     max-width: 1124px;
     height: 72vh;
-    max-height: 819px;
-    background-position: center top;
+    background-position: center;
     background-size: cover; }
     @media screen and (max-width: 600px) {
       .swiper-slide .slide-bgimg {
@@ -765,6 +770,12 @@ body * {
       .swiper-slide__content {
         left: 3%; } }
 
+.swiper-container-vertical > .swiper-scrollbar {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 8px; }
+
 .content {
   font-size: 12px;
   width: 32%;
@@ -777,7 +788,7 @@ body * {
       font-size: 7px; } }
   .content .title {
     font-size: 5.81em;
-    margin-bottom: .46em;
+    margin-bottom: .26em;
     font-family: "Poppins-Regular", Arial, Helvetica, sans-serif; }
   .content .caption {
     display: block;

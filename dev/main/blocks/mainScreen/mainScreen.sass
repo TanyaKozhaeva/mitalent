@@ -50,8 +50,8 @@
     width: 50%
     max-width: 1124px
     height: 72vh
-    max-height: 819px
-    background-position: center top
+    // max-height: 819px
+    background-position: center
     background-size: cover
     @media screen and (max-width: 600px)
       width: 100%
@@ -76,6 +76,12 @@
     left: 18%
     @media screen and (max-width: 600px)
       left: 3%
+.swiper-container-vertical
+  & > .swiper-scrollbar
+    position: fixed
+    top: 0
+    height: 100%
+    width: 8px
 .content
   font-size: 12px
   width: 32%
@@ -86,7 +92,7 @@
     font-size: 7px
   .title
     font-size: 5.81em
-    margin-bottom: .46em
+    margin-bottom: .26em
     font-family: $font-1-simple
 
   .caption
