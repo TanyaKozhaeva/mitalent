@@ -31,9 +31,11 @@ html(lang="en")
 		//- include modules/header/header
 		include modules/menu/menu
 		include modules/button/button
+		
 		#barba-wrapper
 			.barba-container(data-namespace="mainPage")
 				block content
+			.barba-overlay
 		//- include modules/footer/footer
 		<!-- build:js js/libs/libs.js-->
 			script(src="static/js/jquery.js")

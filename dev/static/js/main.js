@@ -184,46 +184,41 @@ navSlider.controller.control = mainSlider;
 function makeNavigation() {
 var navBtn = document.getElementById('toggle-navigation-btn'),
     mainNav = document.getElementById('main-nav'),
+    navItems = mainNav.querySelectorAll('.main-nav__item-wrap'),
     closeBtn = document.querySelector('.main-nav__close-btn'),
     screenToAnimation,
     screenWidth = $(window).width();
 // navBtn.addEventListener('mouseenter', setWillChange);
+
 navBtn.onclick = function() {
   var tl = new TimelineMax({
     onComplete: function() {
       mainNav.classList.add('main-nav_show')
     }
   });
-    if(window.matchMedia('(max-width: 600px)').matches){
-      tl
-      .to(mainNav, .5,{x: 0, opacity: 1}, '+=.2')
-    } else {
-      screenToAnimation = document.querySelector('.swiper-slide-active');
-      tl
-      .to(screenToAnimation, .7,{ease: Expo.easeOut, scale: .95, top: 40})
-      .to(mainNav, .5,{x: 0, opacity: 1}, '+=.2')
-    }
+  tl
+  .to(mainNav, .5,{x: 0, opacity: 1})
 };
 // function setWillChange(){
 //   console.log('will')
 //   mainNav.style.willChange = 'transform, opacity'
 //   screenToAnimation.style.willChange = 'transform, top'
 // }
-closeBtn.onclick = function(){
+
+function closeNav(){
   var tlClose = new TimelineMax({
     onStart: function() {
       mainNav.classList.remove('main-nav_show')
     }
   });
-  if(window.matchMedia('(max-width: 600px)').matches){
-    tlClose
-    .to(mainNav, .3,{x: screenWidth * 1.2, opacity: 0}, '+=1')
-  } else {
-    tlClose
-    .to(mainNav, .3,{x: screenWidth * 1.2, opacity: 0}, '+=1')
-    .to(screenToAnimation, .3,{ease: Expo.easeOut, top: 0, scale: 1})
-  }
+  tlClose
+  .to(mainNav, .5,{x: screenWidth * 1.2, opacity: 0}, '+=1')
 }
+
+closeBtn.addEventListener("click", closeNav);
+[].forEach.call(navItems, function(item) {
+  item.addEventListener("click", closeNav);
+});
 };
 
 //Slider
@@ -332,17 +327,19 @@ function barbaNavigation(){
       contentBlock,
       captionString,
       slideBg,
+      barbaOverlay,
       screenWidth = $(window).width(),
       screenHeight = $(window).height();
   Barba.Dispatcher.on('linkClicked', function(el) {
       lastElementClicked = el;
+      barbaOverlay = document.querySelector('.barba-overlay');
       // !!!!!!!!!!!!!!!!!
-      parentElementClicked = el.closest('.swiper-slide');
-      contentBlock = parentElementClicked.querySelector('.content');
-      captionString = parentElementClicked.querySelector('.caption');
-      slideBg = parentElementClicked.querySelector('.slide-bgimg');
-      socialLinks = document.querySelector('.mainSlider__social');
-      navSlides = document.querySelector('.mainSlider__navWrap');
+      // parentElementClicked = el.closest('.swiper-slide');
+      // contentBlock = parentElementClicked.querySelector('.content');
+      // captionString = parentElementClicked.querySelector('.caption');
+      // slideBg = parentElementClicked.querySelector('.slide-bgimg');
+      // socialLinks = document.querySelector('.mainSlider__social');
+      // navSlides = document.querySelector('.mainSlider__navWrap');
     });
   var CustomTransition = Barba.BaseTransition.extend({
     start: function() {
@@ -358,13 +355,26 @@ function barbaNavigation(){
           deferred.resolve();
         }
       });
-      tl
-      .to(socialLinks,.9,{ease: Expo.easeOut, left: -(screenWidth/100 * 5)}, 0)
-      .to(navSlides,.9,{ease: Expo.easeOut, x: 100, opacity: 0}, 0)
-      .to(captionString,.3,{y: 20, opacity: 0})
-      .to(contentBlock,.7,{top: 51, scale: 1.3, left: (screenWidth/100 * 16)})
-      .to(lastElementClicked, .5,{opacity: 0})
-      .to(slideBg,1,{top: 104, width: screenWidth/100 * 70, height: screenWidth/100 * 39.37, left: screenWidth/100 * 15}, '-=.2')
+      if($(lastElementClicked).hasClass('swiper-link')){
+        parentElementClicked = lastElementClicked.closest('.swiper-slide');
+        contentBlock = parentElementClicked.querySelector('.content');
+        captionString = parentElementClicked.querySelector('.caption');
+        slideBg = parentElementClicked.querySelector('.slide-bgimg');
+        socialLinks = document.querySelector('.mainSlider__social');
+        navSlides = document.querySelector('.mainSlider__navWrap');
+
+        tl
+        .to(socialLinks,.9,{ease: Expo.easeOut, left: -(screenWidth/100 * 5)}, 0)
+        .to(navSlides,.9,{ease: Expo.easeOut, x: 100, opacity: 0}, 0)
+        .to(captionString,.3,{y: 20, opacity: 0})
+        .to(contentBlock,.7,{top: 51, scale: 1.3, left: (screenWidth/100 * 16)})
+        .to(lastElementClicked, .5,{opacity: 0})
+        .to(slideBg,1,{top: 104, width: screenWidth/100 * 70, height: screenWidth/100 * 39.37, left: screenWidth/100 * 15}, '-=.2')
+      } else {
+        barbaOverlay.classList.add('barba-overlay_moveToTop');
+        barbaOverlay.style.visibility = 'visible';
+        tl.to(barbaOverlay, 3, {scaleY: 1, trasformOrigin: '50% top'});
+      }
       return deferred.promise;
     },
 
@@ -378,9 +388,17 @@ function barbaNavigation(){
     // },
 
     showNewPage: function() {
+      var tl = new TimelineMax({
+        onComplete: function() {
+          barbaOverlay.style.visibility = 'hidden';
+        }
+      });
+      barbaOverlay.classList.remove('barba-overlay_moveToTop');
+      tl.fromTo(barbaOverlay, 3, {scaleY: 1}, {scaleY: 0});
       this.done();
     }
   });
+
   var BackTransition = Barba.BaseTransition.extend({
     start: function() {
       Promise.all([this.newContainerLoading, this.zoom()]).then(
@@ -396,8 +414,7 @@ function barbaNavigation(){
           deferred.resolve();
         }
       });
-      tl
-      .to(container,.8,{opacity:0})
+      tl.to(container,.8,{opacity:0})
       return deferred.promise;
     },
 
@@ -408,14 +425,22 @@ function barbaNavigation(){
 
   Barba.Pjax.getTransition = function() {
     var transitionObj = CustomTransition;
+    // if (Barba.HistoryManager.prevStatus().namespace === 'profile') {
+    //   transitionObj = BackTransition;
+    // }
     if (Barba.HistoryManager.prevStatus().namespace === 'profile') {
       transitionObj = BackTransition;
     }
     return transitionObj;
   };
+
   var SingleProfile = Barba.BaseView.extend({
       namespace: 'profile',
+  //     onEnter: function() {
+  //     console.log('enter');
+  // },
       onEnterCompleted: function() {
+        makeCustomCursor();
         customVideoControls();
         appendVideoSrcBySize();
         makePortfolioSlider();
@@ -425,7 +450,6 @@ function barbaNavigation(){
         // makeNavigation();
       }
   });
-
   var MainPage = Barba.BaseView.extend({
       namespace: 'mainPage',
       onEnterCompleted: function() {
@@ -438,10 +462,19 @@ function barbaNavigation(){
         AOS.init();
       }
   });
+  var NewsPage = Barba.BaseView.extend({
+      namespace: 'news',
+      onEnterCompleted: function() {
+        makeCustomCursor();
+        showSearchForm();
+        AOS.init();
+        makeNavigation();
+      }
+  });
 
   SingleProfile.init();
   MainPage.init();
-
+  NewsPage.init();
 
   Barba.Pjax.start();
 };

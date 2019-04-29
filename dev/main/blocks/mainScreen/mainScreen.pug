@@ -1,10 +1,6 @@
 .mainSlider.square
-  include ../../modules/header/header
-  .cursor
-    span.cursor__icon.cursor__icon_default
-    img(src="static/svg/drag.svg" alt="cursor").cursor__icon.cursor__icon_grab
-    img(src="static/svg/arrow.svg" alt="cursor").cursor__icon.cursor__icon_arrow
-    span.cursor__icon.cursor__icon_play Play
+  include ../../modules/cursor/cursor
+  include ../../modules/header/header 
   .mainSlider__social
     include ../../modules/social/social
   .swiper-container.main-slider.loading

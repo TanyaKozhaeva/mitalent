@@ -1,0 +1,86 @@
+.cursor
+  width: 10px
+  height: 10px
+  display: flex
+  background-color: darken($bg-color, 30%)
+  border-radius: 50%
+  justify-content: center
+  align-items: center
+  position: fixed
+  top: -5px
+  left: -5px
+  z-index: 11000
+  pointer-events: none
+  transition: all 0s
+  &::before
+    content: ''
+    width: 40px
+    height: 40px
+    border-radius: 50%
+    border: 1px solid darken($bg-color, 30%)
+    position: absolute
+    top: 50%
+    left: 50%
+    margin-top: -20px
+    margin-left: -20px
+    transform: scale(.2)
+    transition: all .5s
+  &__icon
+    width: 15px
+    height: 15px
+    position: relative
+    &_arrow
+      display: none
+    &_play
+      display: none
+    &_grab
+      display: none
+  &_hidden
+    visibility: hidden
+  &_circle
+    transform: scale(.2)
+    background-color: transparent
+    &::before
+      transform: scale(1)
+  &_grab
+    background-color: transparent
+    transition: all .1s
+    &::before
+      transform: scale(1)
+    & .cursor__icon_grab
+      display: inline-block
+  &_dot
+    &::before
+      transform: scale(.5)
+      background-color: darken($bg-color, 30%)
+    .cursor__icon
+      display: none
+  &_arrow
+    &::before
+      transform: scale(1)
+      background-color: darken($bg-color, 30%)
+    & .cursor__icon
+      display: none
+      &_arrow
+        display: inline-block
+  &_play
+    &::before
+      transform: scale(1)
+      background-color: darken($bg-color, 30%)
+    & .cursor__icon
+      &_play
+        display: inline-block
+        font-size: 10px
+        font-family: $font-1-simple
+        color: $main-color-dark
+        width: 100%
+        text-align: center
+        position: absolute
+        top: 77%
+        left: -1px
+        text-transform: uppercase
+        transform: translate(-50%, -50%)
+      &_arrow
+        display: none
+      &_grab
+        display: none
