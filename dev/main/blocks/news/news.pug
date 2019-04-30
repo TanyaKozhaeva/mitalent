@@ -11,7 +11,6 @@ mixin portfolioItem(data)
         p.portfolio__item-text= item.text 
 
 .news
-  include ../../modules/cursor/cursor
   .wrapper 
     header.header.news__header
       img(src="static/svg/logo.png").logo.header__logo
@@ -27,13 +26,15 @@ mixin portfolioItem(data)
           span.hidden-text Close navigation
           span.toggle-navigation-btn__line        
     .news__main-screen-blocks
-      .news__column.news__column_size_lg.interactive(data-cursor="dot" data-aos="fade-right" data-aos-duration="2000")
-        .news__pic(style="background-image: url(static/img/content/puzzle/puzzle5.jpg)")
+      .news__column.news__column_size_lg.interactive(data-cursor="arrow" data-aos="fade-right" data-aos-duration="2000")
+        .news__pic-wrap
+          .news__pic(style="background-image: url(static/img/content/puzzle/puzzle5.jpg)")
         .news__text
           span.news__title-suptitle.link-suptitle Featured news
           h3.news__title.link-text A starter guide to self improvement
-      .news__column.interactive(data-cursor="dot" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000")
-        .news__pic(style="background-image: url(static/img/content/puzzle/puzzle6.jpg)")
+      .news__column.interactive(data-cursor="arrow" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000")
+        .news__pic-wrap
+          .news__pic(style="background-image: url(static/img/content/puzzle/puzzle6.jpg)")
         .news__text
           h3.news__title.link-text.link-text_color_dark Dream interpretation common symbols and their meanings
           span.news__date.link-date 8 march 2020
@@ -107,21 +108,25 @@ mixin portfolioItem(data)
               .pic-puzzle__text.pic-puzzle__text_accent
                 h3.pic-puzzle__title.link-text Use your reset button to change your vibration
                 span.pic-puzzle__date.link-date 8 march 2020
-              .pic-puzzle__pic(style="background-image: url(static/img/content/puzzle/puzzle1.jpg)")
+              .pic-puzzle__img-wrap
+                .pic-puzzle__img(style="background-image: url(static/img/content/puzzle/puzzle1.jpg)")
         .pic-puzzle__line
           .pic-puzzle__small-block.interactive(data-cursor="dot")
             .pic-puzzle__content-wrap.pic-puzzle__content-wrap_vertical
-              .pic-puzzle__pic(style="background-image: url(static/img/content/puzzle/puzzle3.jpg)")
+              .pic-puzzle__img-wrap
+                .pic-puzzle__img(style="background-image: url(static/img/content/puzzle/puzzle3.jpg)")
               .pic-puzzle__text
                 h3.pic-puzzle__title.link-text.link-text_color_dark Dream interpretation common symbols and their meanings 
                 span.pic-puzzle__date.link-date 8 march 2020
           .pic-puzzle__small-block.interactive(data-cursor="dot")
             .pic-puzzle__content-wrap.pic-puzzle__content-wrap_vertical
-              .pic-puzzle__pic(style="background-image: url(static/img/content/puzzle/puzzle4.jpg)")
+              .pic-puzzle__img-wrap
+                .pic-puzzle__img(style="background-image: url(static/img/content/puzzle/puzzle4.jpg)")
       .pic-puzzle__column.pic-puzzle__column_width_sm.interactive(data-cursor="dot")
         .pic-puzzle__content-wrap.pic-puzzle__content-wrap_vertical
-          .pic-puzzle__pic(style="background-image: url(static/img/content/puzzle/puzzle2.jpg)")
+          .pic-puzzle__img-wrap
+            .pic-puzzle__img(style="background-image: url(static/img/content/puzzle/puzzle2.jpg)")
           .pic-puzzle__text
             h3.pic-puzzle__title.link-text.link-text_color_dark Motivation and your personal vision an anbeatable force
             span.pic-puzzle__date.link-date 8 march 2020
-    
+  include ../../modules/footer/footer     

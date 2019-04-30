@@ -15,7 +15,7 @@ block content
 mixin mediaLinks(data)
 	ul.profile-media-links&attributes(attributes)
 		each item in data
-			li.profile-media-links__item.interactive(data-cursor="dot")
+			li.profile-media-links__item.interactive(data-cursor="arrow")
 				a(href="#" target="_blank").profile-media-links__link
 					picture.profile-media-links__prev
 						source(srcset="static/img/content/puzzle/"+ item.img + ".jpg, static/img/content/puzzle/" + item.img + ".jpg 2x")

@@ -11,7 +11,6 @@ mixin portfolioItem(data)
         p.portfolio__item-text= item.text 
       
 section.profile.square
-  include ../../modules/cursor/cursor
   include ../../modules/header/header
   .profile__video-screen
     .profile__title-block.content
@@ -26,7 +25,7 @@ section.profile.square
         video(controls preload="auto" loop)#video.video__file
           //- source(src="static/video/testimonials-video.mp4" type="video/mp4")    
   .wrapper  
-    section.profile__section  
+    section(data-aos="fade-up" data-aos-duration="2000").profile__section  
       article.profile__article
         .profile__article-pic 
           picture
@@ -53,7 +52,7 @@ section.profile.square
             p.profile__paragraph.paragraph Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo concequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmond tempor incididunt ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo concequat.
         .profile__social 
           include ../../modules/social/social
-    section.profile__section
+    section(data-aos="fade-up" data-aos-duration="2000").profile__section
       .profile__text-panel.profile__section_bg-color_black
         h3.profile__article-title.profile__article-title_line.section-title Derek Anderson on press
         ul.profile__media-links.profile-media-links
@@ -79,7 +78,7 @@ section.profile.square
       picture.profile__pic-panel.profile__pic-panel_fixed-height 
         source(srcset="static/img/content/portfolio/derek-anderson2.jpg, static/img/content/portfolio/derek-anderson2.jpg 2x")
         img(src="static/img/content/portfolio/derek-anderson2.jpg" alt="Derek Anderson") 
-    section.profile__section
+    section(data-aos="fade-up" data-aos-duration="2000").profile__section
       .profile__title-panel
         h3.profile__article-title.profile__article-title_line.section-title Similar Clients
       .profile__text-panel

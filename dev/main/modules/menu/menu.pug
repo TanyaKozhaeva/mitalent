@@ -8,7 +8,7 @@ mixin mainNav(data)
               span.main-nav__item-text= item.text
               span.main-nav__item-number= '0' + index 
               span(style="transition-delay: " + index * .3 + "s").main-nav__item-line
-    button(type="button" data-cursor="dot").toggle-navigation-btn.toggle-navigation-btn_closed.interactive.main-nav__close-btn#main-nav-close-btn
+    button(type="button" data-cursor="circle").toggle-navigation-btn.toggle-navigation-btn_closed.interactive.main-nav__close-btn#main-nav-close-btn
       span.hidden-text Close navigation
       span.toggle-navigation-btn__line
             

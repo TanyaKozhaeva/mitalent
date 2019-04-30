@@ -17,7 +17,7 @@ function makeCustomCursor() {
   var clientX = -100;
   var clientY = -100;
   var customCursor = document.querySelector('.cursor');
-
+  customCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
   var initCursor = function() {
     document.addEventListener('mousemove', function(e){
       clientX = e.clientX;
@@ -220,6 +220,9 @@ closeBtn.addEventListener("click", closeNav);
   item.addEventListener("click", closeNav);
 });
 };
+
+//Parallax
+
 
 //Slider
 function makePortfolioSlider() {

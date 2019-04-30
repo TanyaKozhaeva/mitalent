@@ -1,6 +1,8 @@
 .profile
   &__content
     display: flex
+  & .search-form__overlay
+    background-color: $bg-color
   &__section
     display: flex
     padding: 43px 0
@@ -176,6 +178,9 @@
     font-family: $font-2-simple
     &:not(:last-child)
       margin-bottom: 28px
+  &__item:hover &__text
+      color: $bg-color
+      transition: color .4s
   &__link
     display: flex
   &__prev
@@ -203,6 +208,7 @@
     &:hover &-descr
       opacity: 1
       visibility: visible
+      transition: all .4s
     &-pic
       overflow: hidden
       img
