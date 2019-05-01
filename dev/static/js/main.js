@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function(){
   AOS.init();
 });
 
+
 //Custom Cursor
 function makeCustomCursor() {
   var clientX = -100;
@@ -153,10 +154,7 @@ let mainSlider = new Swiper(mainSliderSelector, mainSliderOptions);
 
 // Navigation Slider
 let navSliderOptions = {
-      // loop: true,
       loopAdditionalSlides: 10,
-      // slidesPerView: 'auto',
-      // loopedSlides : 3,
       speed:1000,
       direction: 'vertical',
       slidesPerView: 5,
@@ -166,7 +164,7 @@ let navSliderOptions = {
       slideToClickedSlide: true,
       on: {
         imagesReady: function(){
-          this.el.classList.remove('loading');
+          document.querySelector('.swiper-nav-wrap').classList.remove('loading');
         },
         click: function(){
           mainSlider.autoplay.stop();
@@ -321,6 +319,24 @@ function showSearchForm() {
   })
 }
 
+//SHOW MORE BTN
+function showMorePics(){
+  var itemToShow = $('.portfolio__item');
+  var btn = $('#showMore');
+  if($(window).width() > 600){
+    $(itemToShow).show();
+    $(btn).hide();
+  } else {
+    $(itemToShow).slice(0, 4).show();
+    $(btn).click(function(){
+      $('.portfolio__item:hidden').slice(0, 4).show("slow");
+      if($('.portfolio__item:hidden').length == 0){
+        $('#showMore').hide("slow");
+      }
+    })
+  }
+};
+
 //Barba.js
 function barbaNavigation(){
   var lastElementClicked,
@@ -376,7 +392,7 @@ function barbaNavigation(){
       } else {
         barbaOverlay.classList.add('barba-overlay_moveToTop');
         barbaOverlay.style.visibility = 'visible';
-        tl.to(barbaOverlay, 3, {scaleY: 1, trasformOrigin: '50% top'});
+        tl.to(barbaOverlay, 1.3, {scaleY: 1, trasformOrigin: '50% top'});
       }
       return deferred.promise;
     },
@@ -397,7 +413,7 @@ function barbaNavigation(){
         }
       });
       barbaOverlay.classList.remove('barba-overlay_moveToTop');
-      tl.fromTo(barbaOverlay, 3, {scaleY: 1}, {scaleY: 0});
+      tl.fromTo(barbaOverlay, 1.3, {scaleY: 1}, {scaleY: 0});
       this.done();
     }
   });
@@ -472,6 +488,7 @@ function barbaNavigation(){
         showSearchForm();
         AOS.init();
         makeNavigation();
+        showMorePics();
       }
   });
 

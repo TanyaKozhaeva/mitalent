@@ -112,14 +112,15 @@
             <button class="swiper-button-prev swiper-button-white">  </button>
             <button class="swiper-button-next swiper-button-white"></button>
           </div>
-          <div class="mainSlider__navWrap">
-            <div class="swiper-container nav-slider">
+          <div class="mainSlider__navWrap swiper-nav-wrap loading">
+            <div class="swiper-container nav-slider"> 
               <div class="swiper-wrapper">
-                <div class="swiper-slide nav-slide interactive" data-cursor="dot">01<img class="entity-img" src="static/img/content/giorgina.jpg"></div>
-                <div class="swiper-slide nav-slide interactive" data-cursor="dot">02 <img class="entity-img" src="static/img/content/derek.jpg"></div>
-                <div class="swiper-slide nav-slide interactive" data-cursor="dot">03<img class="entity-img" src="static/img/content/keith.jpg"></div>
+                <div class="swiper-slide nav-slide">01<img class="entity-img" src="static/img/content/giorgina.jpg"></div>
+                <div class="swiper-slide nav-slide">02 <img class="entity-img" src="static/img/content/derek.jpg"></div>
+                <div class="swiper-slide nav-slide">03<img class="entity-img" src="static/img/content/keith.jpg"></div>
               </div>
             </div>
+            <div class="swiper-slider-count">03</div>
           </div>
         </div>
         <div class="news">
@@ -290,6 +291,7 @@
                             <p class="portfolio__item-text">comedian</p>
                           </div>
                         </div>
+                <button class="portfolio__show-more show-more-btn interactive" type="button" data-cursor="dot" id="showMore"><span class="show-more-btn__text">Show more </span></button>
               </div>
             </div>
             <section class="profile__section">
@@ -401,7 +403,7 @@
               </div>
             </div>
           </header>
-          <div class="wrapper">
+          <div class="wrapper"> 
             <article class="blog__article blog-article"> 
               <div class="blog-article__author-col">
                 <div class="blog-article__author-info">
@@ -541,7 +543,7 @@
         </div>
         <div class="contact-us">
           <div class="contact-us__inner">
-            <div class="contact-us__inner-pic" data-aos="fade-down" data-aos-duration="1000"></div>
+            <div class="contact-us__inner-pic" data-aos="fade-up" data-aos-duration="1000"></div>
             <header class="header">
               <div class="header__panel">
                 <button class="toggle-navigation-btn header__sandwich interactive" type="button" data-cursor="circle" id="toggle-navigation-btn"><span class="hidden-text">Close navigation </span><span class="toggle-navigation-btn__line"></span></button><a class="header__link interactive" href="#" data-cursor="dot">Blog</a><a class="header__link interactive" href="news.html" data-cursor="dot">News</a>
@@ -557,12 +559,12 @@
               </div>
             </header>
             <div class="contact-us__wrapper wrapper"> 
-              <div class="contact-us__title-block" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1000">
+              <div class="contact-us__title-block" data-aos="fade-down" data-aos-delay="1000" data-aos-duration="1000">
                 <h1 class="contact-us__title section-title"> Contact <span>us</span>
                 </h1><span class="contact-us__suptitle link-suptitle">Mass impressions</span>
               </div>
               <div class="contact-us__text-block"> 
-                <p class="contact-us__p" data-aos="fade-down" data-aos-delay="800" data-aos-duration="1000">We would love to hear from you, whether you want more information on any of our acts or wish to discover how our artists can support your event.</p>
+                <p class="contact-us__p" data-aos="fade-up" data-aos-delay="800" data-aos-duration="1000">We would love to hear from you, whether you want more information on any of our acts or wish to discover how our artists can support your event.</p>
                 <div class="contact-us__contacts-block"><a class="contact-us__link" href="#" data-aos="fade-up" data-aos-delay="800" data-aos-duration="800"> 
                     <svg class="icon icon-home contact-us__icon" aria-hidden="true">
                       <use xlink:href="static/svg/symbol/sprite.svg#home"></use>
@@ -573,7 +575,7 @@
                       <use xlink:href="static/svg/symbol/sprite.svg#phone-call"></use>
                     </svg>
                     <p class="span contact-us__link-inner"><a class="contact-us__link-text" href="tel:+4402345678910">+44 (0) 234 567 8910</a><a class="contact-us__link-text" href="tel:+4402345678910">+44 (0) 234 567 8910</a></p>
-                  </div><a class="contact-us__link" href="mailto: hello@mitalent.com" data-aos="fade-up" data-aos-delay="1200" data-aos-duration="800"> 
+                  </div><a class="contact-us__link" href="mailto: hello@mitalent.com" data-aos="fade-up" data-aos-delay="1100" data-aos-duration="800"> 
                     <svg class="icon icon-letter contact-us__icon" aria-hidden="true">
                       <use xlink:href="static/svg/symbol/sprite.svg#letter"></use>
                     </svg>
@@ -750,7 +752,7 @@
                   </svg></a>
               </div>
             </section>
-            <div class="profile__portfolio-slider portfolio js-portfolio-slider"> 
+            <div class="profile__portfolio-slider portfolio js-portfolio-slider" data-aos="fade-up" data-aos-duration="2000">
                       <div class="portfolio__item">
                         <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio1.jpg" alt="Keith Ruiz"></div>
                         <div class="portfolio__item-descr">
@@ -875,6 +877,7 @@
     <script src="static/libs/aos/aos.js"></script>
     <script src="static/libs/slick/slick.min.js"></script>
     <script src="static/libs/barba.min.js"></script>
+    <script src="static/libs/jquery.paroller.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
     <script src="static/libs/validate/jquery.validate.min.js"></script><!-- endbuild-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js"></script>

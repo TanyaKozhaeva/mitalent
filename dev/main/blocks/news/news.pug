@@ -91,7 +91,9 @@ mixin portfolioItem(data)
         {'name': 'Keith Ruiz',
         'text': 'comedian',
         'link': 'static/img/content/portfolio/portfolio1.jpg'}
-        ])(class="portfolio__item_light")  
+        ])(class="portfolio__item_light") 
+        button(type="button" data-cursor="dot")#showMore.portfolio__show-more.show-more-btn.interactive
+          span.show-more-btn__text Show more 
     section.profile__section
       .profile__title-panel
         h3.profile__article-title.profile__article-title_line.section-title Our clients
