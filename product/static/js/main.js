@@ -502,7 +502,7 @@ function barbaNavigation(){
       onEnterCompleted: function() {
         makeCustomCursor();
         showSearchForm();
-        // makeNavigation();
+        makeNavigation();
         customVideoControls();
         appendVideoSrcBySize();
         makeMediaLinksSlider();

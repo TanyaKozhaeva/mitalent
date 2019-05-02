@@ -1,3 +1,5 @@
-product
+product/static/img
+product/static/fonts
+product/static/video
 node_modules
 MITALENT
