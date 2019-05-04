@@ -28,8 +28,8 @@
     width: 93%
     position: absolute
     top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
+    left: 3%
+    transform: translateY(-50%)
   &__item
     font-family: $font-1-bold
     font-size: 52px
@@ -60,6 +60,8 @@
       transition: all .5s
       transform-origin: left
       transform: scaleX(0.005)
+    &-text
+      flex: 1
   &_show &__item
     opacity: 1
     transform: translateY(0)

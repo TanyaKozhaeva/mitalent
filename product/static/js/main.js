@@ -19,7 +19,7 @@ function makeCustomCursor() {
   var clientX = -100;
   var clientY = -100;
   var customCursor = document.querySelector('.cursor');
-  customCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+  customCursor.style.transform = 'translate(' + clientX + 'px,' + clientY 'px)';
   var initCursor = function() {
     document.addEventListener('mousemove', function(e){
       clientX = e.clientX;
@@ -27,7 +27,7 @@ function makeCustomCursor() {
     })
 
     var render = function() {
-      customCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+      customCursor.style.transform = "translate(" + clientX + "px," + clientY "px)";
       requestAnimationFrame(render);
     }
     requestAnimationFrame(render);

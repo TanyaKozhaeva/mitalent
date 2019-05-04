@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function(){
   // makeMediaLinksSlider();
   // customVideoControls();
   // appendVideoSrcBySize();
-
+  svg4everybody();
   barbaNavigation();
   // showSearchForm();
   // AOS.init();
@@ -19,7 +19,8 @@ function makeCustomCursor() {
   var clientX = -100;
   var clientY = -100;
   var customCursor = document.querySelector('.cursor');
-  customCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+  // customCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+  customCursor.style.cssText = "transform: translate(" + clientX + "px," + clientY + "px)";
   var initCursor = function() {
     document.addEventListener('mousemove', function(e){
       clientX = e.clientX;
@@ -27,7 +28,8 @@ function makeCustomCursor() {
     })
 
     var render = function() {
-      customCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+      // customCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+      customCursor.style.cssText = "transform: translate(" + clientX + "px," + clientY + "px)";
       requestAnimationFrame(render);
     }
     requestAnimationFrame(render);
@@ -39,7 +41,9 @@ function makeCustomCursor() {
       isStuck = true;
     };
     var handleMouseLeave = function() {
-      customCursor.classList = ['cursor'];
+      // customCursor.classList = ['cursor'];
+      customCursor.className = '';
+      customCursor.classList.add('cursor');
       isStuck = false;
     };
 
@@ -377,7 +381,13 @@ function barbaNavigation(){
         }
       });
       if($(lastElementClicked).hasClass('swiper-link')){
-        parentElementClicked = lastElementClicked.closest('.swiper-slide');
+        var target = lastElementClicked;
+        while(!target.classList.contains('swiper-slide')){
+            target = target.parentNode;
+        }
+        parentElementClicked = target;
+        console.log(parentElementClicked)
+        // parentElementClicked = lastElementClicked.closest('.swiper-slide');
         contentBlock = parentElementClicked.querySelector('.content');
         captionString = parentElementClicked.querySelector('.caption');
         slideBg = parentElementClicked.querySelector('.slide-bgimg');
