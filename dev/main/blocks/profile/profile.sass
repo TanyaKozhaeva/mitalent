@@ -7,7 +7,7 @@
     display: flex
     padding: 43px 0
     @media screen and (max-width: 600px)
-      flex-direction: column
+      display: block
     &_bg-color
       &_black
         background-color: $main-color-dark
@@ -99,13 +99,11 @@
     &-pic
       display: block
       width: 38%
-      flex: 1 0 150px
+      flex: 1 0 50px
       float: left
       margin-right: 5%
       @media screen and (max-width: 600px)
         margin-top: 70px
-      @media screen and (min-width: 900px)
-        margin-right: 13%
       & picture
         width: 100%
         & img

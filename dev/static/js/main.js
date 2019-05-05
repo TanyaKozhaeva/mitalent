@@ -14,54 +14,6 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 
-//Custom Cursor
-function makeCustomCursor() {
-  var clientX = -100;
-  var clientY = -100;
-  var customCursor = document.querySelector('.cursor');
-  // customCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
-  customCursor.style.cssText = "transform: translate(" + clientX + "px," + clientY + "px)";
-  var initCursor = function() {
-    document.addEventListener('mousemove', function(e){
-      clientX = e.clientX;
-      clientY = e.clientY;
-    })
-
-    var render = function() {
-      // customCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
-      customCursor.style.cssText = "transform: translate(" + clientX + "px," + clientY + "px)";
-      requestAnimationFrame(render);
-    }
-    requestAnimationFrame(render);
-  };
-  var initHovers = function() {
-    var handleMouseEnter = function(e) {
-      var currentTarget = e.currentTarget;
-      customCursor.classList.add("cursor_" + currentTarget.getAttribute('data-cursor'))
-      isStuck = true;
-    };
-    var handleMouseLeave = function() {
-      // customCursor.classList = ['cursor'];
-      customCursor.className = '';
-      customCursor.classList.add('cursor');
-      isStuck = false;
-    };
-
-    var hoveredItems = document.querySelectorAll(".interactive");
-    [].forEach.call(hoveredItems, function(item){
-      item.addEventListener("mouseenter", handleMouseEnter);
-      item.addEventListener("mouseleave", handleMouseLeave);
-    });
-  }
-
-  if('ontouchstart' in document.documentElement){
-    customCursor.style.display = 'none';
-  } else {
-    initCursor();
-    initHovers();
-  }
-};
-
 //Screen Slider
 function makeMainScreenSlider(){
 // Params
@@ -181,6 +133,54 @@ let navSlider = new Swiper(navSliderSelector, navSliderOptions);
 // Matching sliders
 mainSlider.controller.control = navSlider;
 navSlider.controller.control = mainSlider;
+};
+
+//Custom Cursor
+function makeCustomCursor() {
+  var clientX = -100;
+  var clientY = -100;
+  var customCursor = document.querySelector('.cursor');
+  // customCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+  customCursor.style.cssText = "transform: translate(" + clientX + "px," + clientY + "px)";
+  var initCursor = function() {
+    document.addEventListener('mousemove', function(e){
+      clientX = e.clientX;
+      clientY = e.clientY;
+    })
+
+    var render = function() {
+      // customCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+      customCursor.style.cssText = "transform: translate(" + clientX + "px," + clientY + "px)";
+      requestAnimationFrame(render);
+    }
+    requestAnimationFrame(render);
+  };
+  var initHovers = function() {
+    var handleMouseEnter = function(e) {
+      var currentTarget = e.currentTarget;
+      customCursor.classList.add("cursor_" + currentTarget.getAttribute('data-cursor'))
+      isStuck = true;
+    };
+    var handleMouseLeave = function() {
+      // customCursor.classList = ['cursor'];
+      customCursor.className = '';
+      customCursor.classList.add('cursor');
+      isStuck = false;
+    };
+
+    var hoveredItems = document.querySelectorAll(".interactive");
+    [].forEach.call(hoveredItems, function(item){
+      item.addEventListener("mouseenter", handleMouseEnter);
+      item.addEventListener("mouseleave", handleMouseLeave);
+    });
+  }
+
+  if('ontouchstart' in document.documentElement){
+    customCursor.style.display = 'none';
+  } else {
+    initCursor();
+    initHovers();
+  }
 };
 
 //Nav
