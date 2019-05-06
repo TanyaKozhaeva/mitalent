@@ -1,16 +1,7 @@
 ;
 document.addEventListener("DOMContentLoaded", function(){
-  // makeCustomCursor();
-  // makeMainScreenSlider();
-  // makeNavigation();
-  // makePortfolioSlider();
-  // makeMediaLinksSlider();
-  // customVideoControls();
-  // appendVideoSrcBySize();
   svg4everybody();
   barbaNavigation();
-  // showSearchForm();
-  // AOS.init();
 });
 
 
@@ -22,22 +13,11 @@ let mainSliderSelector = '.main-slider',
     interleaveOffset = 0.5,
     direction;
 
-    // (function (){
-    //   if(window.matchMedia('(max-width: 600px)').matches){
-    //     direction = 'vertical';
-    //   } else {
-    //     direction = 'horizontal';
-    //   }
-    // }());
 
 // Main Slider
 let mainSliderOptions = {
-      // loop: true,
       speed: 1000,
-      // loopAdditionalSlides: 10,
-      // direction: direction,
-      // grabCursor: true,
-      direction: 'vertical',//
+      direction: 'vertical',
       watchSlidesProgress: true,
       mousewheel: {
         invert: true
@@ -50,34 +30,14 @@ let mainSliderOptions = {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
-      //!!!!!
       scrollbar: {
         el: '.swiper-scrollbar',
         draggable: true,
       },
       on: {
-        init: function(){
-          //this.autoplay.stop();
-        },
         imagesReady: function(){
           this.el.classList.remove('loading');
-          //this.autoplay.start();
         },
-        /*
-        slideChangeTransitionEnd: function(){
-          let swiper = this,
-              captions = swiper.el.querySelectorAll('.caption');
-          for (let i = 0; i < captions.length; ++i) {
-            captions[i].classList.remove('show');
-          }
-          swiper.slides[swiper.activeIndex].querySelector('.caption').classList.add('show');
-
-          let btns = swiper.el.querySelectorAll('.swiper-link');
-          for (let i = 0; i < btns.length; ++i) {
-            btns[i].classList.remove('show');
-          }
-          swiper.slides[swiper.activeIndex].querySelector('.swiper-link').classList.add('show');
-        },*/
         progress: function(){
           let swiper = this;
           for (let i = 0; i < swiper.slides.length; i++) {
@@ -105,7 +65,7 @@ let mainSliderOptions = {
       }
 
     };
-// $(window).on('load resize', detectDirectionSlider);
+
 let mainSlider = new Swiper(mainSliderSelector, mainSliderOptions);
 
 
@@ -140,7 +100,6 @@ function makeCustomCursor() {
   var clientX = -100;
   var clientY = -100;
   var customCursor = document.querySelector('.cursor');
-  // customCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
   customCursor.style.cssText = "transform: translate(" + clientX + "px," + clientY + "px)";
   var initCursor = function() {
     document.addEventListener('mousemove', function(e){
@@ -149,7 +108,6 @@ function makeCustomCursor() {
     })
 
     var render = function() {
-      // customCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
       customCursor.style.cssText = "transform: translate(" + clientX + "px," + clientY + "px)";
       requestAnimationFrame(render);
     }
@@ -162,7 +120,6 @@ function makeCustomCursor() {
       isStuck = true;
     };
     var handleMouseLeave = function() {
-      // customCursor.classList = ['cursor'];
       customCursor.className = '';
       customCursor.classList.add('cursor');
       isStuck = false;
@@ -191,8 +148,6 @@ var navBtn = document.getElementById('toggle-navigation-btn'),
     closeBtn = document.querySelector('.main-nav__close-btn'),
     screenToAnimation,
     screenWidth = $(window).width();
-// navBtn.addEventListener('mouseenter', setWillChange);
-
 navBtn.onclick = function() {
   var tl = new TimelineMax({
     onComplete: function() {
@@ -202,11 +157,6 @@ navBtn.onclick = function() {
   tl
   .to(mainNav, .5,{x: 0, opacity: 1})
 };
-// function setWillChange(){
-//   console.log('will')
-//   mainNav.style.willChange = 'transform, opacity'
-//   screenToAnimation.style.willChange = 'transform, top'
-// }
 
 function closeNav(){
   var tlClose = new TimelineMax({
@@ -224,14 +174,11 @@ closeBtn.addEventListener("click", closeNav);
 });
 };
 
-//Parallax
-
-
 //Slider
 function makePortfolioSlider() {
   $('.js-portfolio-slider ').slick({
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     arrows: false,
     dots: true,
@@ -239,15 +186,19 @@ function makePortfolioSlider() {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
+          slidesToShow: 3
         }
       },
       {
-        breakpoint: 480,
+        breakpoint: 400,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 350,
+        settings: {
+          slidesToShow: 1
         }
       }
     ]
@@ -358,13 +309,6 @@ function barbaNavigation(){
   Barba.Dispatcher.on('linkClicked', function(el) {
       lastElementClicked = el;
       barbaOverlay = document.querySelector('.barba-overlay');
-      // !!!!!!!!!!!!!!!!!
-      // parentElementClicked = el.closest('.swiper-slide');
-      // contentBlock = parentElementClicked.querySelector('.content');
-      // captionString = parentElementClicked.querySelector('.caption');
-      // slideBg = parentElementClicked.querySelector('.slide-bgimg');
-      // socialLinks = document.querySelector('.mainSlider__social');
-      // navSlides = document.querySelector('.mainSlider__navWrap');
     });
   var CustomTransition = Barba.BaseTransition.extend({
     start: function() {
@@ -386,8 +330,6 @@ function barbaNavigation(){
             target = target.parentNode;
         }
         parentElementClicked = target;
-        console.log(parentElementClicked)
-        // parentElementClicked = lastElementClicked.closest('.swiper-slide');
         contentBlock = parentElementClicked.querySelector('.content');
         captionString = parentElementClicked.querySelector('.caption');
         slideBg = parentElementClicked.querySelector('.slide-bgimg');
@@ -410,16 +352,6 @@ function barbaNavigation(){
       }
       return deferred.promise;
     },
-
-    // zoom: function() {
-    //   return new Promise(function(t) {
-    //     var tl = new TimelineMax();
-    //       tl.to('body', 1, {y:100, onComplete: function(){
-    //         t();
-    //       }});
-    //   })
-    // },
-
     showNewPage: function() {
       var tl = new TimelineMax({
         onComplete: function() {
@@ -458,9 +390,6 @@ function barbaNavigation(){
 
   Barba.Pjax.getTransition = function() {
     var transitionObj = CustomTransition;
-    // if (Barba.HistoryManager.prevStatus().namespace === 'profile') {
-    //   transitionObj = BackTransition;
-    // }
     if (Barba.HistoryManager.prevStatus().namespace === 'profile') {
       transitionObj = BackTransition;
     }
@@ -469,9 +398,6 @@ function barbaNavigation(){
 
   var SingleProfile = Barba.BaseView.extend({
       namespace: 'profile',
-  //     onEnter: function() {
-  //     console.log('enter');
-  // },
       onEnterCompleted: function() {
         makeCustomCursor();
         customVideoControls();
@@ -479,9 +405,7 @@ function barbaNavigation(){
         makePortfolioSlider();
         showSearchForm();
         makeNavigation();
-        // addCustomCursorToSlick();
         AOS.init();
-        // makeNavigation();
       }
   });
   var MainPage = Barba.BaseView.extend({
@@ -490,9 +414,7 @@ function barbaNavigation(){
         makeCustomCursor();
         makeMainScreenSlider();
         makeNavigation();
-        // customVideoControls();
         showSearchForm();
-        // addCustomCursorToSlick();
         AOS.init();
       }
   });
@@ -504,7 +426,6 @@ function barbaNavigation(){
         AOS.init();
         makeNavigation();
         showMorePics();
-        // barbaNavigation();
       }
   });
   var BlogPage = Barba.BaseView.extend({
@@ -512,11 +433,9 @@ function barbaNavigation(){
       onEnterCompleted: function() {
         makeCustomCursor();
         showSearchForm();
-        // makeNavigation();
         customVideoControls();
         appendVideoSrcBySize();
         makeMediaLinksSlider();
-        // barbaNavigation();
       }
   });
 

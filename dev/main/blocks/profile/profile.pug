@@ -1,8 +1,10 @@
 mixin portfolioItem(data)
   each item in data
     .portfolio__item
-      .portfolio__item-pic&attributes(attributes)
-        img(src= item.link alt= item.name)
+      picture.portfolio__item-pic&attributes(attributes)
+        source(srcset="static/img/content/portfolio/" + item.link + "-400w.jpg, static/img/content/portfolio/" + item.link + "-800w.jpg 2x" media="(max-width: 599px)")
+        source(srcset="static/img/content/portfolio/" + item.link + "-300w.jpg, static/img/content/portfolio/" + item.link + "-600w.jpg 2x" media="(min-width: 600px)")
+        img(src="static/img/content/portfolio/" + item.link + "-400w.jpg" alt= item.name)
       .portfolio__item-descr
         .portfolio__item-btn-box
           a(href="#").portfolio__item-btn
@@ -18,19 +20,19 @@ section.profile.square
     .profile__video
       .video 
         .video__attributes
-          button(type="button" title="play" data-cursor="play")#playBtn.video__playBtn.interactive
+          button(type="button" data-cursor="play")#playBtn.video__playBtn.interactive
             +icon('play', 'video__playBtn-icon')
-        button(type="button" title='pause' data-cursor="play")#pauseBtn.video__pauseBtn.video__pauseBtn_hidden.interactive ||
+        button(type="button" data-cursor="play")#pauseBtn.video__pauseBtn.video__pauseBtn_hidden.interactive ||
         .video__poster(style="background-image: url(static/img/content/giorgina.jpg)")
-        video(controls preload="auto" loop)#video.video__file
-          //- source(src="static/video/testimonials-video.mp4" type="video/mp4")    
+        video(controls preload="auto" loop)#video.video__file 
   .wrapper  
     section(data-aos="fade-up" data-aos-duration="2000").profile__section  
       article.profile__article
         .profile__article-pic 
           picture
-            source(srcset="static/img/content/portfolio/derek-anderson1.jpg, static/img/content/portfolio/derek-anderson1.jpg 2x")
-            img(src="static/img/content/portfolio/derek-anderson1.jpg" alt="Derek Anderson") 
+            source(srcset="static/img/content/portfolio/derek-anderson1-200w.jpg, static/img/content/portfolio/derek-anderson1-400w.jpg 2x" media="(max-width: 600px)")
+            source(srcset="static/img/content/portfolio/derek-anderson1-400w.jpg, static/img/content/portfolio/derek-anderson1-640w.jpg 2x" media="(min-width: 601px)")
+            img(src="static/img/content/portfolio/derek-anderson1-400w.jpg" alt="Derek Anderson") 
         .profile__article-text-wrap
           header.profile__article-header
             ul.profile__tabs.tabs#tabs
@@ -59,7 +61,7 @@ section.profile.square
           li(data-cursor="dot").profile-media-links__item.interactive
             a(href="#" target="_blank").profile-media-links__link
               picture.profile-media-links__prev
-                source(srcset="static/img/content/portfolio/derek-anderson-link-pic.jpg, static/img/content/portfolio/derek-anderson-link-pic.jpg 2x")
+                source(srcset="static/img/content/portfolio/derek-anderson-link-pic.jpg, static/img/content/portfolio/derek-anderson-link-pic-retina.jpg 2x")
                 img(src="static/img/content/portfolio/derek-anderson-link-pic.jpg" alt="Derek Anderson") 
               .profile-media-links__text-box
                 p.profile-media-links__text.link-text 29 Mativational quotes for business and other work environments
@@ -67,7 +69,7 @@ section.profile.square
           li(data-cursor="dot").profile-media-links__item.interactive
             a(href="#" target="_blank").profile-media-links__link
               picture.profile-media-links__prev
-                source(srcset="static/img/content/portfolio/derek-anderson-link-pic.jpg, static/img/content/portfolio/derek-anderson-link-pic.jpg 2x")
+                source(srcset="static/img/content/portfolio/derek-anderson-link-pic.jpg, static/img/content/portfolio/derek-anderson-link-pic-retina.jpg 2x")
                 img(src="static/img/content/portfolio/derek-anderson-link-pic.jpg" alt="Derek Anderson") 
               .profile-media-links__text-box
                 p.profile-media-links__text.link-text.link-text_color_accent 5 reasons to keep your beauty salon resevation
@@ -76,7 +78,7 @@ section.profile.square
           span.show-more-btn__text Explore more 
           +icon('arrow', 'show-more-btn__icon')
       picture.profile__pic-panel.profile__pic-panel_fixed-height 
-        source(srcset="static/img/content/portfolio/derek-anderson2.jpg, static/img/content/portfolio/derek-anderson2.jpg 2x")
+        source(srcset="static/img/content/portfolio/derek-anderson2.jpg, static/img/content/portfolio/derek-anderson2-retina.jpg 2x")
         img(src="static/img/content/portfolio/derek-anderson2.jpg" alt="Derek Anderson") 
     section(data-aos="fade-up" data-aos-duration="2000").profile__section
       .profile__title-panel
@@ -90,25 +92,25 @@ section.profile.square
         +portfolioItem([
           {'name': 'Keith Ruiz',
           'text': 'comedian',
-          'link': 'static/img/content/portfolio/portfolio1.jpg'},
+          'link': 'portfolio1'},
           {'name': 'Keith Ruiz',
           'text': 'comedian',
-          'link': 'static/img/content/portfolio/portfolio2.jpg'},
+          'link': 'portfolio2'},
           {'name': 'Keith Ruiz',
           'text': 'comedian',
-          'link': 'static/img/content/portfolio/portfolio3.jpg'},
+          'link': 'portfolio3'},
           {'name': 'Keith Ruiz',
           'text': 'comedian',
-          'link': 'static/img/content/portfolio/portfolio4.jpg'},
+          'link': 'portfolio4'},
           {'name': 'Keith Ruiz',
           'text': 'comedian',
-          'link': 'static/img/content/portfolio/portfolio5.jpg'},
+          'link': 'portfolio5'},
           {'name': 'Keith Ruiz',
           'text': 'comedian',
-          'link': 'static/img/content/portfolio/portfolio6.jpg'},
+          'link': 'portfolio6'},
           {'name': 'Keith Ruiz',
           'text': 'comedian',
-          'link': 'static/img/content/portfolio/portfolio7.jpg'}
+          'link': 'portfolio7'}
         ]) 
   include ../../modules/footer/footer           
                 

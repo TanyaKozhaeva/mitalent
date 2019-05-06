@@ -13,7 +13,7 @@ mixin portfolioItem(data)
 .news
   .wrapper 
     header.header.news__header
-      img(src="static/svg/logo.png").logo.header__logo
+      img(src="static/svg/logo.svg" alt="Mitalent").logo.header__logo
       .header__panel
         .header__search-form.search-form
           .search-form__overlay.interactive(data-cursor="circle")
@@ -28,13 +28,17 @@ mixin portfolioItem(data)
     .news__main-screen-blocks
       .news__column.news__column_size_lg.interactive(data-cursor="arrow" data-aos="fade-right" data-aos-duration="2000")
         .news__pic-wrap
-          .news__pic(style="background-image: url(static/img/content/puzzle/puzzle5.jpg)")
+          picture.news__pic
+            source(srcset="static/img/content/puzzle/puzzle5.jpg, static/img/content/puzzle/puzzle5-retina.jpg 2x")
+            img(src="static/img/content/puzzle/puzzle5.jpg" alt='puzzle5') 
         .news__text
           span.news__title-suptitle.link-suptitle Featured news
           h3.news__title.link-text A starter guide to self improvement
       .news__column.interactive(data-cursor="arrow" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000")
         .news__pic-wrap
-          .news__pic(style="background-image: url(static/img/content/puzzle/puzzle6.jpg)")
+          picture.news__pic
+            source(srcset="static/img/content/puzzle/puzzle6.jpg, static/img/content/puzzle/puzzle6-retina.jpg 2x")
+            img(src="static/img/content/puzzle/puzzle6.jpg" alt='puzzle6')
         .news__text
           h3.news__title.link-text.link-text_color_dark Dream interpretation common symbols and their meanings
           span.news__date.link-date 8 march 2020
@@ -67,30 +71,30 @@ mixin portfolioItem(data)
         +portfolioItem([
           {'name': 'Keith Ruiz',
           'text': 'comedian',
-          'link': 'static/img/content/portfolio/portfolio1.jpg'},
+          'link': 'portfolio1'},
           {'name': 'Keith Ruiz',
           'text': 'comedian',
-          'link': 'static/img/content/portfolio/portfolio2.jpg'},
+          'link': 'portfolio2'},
           {'name': 'Keith Ruiz',
           'text': 'comedian',
-          'link': 'static/img/content/portfolio/portfolio3.jpg'},
+          'link': 'portfolio3'},
           {'name': 'Keith Ruiz',
           'text': 'comedian',
-          'link': 'static/img/content/portfolio/portfolio4.jpg'}
+          'link': 'portfolio4'}
         ])(class="portfolio__item_light")
         +portfolioItem([
         {'name': 'Keith Ruiz',
         'text': 'comedian',
-        'link': 'static/img/content/portfolio/portfolio5.jpg'},
+        'link': 'portfolio5'},
         {'name': 'Keith Ruiz',
         'text': 'comedian',
-        'link': 'static/img/content/portfolio/portfolio6.jpg'},
+        'link': 'portfolio6'},
         {'name': 'Keith Ruiz',
         'text': 'comedian',
-        'link': 'static/img/content/portfolio/portfolio7.jpg'},
+        'link': 'portfolio7'},
         {'name': 'Keith Ruiz',
         'text': 'comedian',
-        'link': 'static/img/content/portfolio/portfolio1.jpg'}
+        'link': 'portfolio1'}
         ])(class="portfolio__item_light") 
         button(type="button" data-cursor="dot")#showMore.portfolio__show-more.show-more-btn.interactive
           span.show-more-btn__text Show more 

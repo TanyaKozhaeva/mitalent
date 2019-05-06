@@ -6,13 +6,9 @@ html(lang="en")
 		meta(name="viewport" content="width=device-width,initial-scale=1")
 		meta(name="keywords" content="")
 		meta(name="format-detection" content="telephone=no")
-		link(rel="shortcut icon" href="static/img/general/icons/map-32w.png" type="image/x-icon")
-		link(rel="apple-touch-icon" sizes="76x76" href="static/img/general/icons/map-76w.png")
-		link(rel="apple-touch-icon" sizes="120x120" href="static/img/general/icons/map-120w.png")
-		link(rel="apple-touch-icon" sizes="152x152" href="static/img/general/icons/map-152w.png")
-		link(rel="apple-touch-icon" sizes="180x180" href="static/img/general/icons/map-180w.png")
+		link(rel="shortcut icon" href="static/img/general/touch-icon-32.png" type="image/x-icon")
+		link(rel="apple-touch-icon" sizes="64x64" href="static/img/general/touch-icon-64.png")
 		link(rel="preload" as="font" href="static/fonts/Nunito-ExtraBold.woff2" type="font/woff2" crossorigin)
-		link(rel="preload" as="font" href="static/fonts/Poppins-Regular.woff2" type="font/woff2" crossorigin)
 		link(rel="preload" href="main/css/main.css" as="style") 
 		link(rel="stylesheet" type='text/css' href="main/css/reset.css")
 		link(rel="stylesheet" type='text/css' href="static/fonts/fonts.css") 
@@ -27,8 +23,6 @@ html(lang="en")
 		title
 			block title
 	body 
-		//- include modules/preloader/preloader
-		//- include modules/header/header
 		include modules/cursor/cursor
 		include modules/menu/menu
 		include modules/button/button

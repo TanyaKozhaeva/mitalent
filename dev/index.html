@@ -6,13 +6,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="keywords" content="">
     <meta name="format-detection" content="telephone=no">
-    <link rel="shortcut icon" href="static/img/general/icons/map-32w.png" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="76x76" href="static/img/general/icons/map-76w.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="static/img/general/icons/map-120w.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="static/img/general/icons/map-152w.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="static/img/general/icons/map-180w.png">
+    <link rel="shortcut icon" href="static/img/general/touch-icon-32.png" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="64x64" href="static/img/general/touch-icon-64.png">
     <link rel="preload" as="font" href="static/fonts/Nunito-ExtraBold.woff2" type="font/woff2" crossorigin>
-    <link rel="preload" as="font" href="static/fonts/Poppins-Regular.woff2" type="font/woff2" crossorigin>
     <link rel="preload" href="main/css/main.css" as="style">
     <link rel="stylesheet" type="text/css" href="main/css/reset.css">
     <link rel="stylesheet" type="text/css" href="static/fonts/fonts.css"><!-- build:css static/libs/libs.css-->
@@ -21,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="static/libs/aos/aos.css"><!-- endbuild-->
     <link rel="stylesheet" href="static/libs/swiper/swiper.min.css">
     <link rel="stylesheet" type="text/css" href="main/css/main.css">
-    <title>Главная страница
+    <title>Mitalent
     </title>
   </head>
   <body> 
@@ -46,7 +42,7 @@
           <header class="header">
             <div class="header__panel">
               <button class="toggle-navigation-btn header__sandwich interactive" type="button" data-cursor="circle" id="toggle-navigation-btn"><span class="hidden-text">Close navigation </span><span class="toggle-navigation-btn__line"></span></button><a class="header__link interactive" href="blog.html" data-cursor="dot">Blog </a><a class="header__link interactive" href="news.html" data-cursor="dot">News</a>
-            </div><a class="header__logo" href="./"><img class="logo" src="static/svg/logo.png"></a>
+            </div><a class="header__logo" href="./"><img class="logo" src="static/svg/logo.svg" alt="Mitalent"></a>
             <div class="header__panel">
               <div class="header__search-form search-form">
                 <div class="search-form__overlay interactive" data-cursor="circle"><img class="search-form__overlay-icon form__icon" src="static/svg/search.svg" alt="search icon"></div>
@@ -127,7 +123,7 @@
         </div>
         <div class="news">
           <div class="wrapper"> 
-            <header class="header news__header"><img class="logo header__logo" src="static/svg/logo.png">
+            <header class="header news__header"><img class="logo header__logo" src="static/svg/logo.svg" alt="Mitalent">
               <div class="header__panel">
                 <div class="header__search-form search-form">
                   <div class="search-form__overlay interactive" data-cursor="circle"><img class="search-form__overlay-icon form__icon" src="static/svg/search.svg" alt="search icon"></div>
@@ -142,7 +138,9 @@
             <div class="news__main-screen-blocks">
               <div class="news__column news__column_size_lg interactive" data-cursor="arrow" data-aos="fade-right" data-aos-duration="2000">
                 <div class="news__pic-wrap">
-                  <div class="news__pic" style="background-image: url(static/img/content/puzzle/puzzle5.jpg);"></div>
+                  <picture class="news__pic">
+                    <source srcset="static/img/content/puzzle/puzzle5.jpg, static/img/content/puzzle/puzzle5-retina.jpg 2x"><img src="static/img/content/puzzle/puzzle5.jpg" alt="puzzle5">
+                  </picture>
                 </div>
                 <div class="news__text"><span class="news__title-suptitle link-suptitle">Featured news</span>
                   <h3 class="news__title link-text">A starter guide to self improvement</h3>
@@ -150,7 +148,9 @@
               </div>
               <div class="news__column interactive" data-cursor="arrow" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000">
                 <div class="news__pic-wrap">
-                  <div class="news__pic" style="background-image: url(static/img/content/puzzle/puzzle6.jpg);"></div>
+                  <picture class="news__pic">
+                    <source srcset="static/img/content/puzzle/puzzle6.jpg, static/img/content/puzzle/puzzle6-retina.jpg 2x"><img src="static/img/content/puzzle/puzzle6.jpg" alt="puzzle6">
+                  </picture>
                 </div>
                 <div class="news__text">
                   <h3 class="news__title link-text link-text_color_dark">Dream interpretation common symbols and their meanings</h3><span class="news__date link-date">8 march 2020</span>
@@ -160,28 +160,28 @@
                 <ul class="profile-media-links">
                   <li class="profile-media-links__item interactive" data-cursor="arrow"><a class="profile-media-links__link" href="#" target="_blank">
                       <picture class="profile-media-links__prev">
-                        <source srcset="static/img/content/puzzle/puzzle7.jpg, static/img/content/puzzle/puzzle7.jpg 2x"/><img src="static/img/content/puzzle/puzzle7.jpg" alt="Burning desire golden key or red herring"/>
+                        <source srcset="static/img/content/puzzle/puzzle7.jpg, static/img/content/puzzle/puzzle7-retina.jpg 2x"/><img src="static/img/content/puzzle/puzzle7.jpg" alt="Burning desire golden key or red herring"/>
                       </picture>
                       <div class="profile-media-links__text-box">
                         <p class="profile-media-links__text link-text link-text_color_dark">Burning desire golden key or red herring</p><span class="profile-media-links__date link-date">8 March, 2020</span>
                       </div></a></li>
                   <li class="profile-media-links__item interactive" data-cursor="arrow"><a class="profile-media-links__link" href="#" target="_blank">
                       <picture class="profile-media-links__prev">
-                        <source srcset="static/img/content/puzzle/puzzle8.jpg, static/img/content/puzzle/puzzle8.jpg 2x"/><img src="static/img/content/puzzle/puzzle8.jpg" alt="5 reasons to keep your beauty salon reservation"/>
+                        <source srcset="static/img/content/puzzle/puzzle8.jpg, static/img/content/puzzle/puzzle8-retina.jpg 2x"/><img src="static/img/content/puzzle/puzzle8.jpg" alt="5 reasons to keep your beauty salon reservation"/>
                       </picture>
                       <div class="profile-media-links__text-box">
                         <p class="profile-media-links__text link-text link-text_color_dark">5 reasons to keep your beauty salon reservation</p><span class="profile-media-links__date link-date">8 March, 2020</span>
                       </div></a></li>
                   <li class="profile-media-links__item interactive" data-cursor="arrow"><a class="profile-media-links__link" href="#" target="_blank">
                       <picture class="profile-media-links__prev">
-                        <source srcset="static/img/content/puzzle/puzzle9.jpg, static/img/content/puzzle/puzzle9.jpg 2x"/><img src="static/img/content/puzzle/puzzle9.jpg" alt="Motivation is the first step to succes"/>
+                        <source srcset="static/img/content/puzzle/puzzle9.jpg, static/img/content/puzzle/puzzle9-retina.jpg 2x"/><img src="static/img/content/puzzle/puzzle9.jpg" alt="Motivation is the first step to succes"/>
                       </picture>
                       <div class="profile-media-links__text-box">
                         <p class="profile-media-links__text link-text link-text_color_dark">Motivation is the first step to succes</p><span class="profile-media-links__date link-date">8 March, 2020</span>
                       </div></a></li>
                   <li class="profile-media-links__item interactive" data-cursor="arrow"><a class="profile-media-links__link" href="#" target="_blank">
                       <picture class="profile-media-links__prev">
-                        <source srcset="static/img/content/puzzle/puzzle7.jpg, static/img/content/puzzle/puzzle7.jpg 2x"/><img src="static/img/content/puzzle/puzzle7.jpg" alt="How to set intentions that energize you"/>
+                        <source srcset="static/img/content/puzzle/puzzle7.jpg, static/img/content/puzzle/puzzle7-retina.jpg 2x"/><img src="static/img/content/puzzle/puzzle7.jpg" alt="How to set intentions that energize you"/>
                       </picture>
                       <div class="profile-media-links__text-box">
                         <p class="profile-media-links__text link-text link-text_color_dark">How to set intentions that energize you</p><span class="profile-media-links__date link-date">8 March, 2020</span>
@@ -206,7 +206,7 @@
               </ul>
               <div class="portfolio">
                         <div class="portfolio__item portfolio__item_light">
-                          <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio1.jpg" alt="Keith Ruiz"></div>
+                          <div class="portfolio__item-pic"><img src="portfolio1" alt="Keith Ruiz"></div>
                           <div class="portfolio__item-descr">
                             <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
                                 <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
@@ -217,7 +217,7 @@
                           </div>
                         </div>
                         <div class="portfolio__item portfolio__item_light">
-                          <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio2.jpg" alt="Keith Ruiz"></div>
+                          <div class="portfolio__item-pic"><img src="portfolio2" alt="Keith Ruiz"></div>
                           <div class="portfolio__item-descr">
                             <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
                                 <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
@@ -228,7 +228,7 @@
                           </div>
                         </div>
                         <div class="portfolio__item portfolio__item_light">
-                          <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio3.jpg" alt="Keith Ruiz"></div>
+                          <div class="portfolio__item-pic"><img src="portfolio3" alt="Keith Ruiz"></div>
                           <div class="portfolio__item-descr">
                             <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
                                 <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
@@ -239,7 +239,7 @@
                           </div>
                         </div>
                         <div class="portfolio__item portfolio__item_light">
-                          <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio4.jpg" alt="Keith Ruiz"></div>
+                          <div class="portfolio__item-pic"><img src="portfolio4" alt="Keith Ruiz"></div>
                           <div class="portfolio__item-descr">
                             <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
                                 <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
@@ -250,7 +250,7 @@
                           </div>
                         </div>
                         <div class="portfolio__item portfolio__item_light">
-                          <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio5.jpg" alt="Keith Ruiz"></div>
+                          <div class="portfolio__item-pic"><img src="portfolio5" alt="Keith Ruiz"></div>
                           <div class="portfolio__item-descr">
                             <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
                                 <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
@@ -261,7 +261,7 @@
                           </div>
                         </div>
                         <div class="portfolio__item portfolio__item_light">
-                          <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio6.jpg" alt="Keith Ruiz"></div>
+                          <div class="portfolio__item-pic"><img src="portfolio6" alt="Keith Ruiz"></div>
                           <div class="portfolio__item-descr">
                             <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
                                 <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
@@ -272,7 +272,7 @@
                           </div>
                         </div>
                         <div class="portfolio__item portfolio__item_light">
-                          <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio7.jpg" alt="Keith Ruiz"></div>
+                          <div class="portfolio__item-pic"><img src="portfolio7" alt="Keith Ruiz"></div>
                           <div class="portfolio__item-descr">
                             <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
                                 <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
@@ -283,7 +283,7 @@
                           </div>
                         </div>
                         <div class="portfolio__item portfolio__item_light">
-                          <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio1.jpg" alt="Keith Ruiz"></div>
+                          <div class="portfolio__item-pic"><img src="portfolio1" alt="Keith Ruiz"></div>
                           <div class="portfolio__item-descr">
                             <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
                                 <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
@@ -355,7 +355,7 @@
           </div>
           <footer class="footer"> 
             <div class="wrapper">
-              <div class="footer__line"><img class="logo footer__logo" src="static/svg/logo.png">
+              <div class="footer__line"><img class="logo footer__logo" src="static/svg/logo.svg" alt="Mitalent">
                 <div class="footer__sign-up-form form">
                   <input class="interactive form__input" type="text" data-cursor="hidden" placeholder="Sign up our newsletter" name="sign-up-newsletter">
                   <button class="form__btn interactive" type="submit" data-cursor="circle"><span class="hidden-text">Send form </span>
@@ -394,7 +394,7 @@
           <header class="header">
             <div class="header__panel">
               <button class="toggle-navigation-btn header__sandwich interactive" type="button" data-cursor="circle" id="toggle-navigation-btn"><span class="hidden-text">Close navigation </span><span class="toggle-navigation-btn__line"></span></button><a class="header__link interactive" href="blog.html" data-cursor="dot">Blog </a><a class="header__link interactive" href="news.html" data-cursor="dot">News</a>
-            </div><a class="header__logo" href="./"><img class="logo" src="static/svg/logo.png"></a>
+            </div><a class="header__logo" href="./"><img class="logo" src="static/svg/logo.svg" alt="Mitalent"></a>
             <div class="header__panel">
               <div class="header__search-form search-form">
                 <div class="search-form__overlay interactive" data-cursor="circle"><img class="search-form__overlay-icon form__icon" src="static/svg/search.svg" alt="search icon"></div>
@@ -428,13 +428,13 @@
             <div class="blog__video">
               <div class="video"> 
                 <div class="video__attributes">
-                  <button class="video__playBtn interactive" type="button" title="play" data-cursor="play" id="playBtn">
+                  <button class="video__playBtn interactive" type="button" data-cursor="play" id="playBtn">
                     <svg class="icon icon-play video__playBtn-icon" aria-hidden="true">
                       <use xlink:href="static/svg/symbol/sprite.svg#play"></use>
                     </svg>
                   </button>
                 </div>
-                <button class="video__pauseBtn video__pauseBtn_hidden interactive" type="button" title="pause" data-cursor="dot" id="pauseBtn">||</button>
+                <button class="video__pauseBtn video__pauseBtn_hidden interactive" type="button" data-cursor="dot" id="pauseBtn">||</button>
                 <div class="video__poster" style="background-image: url(static/img/content/video-poster.jpg);"></div>
                 <video class="video__file" controls preload="auto" loop id="video"></video>
               </div>
@@ -477,28 +477,28 @@
               <ul class="profile-media-links js-medialinks-slider">
                 <li class="profile-media-links__item interactive" data-cursor="arrow"><a class="profile-media-links__link" href="#" target="_blank">
                     <picture class="profile-media-links__prev">
-                      <source srcset="static/img/content/puzzle/puzzle7.jpg, static/img/content/puzzle/puzzle7.jpg 2x"/><img src="static/img/content/puzzle/puzzle7.jpg" alt="Burning desire golden key or red herring"/>
+                      <source srcset="static/img/content/puzzle/puzzle7.jpg, static/img/content/puzzle/puzzle7-retina.jpg 2x"/><img src="static/img/content/puzzle/puzzle7.jpg" alt="Burning desire golden key or red herring"/>
                     </picture>
                     <div class="profile-media-links__text-box">
                       <p class="profile-media-links__text link-text link-text_color_dark">Burning desire golden key or red herring</p><span class="profile-media-links__date link-date">8 March, 2020</span>
                     </div></a></li>
                 <li class="profile-media-links__item interactive" data-cursor="arrow"><a class="profile-media-links__link" href="#" target="_blank">
                     <picture class="profile-media-links__prev">
-                      <source srcset="static/img/content/puzzle/puzzle8.jpg, static/img/content/puzzle/puzzle8.jpg 2x"/><img src="static/img/content/puzzle/puzzle8.jpg" alt="5 reasons to keep your beauty salon reservation"/>
+                      <source srcset="static/img/content/puzzle/puzzle8.jpg, static/img/content/puzzle/puzzle8-retina.jpg 2x"/><img src="static/img/content/puzzle/puzzle8.jpg" alt="5 reasons to keep your beauty salon reservation"/>
                     </picture>
                     <div class="profile-media-links__text-box">
                       <p class="profile-media-links__text link-text link-text_color_dark">5 reasons to keep your beauty salon reservation</p><span class="profile-media-links__date link-date">8 March, 2020</span>
                     </div></a></li>
                 <li class="profile-media-links__item interactive" data-cursor="arrow"><a class="profile-media-links__link" href="#" target="_blank">
                     <picture class="profile-media-links__prev">
-                      <source srcset="static/img/content/puzzle/puzzle9.jpg, static/img/content/puzzle/puzzle9.jpg 2x"/><img src="static/img/content/puzzle/puzzle9.jpg" alt="Motivation is the first step to succes"/>
+                      <source srcset="static/img/content/puzzle/puzzle9.jpg, static/img/content/puzzle/puzzle9-retina.jpg 2x"/><img src="static/img/content/puzzle/puzzle9.jpg" alt="Motivation is the first step to succes"/>
                     </picture>
                     <div class="profile-media-links__text-box">
                       <p class="profile-media-links__text link-text link-text_color_dark">Motivation is the first step to succes</p><span class="profile-media-links__date link-date">8 March, 2020</span>
                     </div></a></li>
                 <li class="profile-media-links__item interactive" data-cursor="arrow"><a class="profile-media-links__link" href="#" target="_blank">
                     <picture class="profile-media-links__prev">
-                      <source srcset="static/img/content/puzzle/puzzle7.jpg, static/img/content/puzzle/puzzle7.jpg 2x"/><img src="static/img/content/puzzle/puzzle7.jpg" alt="How to set intentions that energize you"/>
+                      <source srcset="static/img/content/puzzle/puzzle7.jpg, static/img/content/puzzle/puzzle7-retina.jpg 2x"/><img src="static/img/content/puzzle/puzzle7.jpg" alt="How to set intentions that energize you"/>
                     </picture>
                     <div class="profile-media-links__text-box">
                       <p class="profile-media-links__text link-text link-text_color_dark">How to set intentions that energize you</p><span class="profile-media-links__date link-date">8 March, 2020</span>
@@ -508,7 +508,7 @@
           </div>
           <footer class="footer"> 
             <div class="wrapper">
-              <div class="footer__line"><img class="logo footer__logo" src="static/svg/logo.png">
+              <div class="footer__line"><img class="logo footer__logo" src="static/svg/logo.svg" alt="Mitalent">
                 <div class="footer__sign-up-form form">
                   <input class="interactive form__input" type="text" data-cursor="hidden" placeholder="Sign up our newsletter" name="sign-up-newsletter">
                   <button class="form__btn interactive" type="submit" data-cursor="circle"><span class="hidden-text">Send form </span>
@@ -549,7 +549,7 @@
             <header class="header">
               <div class="header__panel">
                 <button class="toggle-navigation-btn header__sandwich interactive" type="button" data-cursor="circle" id="toggle-navigation-btn"><span class="hidden-text">Close navigation </span><span class="toggle-navigation-btn__line"></span></button><a class="header__link interactive" href="blog.html" data-cursor="dot">Blog </a><a class="header__link interactive" href="news.html" data-cursor="dot">News</a>
-              </div><a class="header__logo" href="./"><img class="logo" src="static/svg/logo.png"></a>
+              </div><a class="header__logo" href="./"><img class="logo" src="static/svg/logo.svg" alt="Mitalent"></a>
               <div class="header__panel">
                 <div class="header__search-form search-form">
                   <div class="search-form__overlay interactive" data-cursor="circle"><img class="search-form__overlay-icon form__icon" src="static/svg/search.svg" alt="search icon"></div>
@@ -577,7 +577,7 @@
                       <use xlink:href="static/svg/symbol/sprite.svg#phone-call"></use>
                     </svg>
                     <p class="span contact-us__link-inner"><a class="contact-us__link-text" href="tel:+4402345678910">+44 (0) 234 567 8910</a><a class="contact-us__link-text" href="tel:+4402345678910">+44 (0) 234 567 8910</a></p>
-                  </div><a class="contact-us__link" href="mailto: hello@mitalent.com" data-aos="fade-up" data-aos-delay="1100" data-aos-duration="800"> 
+                  </div><a class="contact-us__link" href="mailto:hello@mitalent.com" data-aos="fade-up" data-aos-delay="1100" data-aos-duration="800"> 
                     <svg class="icon icon-letter contact-us__icon" aria-hidden="true">
                       <use xlink:href="static/svg/symbol/sprite.svg#letter"></use>
                     </svg>
@@ -588,7 +588,7 @@
           </div>
           <footer class="footer"> 
             <div class="wrapper">
-              <div class="footer__line"><img class="logo footer__logo" src="static/svg/logo.png">
+              <div class="footer__line"><img class="logo footer__logo" src="static/svg/logo.svg" alt="Mitalent">
                 <div class="footer__sign-up-form form">
                   <input class="interactive form__input" type="text" data-cursor="hidden" placeholder="Sign up our newsletter" name="sign-up-newsletter">
                   <button class="form__btn interactive" type="submit" data-cursor="circle"><span class="hidden-text">Send form </span>
@@ -627,7 +627,7 @@
           <header class="header">
             <div class="header__panel">
               <button class="toggle-navigation-btn header__sandwich interactive" type="button" data-cursor="circle" id="toggle-navigation-btn"><span class="hidden-text">Close navigation </span><span class="toggle-navigation-btn__line"></span></button><a class="header__link interactive" href="blog.html" data-cursor="dot">Blog </a><a class="header__link interactive" href="news.html" data-cursor="dot">News</a>
-            </div><a class="header__logo" href="./"><img class="logo" src="static/svg/logo.png"></a>
+            </div><a class="header__logo" href="./"><img class="logo" src="static/svg/logo.svg" alt="Mitalent"></a>
             <div class="header__panel">
               <div class="header__search-form search-form">
                 <div class="search-form__overlay interactive" data-cursor="circle"><img class="search-form__overlay-icon form__icon" src="static/svg/search.svg" alt="search icon"></div>
@@ -645,15 +645,15 @@
             <div class="profile__video">
               <div class="video"> 
                 <div class="video__attributes">
-                  <button class="video__playBtn interactive" type="button" title="play" data-cursor="play" id="playBtn">
+                  <button class="video__playBtn interactive" type="button" data-cursor="play" id="playBtn">
                     <svg class="icon icon-play video__playBtn-icon" aria-hidden="true">
                       <use xlink:href="static/svg/symbol/sprite.svg#play"></use>
                     </svg>
                   </button>
                 </div>
-                <button class="video__pauseBtn video__pauseBtn_hidden interactive" type="button" title="pause" data-cursor="play" id="pauseBtn">||</button>
+                <button class="video__pauseBtn video__pauseBtn_hidden interactive" type="button" data-cursor="play" id="pauseBtn">||</button>
                 <div class="video__poster" style="background-image: url(static/img/content/giorgina.jpg);"></div>
-                <video class="video__file" controls preload="auto" loop id="video"></video>
+                <video class="video__file" controls preload="auto" loop id="video"> </video>
               </div>
             </div>
           </div>
@@ -662,7 +662,8 @@
               <article class="profile__article">
                 <div class="profile__article-pic"> 
                   <picture>
-                    <source srcset="static/img/content/portfolio/derek-anderson1.jpg, static/img/content/portfolio/derek-anderson1.jpg 2x"><img src="static/img/content/portfolio/derek-anderson1.jpg" alt="Derek Anderson">
+                    <source srcset="static/img/content/portfolio/derek-anderson1-200w.jpg, static/img/content/portfolio/derek-anderson1-400w.jpg 2x" media="(max-width: 600px)">
+                    <source srcset="static/img/content/portfolio/derek-anderson1-400w.jpg, static/img/content/portfolio/derek-anderson1-640w.jpg 2x" media="(min-width: 601px)"><img src="static/img/content/portfolio/derek-anderson1-400w.jpg" alt="Derek Anderson">
                   </picture>
                 </div>
                 <div class="profile__article-text-wrap">
@@ -722,14 +723,14 @@
                 <ul class="profile__media-links profile-media-links">
                   <li class="profile-media-links__item interactive" data-cursor="dot"><a class="profile-media-links__link" href="#" target="_blank">
                       <picture class="profile-media-links__prev">
-                        <source srcset="static/img/content/portfolio/derek-anderson-link-pic.jpg, static/img/content/portfolio/derek-anderson-link-pic.jpg 2x"><img src="static/img/content/portfolio/derek-anderson-link-pic.jpg" alt="Derek Anderson">
+                        <source srcset="static/img/content/portfolio/derek-anderson-link-pic.jpg, static/img/content/portfolio/derek-anderson-link-pic-retina.jpg 2x"><img src="static/img/content/portfolio/derek-anderson-link-pic.jpg" alt="Derek Anderson">
                       </picture>
                       <div class="profile-media-links__text-box">
                         <p class="profile-media-links__text link-text">29 Mativational quotes for business and other work environments</p><span class="profile-media-links__date link-date">20 March, 2020</span>
                       </div></a></li>
                   <li class="profile-media-links__item interactive" data-cursor="dot"><a class="profile-media-links__link" href="#" target="_blank">
                       <picture class="profile-media-links__prev">
-                        <source srcset="static/img/content/portfolio/derek-anderson-link-pic.jpg, static/img/content/portfolio/derek-anderson-link-pic.jpg 2x"><img src="static/img/content/portfolio/derek-anderson-link-pic.jpg" alt="Derek Anderson">
+                        <source srcset="static/img/content/portfolio/derek-anderson-link-pic.jpg, static/img/content/portfolio/derek-anderson-link-pic-retina.jpg 2x"><img src="static/img/content/portfolio/derek-anderson-link-pic.jpg" alt="Derek Anderson">
                       </picture>
                       <div class="profile-media-links__text-box">
                         <p class="profile-media-links__text link-text link-text_color_accent">5 reasons to keep your beauty salon resevation</p><span class="profile-media-links__date link-date">8 March, 2020</span>
@@ -740,7 +741,7 @@
                   </svg></a>
               </div>
               <picture class="profile__pic-panel profile__pic-panel_fixed-height"> 
-                <source srcset="static/img/content/portfolio/derek-anderson2.jpg, static/img/content/portfolio/derek-anderson2.jpg 2x"><img src="static/img/content/portfolio/derek-anderson2.jpg" alt="Derek Anderson">
+                <source srcset="static/img/content/portfolio/derek-anderson2.jpg, static/img/content/portfolio/derek-anderson2-retina.jpg 2x"><img src="static/img/content/portfolio/derek-anderson2.jpg" alt="Derek Anderson">
               </picture>
             </section>
             <section class="profile__section" data-aos="fade-up" data-aos-duration="2000">
@@ -756,7 +757,10 @@
             </section>
             <div class="profile__portfolio-slider portfolio js-portfolio-slider" data-aos="fade-up" data-aos-duration="2000">
                       <div class="portfolio__item">
-                        <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio1.jpg" alt="Keith Ruiz"></div>
+                        <picture class="portfolio__item-pic">
+                          <source srcset="static/img/content/portfolio/portfolio1-400w.jpg, static/img/content/portfolio/portfolio1-800w.jpg 2x" media="(max-width: 599px)">
+                          <source srcset="static/img/content/portfolio/portfolio1-300w.jpg, static/img/content/portfolio/portfolio1-600w.jpg 2x" media="(min-width: 600px)"><img src="static/img/content/portfolio/portfolio1-400w.jpg" alt="Keith Ruiz">
+                        </picture>
                         <div class="portfolio__item-descr">
                           <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
                               <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
@@ -767,7 +771,10 @@
                         </div>
                       </div>
                       <div class="portfolio__item">
-                        <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio2.jpg" alt="Keith Ruiz"></div>
+                        <picture class="portfolio__item-pic">
+                          <source srcset="static/img/content/portfolio/portfolio2-400w.jpg, static/img/content/portfolio/portfolio2-800w.jpg 2x" media="(max-width: 599px)">
+                          <source srcset="static/img/content/portfolio/portfolio2-300w.jpg, static/img/content/portfolio/portfolio2-600w.jpg 2x" media="(min-width: 600px)"><img src="static/img/content/portfolio/portfolio2-400w.jpg" alt="Keith Ruiz">
+                        </picture>
                         <div class="portfolio__item-descr">
                           <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
                               <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
@@ -778,7 +785,10 @@
                         </div>
                       </div>
                       <div class="portfolio__item">
-                        <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio3.jpg" alt="Keith Ruiz"></div>
+                        <picture class="portfolio__item-pic">
+                          <source srcset="static/img/content/portfolio/portfolio3-400w.jpg, static/img/content/portfolio/portfolio3-800w.jpg 2x" media="(max-width: 599px)">
+                          <source srcset="static/img/content/portfolio/portfolio3-300w.jpg, static/img/content/portfolio/portfolio3-600w.jpg 2x" media="(min-width: 600px)"><img src="static/img/content/portfolio/portfolio3-400w.jpg" alt="Keith Ruiz">
+                        </picture>
                         <div class="portfolio__item-descr">
                           <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
                               <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
@@ -789,7 +799,10 @@
                         </div>
                       </div>
                       <div class="portfolio__item">
-                        <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio4.jpg" alt="Keith Ruiz"></div>
+                        <picture class="portfolio__item-pic">
+                          <source srcset="static/img/content/portfolio/portfolio4-400w.jpg, static/img/content/portfolio/portfolio4-800w.jpg 2x" media="(max-width: 599px)">
+                          <source srcset="static/img/content/portfolio/portfolio4-300w.jpg, static/img/content/portfolio/portfolio4-600w.jpg 2x" media="(min-width: 600px)"><img src="static/img/content/portfolio/portfolio4-400w.jpg" alt="Keith Ruiz">
+                        </picture>
                         <div class="portfolio__item-descr">
                           <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
                               <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
@@ -800,7 +813,10 @@
                         </div>
                       </div>
                       <div class="portfolio__item">
-                        <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio5.jpg" alt="Keith Ruiz"></div>
+                        <picture class="portfolio__item-pic">
+                          <source srcset="static/img/content/portfolio/portfolio5-400w.jpg, static/img/content/portfolio/portfolio5-800w.jpg 2x" media="(max-width: 599px)">
+                          <source srcset="static/img/content/portfolio/portfolio5-300w.jpg, static/img/content/portfolio/portfolio5-600w.jpg 2x" media="(min-width: 600px)"><img src="static/img/content/portfolio/portfolio5-400w.jpg" alt="Keith Ruiz">
+                        </picture>
                         <div class="portfolio__item-descr">
                           <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
                               <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
@@ -811,7 +827,10 @@
                         </div>
                       </div>
                       <div class="portfolio__item">
-                        <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio6.jpg" alt="Keith Ruiz"></div>
+                        <picture class="portfolio__item-pic">
+                          <source srcset="static/img/content/portfolio/portfolio6-400w.jpg, static/img/content/portfolio/portfolio6-800w.jpg 2x" media="(max-width: 599px)">
+                          <source srcset="static/img/content/portfolio/portfolio6-300w.jpg, static/img/content/portfolio/portfolio6-600w.jpg 2x" media="(min-width: 600px)"><img src="static/img/content/portfolio/portfolio6-400w.jpg" alt="Keith Ruiz">
+                        </picture>
                         <div class="portfolio__item-descr">
                           <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
                               <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
@@ -822,7 +841,10 @@
                         </div>
                       </div>
                       <div class="portfolio__item">
-                        <div class="portfolio__item-pic"><img src="static/img/content/portfolio/portfolio7.jpg" alt="Keith Ruiz"></div>
+                        <picture class="portfolio__item-pic">
+                          <source srcset="static/img/content/portfolio/portfolio7-400w.jpg, static/img/content/portfolio/portfolio7-800w.jpg 2x" media="(max-width: 599px)">
+                          <source srcset="static/img/content/portfolio/portfolio7-300w.jpg, static/img/content/portfolio/portfolio7-600w.jpg 2x" media="(min-width: 600px)"><img src="static/img/content/portfolio/portfolio7-400w.jpg" alt="Keith Ruiz">
+                        </picture>
                         <div class="portfolio__item-descr">
                           <div class="portfolio__item-btn-box"><a class="portfolio__item-btn" href="#">
                               <svg class="icon icon-arrow portfolio__item-btn-icon" aria-hidden="true">
@@ -836,7 +858,7 @@
           </div>
           <footer class="footer"> 
             <div class="wrapper">
-              <div class="footer__line"><img class="logo footer__logo" src="static/svg/logo.png">
+              <div class="footer__line"><img class="logo footer__logo" src="static/svg/logo.svg" alt="Mitalent">
                 <div class="footer__sign-up-form form">
                   <input class="interactive form__input" type="text" data-cursor="hidden" placeholder="Sign up our newsletter" name="sign-up-newsletter">
                   <button class="form__btn interactive" type="submit" data-cursor="circle"><span class="hidden-text">Send form </span>

@@ -20,9 +20,9 @@
     .blog__video
       .video 
         .video__attributes
-          button(type="button" title="play" data-cursor="play")#playBtn.video__playBtn.interactive
+          button(type="button" data-cursor="play")#playBtn.video__playBtn.interactive
             +icon('play', 'video__playBtn-icon')
-        button(type="button" title='pause' data-cursor="dot")#pauseBtn.video__pauseBtn.video__pauseBtn_hidden.interactive ||
+        button(type="button" data-cursor="dot")#pauseBtn.video__pauseBtn.video__pauseBtn_hidden.interactive ||
         .video__poster(style="background-image: url(static/img/content/video-poster.jpg)")
         video(controls preload="auto" loop)#video.video__file
     article.blog__article.blog-article 
