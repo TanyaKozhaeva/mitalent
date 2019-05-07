@@ -1,4 +1,7 @@
 .contact-us
+  display: flex
+  flex-direction: column
+  min-height: 100vh
   &__inner
     position: relative
   &__inner-pic
@@ -29,6 +32,10 @@
       color: $main-color-light
       & .toggle-navigation-btn__line
         background-color: $main-color-light
+  & .header__logo
+    margin-left: 5%
+  & .footer
+    margin-top: auto
   &__title-block
     background-size: cover
     background-position: center top

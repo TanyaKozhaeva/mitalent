@@ -8,14 +8,14 @@ document.addEventListener("DOMContentLoaded", function(){
 //Screen Slider
 function makeMainScreenSlider(){
 // Params
-let mainSliderSelector = '.main-slider',
+var mainSliderSelector = '.main-slider',
     navSliderSelector = '.nav-slider',
     interleaveOffset = 0.5,
     direction;
 
 
 // Main Slider
-let mainSliderOptions = {
+var mainSliderOptions = {
       speed: 1000,
       direction: 'vertical',
       watchSlidesProgress: true,
@@ -39,9 +39,9 @@ let mainSliderOptions = {
           this.el.classList.remove('loading');
         },
         progress: function(){
-          let swiper = this;
-          for (let i = 0; i < swiper.slides.length; i++) {
-            let slideProgress = swiper.slides[i].progress,
+          var swiper = this;
+          for (var i = 0; i < swiper.slides.length; i++) {
+            var slideProgress = swiper.slides[i].progress,
                 innerOffset = swiper.width * interleaveOffset,
                 innerTranslate = slideProgress * innerOffset;
             swiper.slides[i].querySelector(".slide-bgimg").style.transform =
@@ -49,14 +49,14 @@ let mainSliderOptions = {
           }
         },
         touchStart: function() {
-          let swiper = this;
-          for (let i = 0; i < swiper.slides.length; i++) {
+          var swiper = this;
+          for (var i = 0; i < swiper.slides.length; i++) {
             swiper.slides[i].style.transition = "";
           }
         },
         setTransition: function(speed) {
-          let swiper = this;
-          for (let i = 0; i < swiper.slides.length; i++) {
+          var swiper = this;
+          for (var i = 0; i < swiper.slides.length; i++) {
             swiper.slides[i].style.transition = speed + "ms";
             swiper.slides[i].querySelector(".slide-bgimg").style.transition =
               speed * 1.5 + "ms";
@@ -66,11 +66,11 @@ let mainSliderOptions = {
 
     };
 
-let mainSlider = new Swiper(mainSliderSelector, mainSliderOptions);
+var mainSlider = new Swiper(mainSliderSelector, mainSliderOptions);
 
 
 // Navigation Slider
-let navSliderOptions = {
+var navSliderOptions = {
       loopAdditionalSlides: 10,
       speed:1000,
       direction: 'vertical',
@@ -88,7 +88,7 @@ let navSliderOptions = {
         }
       }
     };
-let navSlider = new Swiper(navSliderSelector, navSliderOptions);
+var navSlider = new Swiper(navSliderSelector, navSliderOptions);
 
 // Matching sliders
 mainSlider.controller.control = navSlider;
@@ -329,6 +329,7 @@ function barbaNavigation(){
         while(!target.classList.contains('swiper-slide')){
             target = target.parentNode;
         }
+        document.body.style.overflow = 'hidden';
         parentElementClicked = target;
         contentBlock = parentElementClicked.querySelector('.content');
         captionString = parentElementClicked.querySelector('.caption');
@@ -358,6 +359,7 @@ function barbaNavigation(){
           barbaOverlay.style.visibility = 'hidden';
         }
       });
+      document.body.style.overflow = 'auto';
       barbaOverlay.classList.remove('barba-overlay_moveToTop');
       tl.fromTo(barbaOverlay, 1.3, {scaleY: 1}, {scaleY: 0});
       this.done();
@@ -433,9 +435,19 @@ function barbaNavigation(){
       onEnterCompleted: function() {
         makeCustomCursor();
         showSearchForm();
+        makeNavigation();
         customVideoControls();
         appendVideoSrcBySize();
         makeMediaLinksSlider();
+      }
+  });
+  var ContactsPage = Barba.BaseView.extend({
+      namespace: 'contacts',
+      onEnterCompleted: function() {
+        makeCustomCursor();
+        makeNavigation();
+        showSearchForm();
+        AOS.init();
       }
   });
 
@@ -443,6 +455,7 @@ function barbaNavigation(){
   MainPage.init();
   NewsPage.init();
   BlogPage.init();
+  ContactsPage.init();
 
   Barba.Pjax.start();
 };

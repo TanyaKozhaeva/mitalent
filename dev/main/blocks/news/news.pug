@@ -1,8 +1,10 @@
 mixin portfolioItem(data)
   each item in data
     .portfolio__item&attributes(attributes)
-      .portfolio__item-pic
-        img(src= item.link alt= item.name)
+      picture.portfolio__item-pic
+        source(srcset="static/img/content/portfolio/" + item.link + "-400w.jpg, static/img/content/portfolio/" + item.link + "-800w.jpg 2x" media="(max-width: 599px)")
+        source(srcset="static/img/content/portfolio/" + item.link + "-300w.jpg, static/img/content/portfolio/" + item.link + "-600w.jpg 2x" media="(min-width: 600px)")
+        img(src="static/img/content/portfolio/" + item.link + "-400w.jpg" alt= item.name)
       .portfolio__item-descr
         .portfolio__item-btn-box
           a(href="#").portfolio__item-btn
