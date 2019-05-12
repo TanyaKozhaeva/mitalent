@@ -6,18 +6,19 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 //Screen Slider
-function makeMainScreenSlider(){
+function makeMainScreenSlider(index){
 // Params
 var mainSliderSelector = '.main-slider',
     navSliderSelector = '.nav-slider',
     interleaveOffset = 0.5,
-    direction;
+    initialSlide = index;
 
 
 // Main Slider
 var mainSliderOptions = {
       speed: 1000,
       direction: 'vertical',
+      initialSlide: initialSlide,
       watchSlidesProgress: true,
       mousewheel: {
         invert: true
@@ -73,6 +74,7 @@ var mainSlider = new Swiper(mainSliderSelector, mainSliderOptions);
 var navSliderOptions = {
       loopAdditionalSlides: 10,
       speed:1000,
+      initialSlide: initialSlide,
       direction: 'vertical',
       slidesPerView: 5,
       spaceBetween: 20,
@@ -147,7 +149,7 @@ var navBtn = document.getElementById('toggle-navigation-btn'),
     navItems = mainNav.querySelectorAll('.main-nav__item-wrap'),
     closeBtn = document.querySelector('.main-nav__close-btn'),
     screenToAnimation,
-    screenWidth = $(window).width();
+    screenWidth;
 navBtn.onclick = function() {
   var tl = new TimelineMax({
     onComplete: function() {
@@ -159,6 +161,7 @@ navBtn.onclick = function() {
 };
 
 function closeNav(){
+  screenWidth = $(window).width();
   var tlClose = new TimelineMax({
     onStart: function() {
       mainNav.classList.remove('main-nav_show')
@@ -304,8 +307,10 @@ function barbaNavigation(){
       slideBg,
       scroll,
       barbaOverlay,
-      screenWidth = $(window).width(),
-      screenHeight = $(window).height();
+      screenWidth,
+      screenHeight,
+      initialSlide = 0;
+      console.log(initialSlide);
   Barba.Dispatcher.on('linkClicked', function(el) {
       lastElementClicked = el;
       barbaOverlay = document.querySelector('.barba-overlay');
@@ -337,6 +342,8 @@ function barbaNavigation(){
         scroll = document.querySelector('.swiper-scrollbar');
         socialLinks = document.querySelector('.mainSlider__social');
         navSlides = document.querySelector('.mainSlider__navWrap');
+        screenWidth = $(window).width();
+        screenHeight = $(window).height();
 
         tl
         .to(socialLinks,.9,{ease: Expo.easeOut, left: -(screenWidth/100 * 5)}, 0)
@@ -360,8 +367,10 @@ function barbaNavigation(){
         }
       });
       document.body.style.overflow = 'auto';
-      barbaOverlay.classList.remove('barba-overlay_moveToTop');
-      tl.fromTo(barbaOverlay, 1.3, {scaleY: 1}, {scaleY: 0});
+      if(barbaOverlay) {
+        barbaOverlay.classList.remove('barba-overlay_moveToTop');
+        tl.fromTo(barbaOverlay, 1.3, {scaleY: 1}, {scaleY: 0});
+      }
       this.done();
     }
   });
@@ -376,6 +385,7 @@ function barbaNavigation(){
     zoom: function() {
       var deferred = Barba.Utils.deferred();
       container = document.querySelector('.barba-container');
+      initialSlide = container.getAttribute('data-slide');
       var tl = new TimelineMax({
         onComplete: function() {
           deferred.resolve();
@@ -414,7 +424,7 @@ function barbaNavigation(){
       namespace: 'mainPage',
       onEnterCompleted: function() {
         makeCustomCursor();
-        makeMainScreenSlider();
+        makeMainScreenSlider(initialSlide);
         makeNavigation();
         showSearchForm();
         AOS.init();

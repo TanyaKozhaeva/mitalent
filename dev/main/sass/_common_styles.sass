@@ -245,6 +245,14 @@ body
     border: 1px solid $bg-color
     opacity: 1
     transition: opacity .3s linear
+    &_light
+      border-color: #fff
+      & .icon
+        fill: #fff
+    &_dark
+      border-color: #000
+      & .icon
+        fill: #000
     @media screen and (max-width: 580px)
       width: $sizeVideoBtn/2
       height: $sizeVideoBtn/2

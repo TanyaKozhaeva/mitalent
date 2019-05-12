@@ -263,6 +263,14 @@ body * {
     border: 1px solid #c8dede;
     opacity: 1;
     transition: opacity .3s linear; }
+    .video__playBtn_light {
+      border-color: #fff; }
+      .video__playBtn_light .icon {
+        fill: #fff; }
+    .video__playBtn_dark {
+      border-color: #000; }
+      .video__playBtn_dark .icon {
+        fill: #000; }
     @media screen and (max-width: 580px) {
       .video__playBtn {
         width: 40px;
